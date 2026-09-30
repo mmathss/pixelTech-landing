@@ -33,6 +33,11 @@ body {
 
 .cursor-blink { animation: blink 1s step-end infinite; }
 
+select option {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: rgba(0,255,255,0.25); border-radius: 3px; }
