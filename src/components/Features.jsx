@@ -1,36 +1,36 @@
 import { motion } from 'framer-motion'
-import { Zap, ShieldCheck, Award, Smile } from 'lucide-react'
 
-const FEATURES = [
-  { Icon: Zap,         title: 'Atención Rápida',      description: 'Diagnóstico y solución en el menor tiempo posible.' },
-  { Icon: ShieldCheck, title: 'Trabajo Garantizado',   description: 'Garantía por escrito en cada servicio realizado.' },
-  { Icon: Award,       title: 'Experiencia en Rubro',  description: 'Años de experiencia en hardware y software para PCs y laptops.' },
-  { Icon: Smile,       title: 'Trato Respetuoso',      description: 'Explicaciones claras, sin tecnicismos. Tu tranquilidad primero.' },
+const pillars = [
+  { icon: 'fa-solid fa-clock-rotate-left', title: 'Atención Rápida', sub: 'Tiempos ágiles sin esperas' },
+  { icon: 'fa-solid fa-circle-check', title: 'Trabajo Garantizado', sub: 'Calidad comprobada 100%' },
+  { icon: 'fa-solid fa-thumbs-up', title: 'Experiencia en Rubro', sub: 'Técnicos calificados' },
+  { icon: 'fa-solid fa-handshake', title: 'Trato Respetuoso', sub: 'Transparencia y claridad' },
 ]
 
 export default function Features() {
   return (
-    <section id="por-que" className="py-16 px-6 border-y border-accent-cyan/10">
-      <div className="max-w-container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {FEATURES.map(({ Icon, title, description }, i) => (
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            whileHover={{ scale: 1.02 }}
-            className="bg-bg-card rounded-lg p-6 border border-accent-cyan/20 hover:border-accent-cyan/50 transition-colors cursor-default"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded bg-accent-cyan/10">
-                <Icon size={20} className="text-accent-cyan" />
+    <section className="bg-brand-neon text-black py-7 border-b-4 border-black font-sans" id="garantia">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {pillars.map(({ icon, title, sub }, i) => (
+            <motion.div
+              key={title}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 p-2 bg-white/70 sm:bg-transparent border-2 sm:border-0 border-black shadow-brutal-sm sm:shadow-none"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <div className="w-12 h-12 bg-black text-brand-neon rounded-none border-2 border-black flex items-center justify-center text-xl shadow-brutal-sm">
+                <i className={icon} />
               </div>
-              <h3 className="font-mono font-bold text-sm">{title}</h3>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
-          </motion.div>
-        ))}
+              <div className="text-left">
+                <h4 className="font-extrabold text-sm uppercase tracking-wide">{title}</h4>
+                <p className="text-xs text-neutral-800 font-semibold">{sub}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

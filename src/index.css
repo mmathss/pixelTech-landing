@@ -1,43 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
-  background-color: #0a0a0a;
+  background-color: #004BD6;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* Pixel checkerboard pattern */
+.pixel-checker {
+  background-image:
+    linear-gradient(45deg, #ffffff 25%, transparent 25%),
+    linear-gradient(-45deg, #ffffff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ffffff 75%),
+    linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-  display: flex;
-  width: max-content;
+.pixel-checker-neon {
+  background-image:
+    linear-gradient(45deg, #DFFF00 25%, transparent 25%),
+    linear-gradient(-45deg, #DFFF00 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #DFFF00 75%),
+    linear-gradient(-45deg, transparent 75%, #DFFF00 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+/* Tech dot grid background */
+.tech-grid-bg {
+  background-color: #004BD6;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
 }
 
-.cursor-blink { animation: blink 1s step-end infinite; }
-
-select option {
-  background-color: #0a0a0a;
-  color: #ffffff;
+/* Neo-brutalist button interactions */
+.brutal-btn-neon {
+  transition: all 0.15s ease-in-out;
+}
+.brutal-btn-neon:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px #000;
+}
+.brutal-btn-neon:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #000;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: rgba(0,255,255,0.25); border-radius: 3px; }
+/* Service card hover */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px 0px #DFFF00;
+}
+
+/* Selection color */
+::selection {
+  background-color: #DFFF00;
+  color: #000;
+}
