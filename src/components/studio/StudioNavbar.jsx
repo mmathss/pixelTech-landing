@@ -34,13 +34,13 @@ export default function StudioNavbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b-4 border-black shadow-md select-none">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 flex items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3">
         {/* Brand Block */}
         <a className="flex items-center gap-2 group shrink-0" href="#inicio">
           <div className="bg-secondary-fixed p-1.5 border-2 border-black shadow-[2px_2px_0px_#191b23] group-hover:rotate-3 transition-transform shrink-0">
             <img
               alt="PixelTech Logo"
-              className="w-7 h-7 sm:w-9 sm:h-9 object-contain brightness-0"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain brightness-0"
               src={logoImg}
             />
           </div>
@@ -81,9 +81,9 @@ export default function StudioNavbar() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* Cotizar CTA Button */}
+          {/* Cotizar CTA Button (visible en pantallas sm: 640px en adelante) */}
           <a
-            className="flex items-center gap-1.5 bg-secondary-fixed text-black font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#191b23] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#191b23] active:translate-x-[1px] active:translate-y-[1px] transition-all whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-secondary-fixed text-black font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#191b23] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#191b23] active:translate-x-[1px] active:translate-y-[1px] transition-all whitespace-nowrap"
             href="#cotizacion"
           >
             <span className="material-symbols-outlined text-[16px] sm:text-[18px]">terminal</span>
@@ -93,8 +93,8 @@ export default function StudioNavbar() {
           {/* Hamburger button (Visible on screens < md: 768px) */}
           <button
             onClick={() => setMobileMenuOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-secondary-fixed border-2 border-black shadow-[2px_2px_0px_#191b23] text-black active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
-            aria-label="Abrir Menú"
+            className="md:hidden flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-secondary-fixed border-2 border-black shadow-[2px_2px_0px_#191b23] text-black active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer shrink-0"
+            aria-label={mobileMenuOpen ? 'Cerrar Menú' : 'Abrir Menú'}
           >
             <span className="material-symbols-outlined text-[20px] sm:text-[22px] block">
               {mobileMenuOpen ? 'close' : 'menu'}
@@ -123,6 +123,19 @@ export default function StudioNavbar() {
               &gt; {label}
             </a>
           ))}
+
+          {/* Botón Destacado de Cotizar en móvil */}
+          <a
+            href="#cotizacion"
+            onClick={() => {
+              setActiveSection('cotizacion')
+              setMobileMenuOpen(false)
+            }}
+            className="flex items-center justify-center gap-2 bg-secondary-fixed text-black font-mono text-xs uppercase py-3 border-2 border-black shadow-[3px_3px_0px_#191b23] font-black active:translate-x-0.5 active:translate-y-0.5 transition-all mt-1"
+          >
+            <span className="material-symbols-outlined text-[18px]">terminal</span>
+            <span>Cotizar Proyecto</span>
+          </a>
         </div>
       )}
     </header>
