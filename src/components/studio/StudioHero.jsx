@@ -8,7 +8,7 @@ const fadeUp = {
 
 export default function StudioHero() {
   return (
-    <section id="inicio" className="relative w-full bg-surface-container-low px-gutter py-space-xl overflow-hidden shadow-[0_4px_0_0_#191b23]">
+    <section id="inicio" className="relative w-full bg-surface-container-low px-4 sm:px-gutter lg:px-8 py-8 sm:py-space-xl overflow-hidden shadow-[0_4px_0_0_#191b23]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
         {/* Left Column: Copy & CTAs */}
         <motion.div
@@ -20,24 +20,24 @@ export default function StudioHero() {
           {/* Console Terminal Prompt Badge */}
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-space-xs self-start bg-inverse-surface text-inverse-on-surface px-space-sm py-1 shadow-[3px_3px_0px_#191b23]"
+            className="inline-flex items-center gap-1.5 self-start bg-inverse-surface text-inverse-on-surface px-2.5 py-1 border border-black shadow-[2px_2px_0px_#191b23] max-w-full"
           >
-            <span className="inline-block w-2 h-2 bg-secondary-fixed animate-pulse"></span>
-            <span className="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">
+            <span className="w-2 h-2 bg-secondary-fixed animate-pulse shrink-0"></span>
+            <span className="font-mono text-[10px] sm:text-xs text-secondary-fixed uppercase tracking-wider">
               &gt;_ DESARROLLO DE SOFTWARE &amp; APLICACIONES
             </span>
           </motion.div>
 
           {/* Chunky Retro Headline with Neon Box */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-1">
-            <h1 className="font-headline-xl text-headline-xl text-on-background uppercase tracking-tight leading-none">
+          <motion.div variants={fadeUp} className="flex flex-col gap-1 sm:gap-2">
+            <h1 className="font-headline-xl text-[28px] xs:text-3xl sm:text-5xl lg:text-headline-xl text-on-background uppercase tracking-tight leading-[1.05]">
               DESARROLLO DE
             </h1>
-            <div className="flex flex-wrap items-center gap-space-sm">
-              <span className="font-headline-xl text-headline-xl text-on-background uppercase tracking-tight leading-none">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-space-sm">
+              <span className="font-headline-xl text-[28px] xs:text-3xl sm:text-5xl lg:text-headline-xl text-on-background uppercase tracking-tight leading-[1.05]">
                 SOFTWARE
               </span>
-              <span className="inline-block bg-secondary-fixed text-on-secondary-fixed font-headline-xl text-headline-xl px-space-sm py-1 shadow-[4px_4px_0px_#191b23] uppercase transform rotate-1 hover:rotate-0 transition-transform">
+              <span className="inline-block bg-secondary-fixed text-on-secondary-fixed font-headline-xl text-2xl xs:text-3xl sm:text-5xl lg:text-headline-xl px-2.5 py-0.5 sm:px-space-sm sm:py-1 border-2 sm:border-3 border-black shadow-[3px_3px_0px_#191b23] sm:shadow-[4px_4px_0px_#191b23] uppercase transform rotate-1 hover:rotate-0 transition-transform">
                 A MEDIDA
               </span>
             </div>
@@ -46,7 +46,7 @@ export default function StudioHero() {
           {/* Technical Description */}
           <motion.p
             variants={fadeUp}
-            className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"
+            className="font-body-lg text-sm sm:text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"
           >
             Construyo plataformas web modernas, sistemas de escritorio y soluciones digitales a la medida de tu negocio. Desde la idea inicial hasta el sistema funcionando en producción, con soluciones prácticas, rápidas y código de alta calidad.
           </motion.p>
@@ -54,11 +54,11 @@ export default function StudioHero() {
           {/* CTA Buttons Neo-brutalist */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-space-md pt-space-xs"
+            className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 sm:gap-space-md pt-space-xs"
           >
             {/* Primary Cyber CTA */}
             <a
-              className="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md uppercase shadow-[4px_4px_0px_#191b23] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#191b23] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#191b23] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-space-lg sm:py-space-sm bg-secondary-fixed text-on-secondary-fixed font-mono text-xs sm:text-sm uppercase font-black border-2 border-black shadow-[3px_3px_0px_#191b23] sm:shadow-[4px_4px_0px_#191b23] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#191b23] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#191b23] transition-all text-center"
               href="#cotizacion"
             >
               <span className="material-symbols-outlined text-[18px]">terminal</span>
@@ -68,7 +68,7 @@ export default function StudioHero() {
 
             {/* Ghost / White Button */}
             <a
-              className="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-surface-container-lowest text-on-surface font-label-md text-label-md uppercase shadow-[4px_4px_0px_#191b23] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#191b23] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#191b23] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-space-lg sm:py-space-sm bg-surface-container-lowest text-on-surface font-mono text-xs sm:text-sm uppercase font-black border-2 border-black shadow-[3px_3px_0px_#191b23] sm:shadow-[4px_4px_0px_#191b23] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#191b23] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#191b23] transition-all text-center"
               href="#servicios"
             >
               <span className="material-symbols-outlined text-[18px]">account_tree</span>
@@ -79,19 +79,19 @@ export default function StudioHero() {
           {/* Technical Guarantee Badges */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-space-xs pt-space-sm"
+            className="flex flex-wrap items-center gap-1.5 sm:gap-space-xs pt-space-xs"
           >
-            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-space-sm py-1 shadow-[2px_2px_0px_#191b23]">
-              <span className="material-symbols-outlined text-[16px] text-primary">desktop_windows</span>
-              <span className="font-label-sm text-label-sm">Web &amp; Escritorio</span>
+            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-2 py-1 sm:px-space-sm sm:py-1 border border-black shadow-[2px_2px_0px_#191b23]">
+              <span className="material-symbols-outlined text-[14px] sm:text-[16px] text-primary">desktop_windows</span>
+              <span className="font-mono text-[10px] sm:text-xs font-bold">Web &amp; Escritorio</span>
             </div>
-            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-space-sm py-1 shadow-[2px_2px_0px_#191b23]">
-              <span className="material-symbols-outlined text-[16px] text-primary">bolt</span>
-              <span className="font-label-sm text-label-sm">Sistemas Rápidos &amp; Seguros</span>
+            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-2 py-1 sm:px-space-sm sm:py-1 border border-black shadow-[2px_2px_0px_#191b23]">
+              <span className="material-symbols-outlined text-[14px] sm:text-[16px] text-primary">bolt</span>
+              <span className="font-mono text-[10px] sm:text-xs font-bold">Sistemas Rápidos &amp; Seguros</span>
             </div>
-            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-space-sm py-1 shadow-[2px_2px_0px_#191b23]">
-              <span className="material-symbols-outlined text-[16px] text-primary">verified</span>
-              <span className="font-label-sm text-label-sm">Código Limpio &amp; Escalable</span>
+            <div className="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-2 py-1 sm:px-space-sm sm:py-1 border border-black shadow-[2px_2px_0px_#191b23]">
+              <span className="material-symbols-outlined text-[14px] sm:text-[16px] text-primary">verified</span>
+              <span className="font-mono text-[10px] sm:text-xs font-bold">Código Limpio &amp; Escalable</span>
             </div>
           </motion.div>
         </motion.div>
