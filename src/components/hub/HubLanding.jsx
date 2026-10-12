@@ -197,25 +197,9 @@ export default function HubLanding({ onSelectView }) {
       {/* Footer / Direct Contact Ribbon */}
       <footer className="border-t-4 border-black bg-black py-4 px-4 text-center select-none">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-outline-variant">
-          <span>© 2026 PixelTech. Servicios Tecnológicos &amp; Desarrollo de Software por Diego Arévalo.</span>
+          <span>© 2026 PixelTech. Servicios Tecnológicos &amp; Soluciones Digitales.</span>
           <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/mmathss"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-neon transition-colors"
-            >
-              GitHub @mmathss
-            </a>
-            <span>//</span>
-            <a
-              href="https://linkedin.com/in/dmarevalo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-neon transition-colors"
-            >
-              LinkedIn /in/dmarevalo
-            </a>
+            <span className="text-brand-neon font-bold tracking-wider">HUACHO &amp; LIMA // PERÚ</span>
           </div>
         </div>
       </footer>

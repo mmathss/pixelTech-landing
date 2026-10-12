@@ -62,33 +62,23 @@ export default function StudioFooter({ onSelectView }) {
         {/* Col 3 */}
         <div className="md:col-span-4 flex flex-col gap-space-sm">
           <span className="font-label-md text-label-md uppercase tracking-wider text-secondary-fixed">
-            &gt; Conexiones_Remotas
+            &gt; Canal_Directo
           </span>
-          <div className="flex flex-col gap-space-xs">
-            <a
-              className="inline-flex items-center justify-between p-space-sm bg-inverse-surface shadow-[3px_3px_0px_#000000] text-inverse-on-surface hover:bg-primary-container hover:text-on-primary transition-all font-label-sm text-label-sm"
-              href="https://github.com/mmathss"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-[18px]">terminal</span>
-                GitHub
+          <div className="flex flex-col gap-space-xs font-label-sm text-label-sm text-outline-variant">
+            <div className="p-space-sm bg-inverse-surface border border-outline-variant/30 flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <i className="fa-brands fa-whatsapp text-emerald-400 text-sm" />
+                WhatsApp:
               </span>
-              <span className="text-secondary-fixed">@mmathss</span>
-            </a>
-            <a
-              className="inline-flex items-center justify-between p-space-sm bg-inverse-surface shadow-[3px_3px_0px_#000000] text-inverse-on-surface hover:bg-primary-container hover:text-on-primary transition-all font-label-sm text-label-sm"
-              href="https://linkedin.com/in/dmarevalo"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-[18px]">lan</span>
-                LinkedIn
+              <span className="text-secondary-fixed font-bold">+51 937 718 698</span>
+            </div>
+            <div className="p-space-sm bg-inverse-surface border border-outline-variant/30 flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[16px]">schedule</span>
+                Horario:
               </span>
-              <span className="text-secondary-fixed">/in/dmarevalo</span>
-            </a>
+              <span className="text-secondary-fixed font-bold">Lun - Sáb 8:00 AM - 8:00 PM</span>
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +86,7 @@ export default function StudioFooter({ onSelectView }) {
       {/* Subfooter */}
       <div className="bg-on-background py-space-md">
         <div className="max-w-7xl mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline-variant">
-          <span>© 2026 PixelTech Studio. Código y Arquitectura por Diego Arévalo.</span>
+          <span>© 2026 PixelTech Studio. Software Empresarial &amp; Soluciones Digitales.</span>
           <span className="text-secondary-fixed uppercase">LATAM / PERÚ // SYSTEM_OK</span>
         </div>
       </div>

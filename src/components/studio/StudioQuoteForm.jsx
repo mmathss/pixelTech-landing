@@ -161,8 +161,7 @@ export default function StudioQuoteForm() {
                 </h3>
 
                 <p className="font-body-md text-sm sm:text-base text-on-surface-variant max-w-lg">
-                  Hemos recibido tu requerimiento de <strong>{formData.solutionType}</strong>. Te responderemos desde{' '}
-                  <span className="font-mono font-bold text-primary">dmarevalo-pixeltech@outlook.com</span> directamente a{' '}
+                  Hemos recibido tu requerimiento de <strong>{formData.solutionType}</strong>. Te responderemos a la brevedad directamente a{' '}
                   <span className="font-mono font-bold text-on-surface">{formData.clientEmail}</span> con una estimación de tiempos y costos.
                 </p>
 

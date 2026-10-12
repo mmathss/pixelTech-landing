@@ -131,33 +131,12 @@ export default function StudioDeveloper() {
             </span>
             <div className="flex flex-col">
               <span className="font-mono text-xs text-secondary-fixed font-bold">
-                root@pixeltech:~# git verify --author=@mmathss
+                root@pixeltech:~# git verify --core-stack
               </span>
               <span className="font-headline-sm text-sm sm:text-base text-white uppercase tracking-tight">
-                Diego Matías — Código Limpio, Testing &amp; Repositorios Públicos
+                PixelTech Engineering — Código Limpio, Testing &amp; Despliegues Continuos
               </span>
             </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 self-stretch sm:self-auto justify-end">
-            <a
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-secondary-fixed text-black font-mono text-xs font-black uppercase border-2 border-black shadow-[2px_2px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] transition-all"
-              href="https://github.com/mmathss"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span className="material-symbols-outlined text-[16px]">code</span>
-              <span>GitHub @mmathss</span>
-            </a>
-            <a
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-primary-container text-on-primary font-mono text-xs font-black uppercase border-2 border-black shadow-[2px_2px_0px_#000000] hover:translate-x-[-1px] hover:translate-y-[-1px] active:translate-x-[1px] active:translate-y-[1px] transition-all"
-              href="https://linkedin.com/in/dmarevalo"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span className="material-symbols-outlined text-[16px]">link</span>
-              <span>LinkedIn</span>
-            </a>
           </div>
         </motion.div>
       </div>

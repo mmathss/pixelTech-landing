@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import devProfileImg from '../../assets/studio/developer_profile.png'
 
 export default function StudioTrust() {
   const guarantees = [
@@ -11,7 +10,7 @@ export default function StudioTrust() {
     {
       icon: 'connect_without_contact',
       title: 'Trato Directo 1 a 1',
-      desc: 'Hablas directamente con el ingeniero que diseña y programa tu solución, sin ejecutivos de cuenta intermediarios.',
+      desc: 'Hablas directamente con el responsable técnico que diseña y programa tu solución, sin ejecutivos de cuenta intermediarios.',
     },
     {
       icon: 'architecture',
@@ -44,11 +43,11 @@ export default function StudioTrust() {
             Ingeniería Sólida, Sin Agencias Infladas
           </h2>
           <p className="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed">
-            Muchas agencias cobran tarifas elevadas para luego subcontratar a programadores inexpertos. En PixelTech Studio trabajas directamente con el ingeniero responsable de tu arquitectura.
+            Muchas agencias cobran tarifas elevadas para luego delegar a terceros sin experiencia. En PixelTech Studio trabajas directamente con el responsable de tu arquitectura técnica.
           </p>
         </motion.div>
 
-        {/* Lead Engineer Authority Profile Card */}
+        {/* Technical Direction Profile Card */}
         <motion.div
           className="bg-surface-container-lowest p-5 sm:p-8 border-3 border-black shadow-[6px_6px_0px_#191b23] grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center"
           initial={{ opacity: 0, y: 24 }}
@@ -56,26 +55,38 @@ export default function StudioTrust() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Left Column: Engineer Photo & Badges */}
-          <div className="lg:col-span-4 flex flex-col items-center sm:items-start gap-3">
-            <div className="relative w-full max-w-[260px] sm:max-w-none bg-surface-container border-2 border-black shadow-[4px_4px_0px_#191b23] overflow-hidden group">
-              <img
-                src={devProfileImg}
-                alt="Diego Arévalo - Fundador & AI Software Engineer"
-                className="w-full h-72 sm:h-80 object-contain object-top group-hover:scale-[1.02] transition-transform duration-300"
-              />
-              <div className="absolute bottom-2 left-2 bg-black text-secondary-fixed px-2 py-0.5 font-mono text-[10px] font-bold flex items-center gap-1.5 shadow-[1.5px_1.5px_0px_#000]">
-                <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
-                <span>DISPONIBLE PARA PROYECTOS</span>
+          {/* Left Column: Tech Direction Terminal Monitor */}
+          <div className="lg:col-span-4 flex flex-col items-center sm:items-start gap-4">
+            <div className="w-full bg-inverse-surface border-2 border-black shadow-[4px_4px_0px_#191b23] p-5 font-mono text-xs flex flex-col gap-3">
+              <div className="flex items-center justify-between pb-2 border-b border-outline-variant/30 text-outline-variant">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 bg-red-500 rounded-full inline-block"></span>
+                  <span className="w-2.5 h-2.5 bg-amber-400 rounded-full inline-block"></span>
+                  <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full inline-block"></span>
+                </span>
+                <span className="text-[10px] text-secondary-fixed">SYS_CORE v2.4</span>
+              </div>
+              <div className="text-secondary-fixed font-bold">
+                &gt; PixelTech Studio // Lead_Dev
+              </div>
+              <p className="text-inverse-on-surface text-[11px] leading-relaxed">
+                Ingeniería de software con estándares corporativos, clean code, arquitectura cloud y entrega iterativa.
+              </p>
+              <div className="pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[10px] text-outline-variant">
+                <span>ESTADO:</span>
+                <span className="text-secondary-fixed font-bold flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+                  DISPONIBLE PARA PROYECTOS
+                </span>
               </div>
             </div>
 
             <div className="flex flex-col text-center sm:text-left w-full">
               <span className="font-headline-sm text-xl uppercase font-black text-on-surface">
-                Diego Arévalo
+                Dirección Técnica
               </span>
               <span className="font-mono text-xs text-primary font-bold">
-                AI Software Engineer &amp; Fundador
+                Arquitectura &amp; Desarrollo de Software
               </span>
             </div>
           </div>
@@ -118,29 +129,19 @@ export default function StudioTrust() {
               ))}
             </div>
 
-            {/* Verification & Social Links */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 font-mono text-xs">
+            {/* Verification & Guarantees Badges */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-black/10 font-mono text-xs">
               <span className="text-on-surface-variant font-bold flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
-                Auditoría pública &amp; repositorios de código abiertos:
+                Metodología ágil, entregas continuas y código documentado.
               </span>
               <div className="flex items-center gap-2">
-                <a
-                  href="https://github.com/mmathss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-3 py-1 bg-surface-container-highest hover:bg-secondary-fixed hover:text-black border border-black shadow-[1.5px_1.5px_0px_#191b23] font-bold transition-colors"
-                >
-                  <span>GitHub @mmathss</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/dmarevalo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-3 py-1 bg-primary-container text-on-primary hover:bg-primary border border-black shadow-[1.5px_1.5px_0px_#191b23] font-bold transition-colors"
-                >
-                  <span>LinkedIn /in/dmarevalo</span>
-                </a>
+                <span className="px-2.5 py-1 bg-surface-container-highest border border-black shadow-[1.5px_1.5px_0px_#191b23] font-bold text-[11px]">
+                  Sprint Semanal
+                </span>
+                <span className="px-2.5 py-1 bg-secondary-fixed text-black border border-black shadow-[1.5px_1.5px_0px_#191b23] font-bold text-[11px]">
+                  Garantía 30 Días
+                </span>
               </div>
             </div>
           </div>
