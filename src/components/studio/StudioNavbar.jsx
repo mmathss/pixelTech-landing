@@ -3,9 +3,10 @@ import logoImg from '../../assets/studio/pixelTech_logo.png'
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio', id: 'inicio' },
-  { label: 'Servicios', href: '#servicios', id: 'servicios' },
-  { label: 'Tecnologías', href: '#stack', id: 'stack' },
-  { label: 'Trayectoria', href: '#trayectoria', id: 'trayectoria' },
+  { label: 'Soluciones', href: '#soluciones', id: 'soluciones' },
+  { label: 'Proceso', href: '#proceso', id: 'proceso' },
+  { label: 'Respaldo', href: '#respaldo', id: 'respaldo' },
+  { label: 'Preguntas', href: '#faq', id: 'faq' },
   { label: 'Contacto', href: '#cotizacion', id: 'cotizacion' },
 ]
 

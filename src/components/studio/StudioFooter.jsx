@@ -32,14 +32,20 @@ export default function StudioFooter() {
             <a className="hover:text-secondary-fixed transition-colors" href="#inicio">
               &gt; Inicio
             </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#servicios">
-              &gt; Servicios
+            <a className="hover:text-secondary-fixed transition-colors" href="#soluciones">
+              &gt; Soluciones
             </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#stack">
-              &gt; Stack &amp; Arq
+            <a className="hover:text-secondary-fixed transition-colors" href="#proceso">
+              &gt; Cómo Trabajamos
             </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#desarrollador">
-              &gt; Desarrollador
+            <a className="hover:text-secondary-fixed transition-colors" href="#respaldo">
+              &gt; Respaldo Técnico
+            </a>
+            <a className="hover:text-secondary-fixed transition-colors" href="#faq">
+              &gt; Preguntas Frecuentes
+            </a>
+            <a className="hover:text-secondary-fixed transition-colors" href="#cotizacion">
+              &gt; Cotizar Proyecto
             </a>
           </div>
         </div>
