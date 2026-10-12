@@ -10,10 +10,10 @@ import StudioWhatsAppCTA from './StudioWhatsAppCTA'
 import StudioQuoteForm from './StudioQuoteForm'
 import StudioFooter from './StudioFooter'
 
-export default function StudioLanding() {
+export default function StudioLanding({ onSelectView }) {
   return (
     <div className="bg-surface font-body-md text-on-surface antialiased min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
-      <StudioNavbar />
+      <StudioNavbar onSelectView={onSelectView} />
       <main className="w-full bg-surface">
         <div className="flex flex-col w-full">
           <StudioPixelRunner />
@@ -27,7 +27,7 @@ export default function StudioLanding() {
           <StudioQuoteForm />
         </div>
       </main>
-      <StudioFooter />
+      <StudioFooter onSelectView={onSelectView} />
     </div>
   )
 }

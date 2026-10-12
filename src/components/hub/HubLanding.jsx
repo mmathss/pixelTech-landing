@@ -138,7 +138,7 @@ export default function HubLanding({ onSelectView }) {
                   SOPORTE TÉCNICO
                 </span>
                 <span className="text-brand-neon font-mono text-[10px] sm:text-xs font-bold tracking-wider">
-                  TALLER &amp; A DOMICILIO
+                  TALLER EN HUACHO
                 </span>
               </div>
 
@@ -161,7 +161,7 @@ export default function HubLanding({ onSelectView }) {
 
               {/* Description */}
               <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
-                ¿Tu computadora está lenta, calienta mucho o no prende? Te ayudamos con diagnósticos claros, limpieza de virus, repuestos originales y repotenciación con garantía.
+                ¿Tu computadora está lenta, calienta mucho o no prende? En nuestro taller técnico en Huacho te ayudamos con diagnóstico preciso, mantenimiento profesional y repotenciación con garantía.
               </p>
 
               {/* Feature Checklist */}

@@ -2,34 +2,34 @@ import { motion } from 'framer-motion'
 
 const reasons = [
   {
-    icon: 'fa-solid fa-user-check',
-    title: 'Técnicos Certificados',
-    description: 'Personal capacitado con experiencia comprobada en hardware y software de marcas líderes.',
+    icon: 'fa-solid fa-clipboard-check',
+    title: 'Ficha de Ingreso y Custodia',
+    description: 'Registramos el número de serie, estado estético y componentes al recibir tu equipo en el taller.',
   },
   {
-    icon: 'fa-solid fa-magnifying-glass',
-    title: 'Diagnóstico Sin Costo',
-    description: 'Evaluamos tu equipo sin cobrar nada por adelantado. Solo pagas si decidimos reparar.',
+    icon: 'fa-solid fa-file-invoice-dollar',
+    title: 'Presupuesto Previo Aprobado',
+    description: 'Evaluamos en banco y te informamos el costo exacto antes de desmontar o reemplazar piezas. Cero sorpresas.',
   },
   {
-    icon: 'fa-solid fa-file-contract',
-    title: 'Garantía por Escrito',
-    description: 'Cada servicio incluye garantía documentada. Sin letra chica, sin sorpresas al final.',
-  },
-  {
-    icon: 'fa-solid fa-bolt',
-    title: 'Respuesta Inmediata',
-    description: 'Atendemos tu consulta en minutos vía WhatsApp. Agenda tu servicio el mismo día.',
-  },
-  {
-    icon: 'fa-solid fa-tag',
-    title: 'Precios Justos',
-    description: 'Tarifas transparentes y competitivas. Cotización clara antes de comenzar cualquier trabajo.',
+    icon: 'fa-solid fa-camera',
+    title: 'Fotos del Proceso por WhatsApp',
+    description: 'Te enviamos fotografías del estado interno de tu equipo (polvo acumulado, pasta térmica seca o fallas visibles).',
   },
   {
     icon: 'fa-solid fa-shield-halved',
-    title: 'Datos 100% Seguros',
-    description: 'Respaldo de tu información antes de cualquier intervención. Tu privacidad es prioridad.',
+    title: 'Protocolo de Privacidad',
+    description: 'Tus archivos personales permanecen intactos. Si se requiere formateo, coordinamos el respaldo de tu información.',
+  },
+  {
+    icon: 'fa-solid fa-desktop',
+    title: 'Prueba en Banco al Entregar',
+    description: 'Encendemos y verificamos el equipo junto a ti en el taller para confirmar que todo funciona correctamente.',
+  },
+  {
+    icon: 'fa-solid fa-file-contract',
+    title: 'Garantía Escrita de 30 Días',
+    description: 'Respaldo documentado por 30 días calendario sobre el servicio técnico y mano de obra realizada.',
   },
 ]
 
@@ -42,14 +42,14 @@ export default function WhyUs() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-block bg-white text-black font-pixel font-bold text-sm uppercase px-4 py-1.5 border-2 border-black shadow-brutal-sm mb-4">
-            Diferencial PixelTech
+            Confianza y Seguridad
           </div>
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-            Por Qué Elegirnos
+            Protocolo de Taller y Custodia
           </h2>
           <div className="w-24 h-1.5 bg-brand-neon mt-3 border border-black" />
           <p className="text-blue-100 mt-4 max-w-2xl text-base">
-            Más que soporte técnico: compromiso real con tu equipo y tu tranquilidad.
+            Dejas tu herramienta de trabajo o estudio en buenas manos. Así cuidamos y reparamos cada equipo en Huacho:
           </p>
         </div>
 

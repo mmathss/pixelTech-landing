@@ -56,10 +56,6 @@ export default function App() {
 
   return (
     <>
-      {currentView !== 'hub' && (
-        <PageToggle currentView={currentView} onViewChange={handleViewChange} />
-      )}
-
       {currentView === 'hub' && (
         <HubLanding onSelectView={handleViewChange} />
       )}
@@ -80,7 +76,7 @@ export default function App() {
             <WhatsAppCTA />
             <Contact />
           </main>
-          <Footer />
+          <Footer onSelectView={handleViewChange} />
         </div>
       )}
     </>

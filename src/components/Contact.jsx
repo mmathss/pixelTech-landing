@@ -37,21 +37,21 @@ export default function Contact() {
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
                 <span className="bg-brand-neon text-black font-mono text-xs font-black uppercase px-2.5 py-1 border border-black shadow-brutal-sm inline-block mb-3">
-                  Contacto Directo
+                  Taller Técnico Huacho
                 </span>
                 <h3 className="text-3xl font-black uppercase text-white tracking-tight mb-4">
                   ¿Problemas con tu PC o Laptop?
                 </h3>
                 <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                  Envíanos un mensaje detallando la falla de tu equipo y te responderemos inmediatamente con una estimación previa o diagnóstico inicial.
+                  Trae tu equipo a nuestro taller en Huacho para un diagnóstico preciso en banco de trabajo. Cuéntanos la falla por WhatsApp y coordinamos tu recepción inmediata.
                 </p>
 
                 <div className="space-y-4 text-sm font-bold">
                   {[
                     { icon: 'fa-brands fa-whatsapp', text: '+51 937 718 698' },
                     { icon: 'fa-solid fa-clock', text: 'Lunes a Sábado: 8:00 AM - 8:00 PM' },
-                    { icon: 'fa-solid fa-location-dot', text: 'Servicio a Domicilio y en Taller' },
-                    { icon: 'fa-solid fa-map-pin', text: 'Huacho, Lima — Perú' },
+                    { icon: 'fa-solid fa-screwdriver-wrench', text: 'Atención Exclusiva en Taller Técnico' },
+                    { icon: 'fa-solid fa-map-pin', text: 'Huacho, Lima — Coordinación previa' },
                   ].map(({ icon, text }) => (
                     <div key={text} className="flex items-center gap-3">
                       <span className="w-8 h-8 bg-brand-neon text-black border border-black flex items-center justify-center text-sm shadow-[2px_2px_0px_#000]">

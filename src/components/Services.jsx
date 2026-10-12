@@ -7,19 +7,19 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-block bg-brand-neon text-black font-pixel font-bold text-sm uppercase px-4 py-1.5 border-2 border-black shadow-brutal-sm mb-4">
-            Catálogo Especializado
+            Catálogo y Tarifas
           </div>
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-            Mis Servicios
+            Servicios Técnicos en Huacho
           </h2>
           <div className="w-24 h-1.5 bg-brand-neon mt-3 border border-black" />
           <p className="text-blue-100 mt-4 max-w-2xl text-base">
-            Soluciones integrales de hardware y software para particulares, profesionales y empresas.
+            Tarifas referenciales transparentes. Diagnóstico en banco de trabajo y presupuesto previo antes de iniciar cualquier reparación.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map(({ icon, title, description, tag }, i) => (
+          {services.map(({ icon, title, description, tag, priceRef }, i) => (
             <motion.div
               key={title}
               className="service-card bg-brand-darkblue border-[3px] border-black p-6 flex flex-col justify-between shadow-brutal text-left group"
@@ -29,8 +29,13 @@ export default function Services() {
               transition={{ delay: i * 0.07 }}
             >
               <div>
-                <div className="w-14 h-14 bg-brand-neon text-black border-2 border-black flex items-center justify-center text-2xl shadow-brutal-sm mb-5 group-hover:scale-110 transition-transform">
-                  <i className={icon} />
+                <div className="flex items-center justify-between mb-5">
+                  <div className="w-14 h-14 bg-brand-neon text-black border-2 border-black flex items-center justify-center text-2xl shadow-brutal-sm group-hover:scale-110 transition-transform">
+                    <i className={icon} />
+                  </div>
+                  <span className="bg-black text-brand-neon font-mono text-[11px] font-black uppercase px-2 py-1 border border-brand-neon shadow-brutal-sm">
+                    {priceRef}
+                  </span>
                 </div>
                 <h3 className="font-black text-lg text-white group-hover:text-brand-neon uppercase tracking-tight mb-2">
                   {title}

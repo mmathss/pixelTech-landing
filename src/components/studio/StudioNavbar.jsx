@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Contacto', href: '#cotizacion', id: 'cotizacion' },
 ]
 
-export default function StudioNavbar() {
+export default function StudioNavbar({ onSelectView }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('inicio')
 
@@ -82,6 +82,19 @@ export default function StudioNavbar() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 shrink-0">
+          {/* Botón Discreto Volver al Hub */}
+          {onSelectView && (
+            <button
+              type="button"
+              onClick={() => onSelectView('hub')}
+              title="Volver al menú principal de servicios"
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-mono text-xs uppercase font-bold border-2 border-black shadow-[2px_2px_0px_#191b23] cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[16px] text-primary">grid_view</span>
+              <span>Hub</span>
+            </button>
+          )}
+
           {/* Cotizar CTA Button (visible en pantallas sm: 640px en adelante) */}
           <a
             className="hidden sm:inline-flex items-center gap-1.5 bg-secondary-fixed text-black font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#191b23] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_#191b23] active:translate-x-[1px] active:translate-y-[1px] transition-all whitespace-nowrap"
@@ -107,6 +120,23 @@ export default function StudioNavbar() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-surface-container-lowest border-t-4 border-black px-4 py-3 flex flex-col gap-2 shadow-[0_6px_0_0_#191b23]">
+          {onSelectView && (
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onSelectView('hub')
+              }}
+              className="flex items-center justify-between font-mono text-xs uppercase px-3 py-2 border-2 border-black shadow-[2px_2px_0px_#191b23] bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer text-left font-bold mb-1"
+            >
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-[16px] text-primary">grid_view</span>
+                <span>← Volver al Hub de Servicios</span>
+              </span>
+              <span>↵</span>
+            </button>
+          )}
+
           {navLinks.map(({ label, href, id }) => (
             <a
               key={href}

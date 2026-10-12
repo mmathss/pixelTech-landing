@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onSelectView }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -53,6 +53,18 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-2 shrink-0">
+          {onSelectView && (
+            <button
+              type="button"
+              onClick={() => onSelectView('hub')}
+              title="Volver a seleccionar servicio"
+              className="inline-flex items-center gap-1.5 bg-black text-brand-neon hover:bg-black/80 font-mono text-xs font-bold uppercase px-3 py-2 border-2 border-brand-neon shadow-brutal-sm cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[16px]">grid_view</span>
+              <span className="hidden sm:inline">Hub</span>
+            </button>
+          )}
+
           <a
             className="brutal-btn-neon flex items-center gap-2 bg-brand-neon text-black font-extrabold px-3 py-2 text-sm uppercase border-2 border-black shadow-brutal"
             href="https://wa.me/51937718698?text=Hola%20PixelTech,%20necesito%20soporte%20t%C3%A9cnico%20para%20mi%20computadora"
@@ -62,12 +74,12 @@ export default function Navbar() {
             <span className="w-6 h-6 bg-[#25D366] text-white flex items-center justify-center text-sm rounded-sm shrink-0">
               <i className="fa-brands fa-whatsapp" />
             </span>
-            <span className="hidden sm:inline">Contactar</span>
+            <span className="hidden sm:inline">WhatsApp</span>
           </a>
 
           {/* Hamburger — mobile only */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 bg-brand-neon border-2 border-black shadow-brutal-sm text-black"
+            className="md:hidden flex items-center justify-center w-10 h-10 bg-brand-neon border-2 border-black shadow-brutal-sm text-black cursor-pointer"
             onClick={() => setOpen(o => !o)}
             aria-label="Menú"
           >
@@ -79,6 +91,20 @@ export default function Navbar() {
       {/* Mobile menu dropdown */}
       {open && (
         <div className="md:hidden bg-brand-darkblue border-t-4 border-black px-4 py-4 space-y-1">
+          {onSelectView && (
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false)
+                onSelectView('hub')
+              }}
+              className="w-full flex items-center justify-between text-brand-neon hover:text-white font-mono font-bold uppercase text-xs py-2.5 border-b border-white/20 text-left cursor-pointer"
+            >
+              <span>← Volver al Hub de Servicios</span>
+              <span>↵</span>
+            </button>
+          )}
+
           {navLinks.map(({ label, href }) => (
             <a
               key={href}

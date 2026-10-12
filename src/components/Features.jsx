@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
 const pillars = [
-  { icon: 'fa-solid fa-clock-rotate-left', title: 'Atención Rápida', sub: 'Tiempos ágiles sin esperas' },
-  { icon: 'fa-solid fa-circle-check', title: 'Trabajo Garantizado', sub: 'Calidad comprobada 100%' },
-  { icon: 'fa-solid fa-thumbs-up', title: 'Experiencia en Rubro', sub: 'Técnicos calificados' },
-  { icon: 'fa-solid fa-handshake', title: 'Trato Respetuoso', sub: 'Transparencia y claridad' },
+  { icon: 'fa-solid fa-screwdriver-wrench', title: 'Diagnóstico en Banco', sub: 'Pruebas e instrumental en taller' },
+  { icon: 'fa-solid fa-shield-halved', title: 'Garantía 30 Días', sub: 'Por escrito en cada servicio' },
+  { icon: 'fa-solid fa-camera', title: 'Fotos por WhatsApp', sub: 'Evidencia de antes y después' },
+  { icon: 'fa-solid fa-file-invoice-dollar', title: 'Presupuesto Previo', sub: 'Cero cobros sin tu aprobación' },
 ]
 
 export default function Features() {

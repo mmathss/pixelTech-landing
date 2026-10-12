@@ -40,6 +40,17 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              {onSelectView && (
+                <li className="pt-2 border-t border-neutral-800">
+                  <button
+                    type="button"
+                    onClick={() => onSelectView('studio')}
+                    className="text-brand-neon hover:underline font-mono text-xs font-bold uppercase cursor-pointer text-left"
+                  >
+                    &gt; Ir a PixelTech Studio (Software)
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
