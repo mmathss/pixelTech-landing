@@ -1,4 +1,4 @@
-export default function StudioFooter() {
+export default function StudioFooter({ onSelectView }) {
   return (
     <footer className="w-full bg-inverse-surface text-inverse-on-surface mt-space-xl shadow-[0_-4px_0_0_#191b23]">
       <div className="max-w-7xl mx-auto px-gutter py-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-lg">
@@ -47,6 +47,15 @@ export default function StudioFooter() {
             <a className="hover:text-secondary-fixed transition-colors" href="#cotizacion">
               &gt; Cotizar Proyecto
             </a>
+            {onSelectView && (
+              <button
+                type="button"
+                onClick={() => onSelectView('soporte')}
+                className="text-secondary-fixed hover:underline font-mono text-xs font-bold uppercase cursor-pointer text-left pt-2 border-t border-outline-variant/30"
+              >
+                &gt; PixelTech Pro (Soporte Técnico)
+              </button>
+            )}
           </div>
         </div>
 

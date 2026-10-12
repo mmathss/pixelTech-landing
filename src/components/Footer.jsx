@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ onSelectView }) {
   return (
     <footer className="bg-black text-white border-t-4 border-black pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">

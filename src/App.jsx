@@ -10,7 +10,6 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import StudioLanding from './components/studio/StudioLanding'
 import HubLanding from './components/hub/HubLanding'
-import PageToggle from './components/PageToggle'
 
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
