@@ -8,9 +8,9 @@ export const pages = {
     image: '/og-image.png',
   },
   '/soporte': {
-    title: 'PixelTech Pro | Soporte técnico en Huacho',
+    title: 'PixelTech | Soporte técnico en Huacho',
     description:
-      'Diagnóstico, mantenimiento, reparación y repotenciación de computadoras y laptops en Huacho, Lima. Consulta tu caso con PixelTech Pro.',
+      'Diagnóstico, mantenimiento y mejora de computadoras y laptops en Huacho, Lima. Presupuesto previo y atención en taller con coordinación por WhatsApp.',
     image: '/og-support.png',
   },
   '/ideas': {

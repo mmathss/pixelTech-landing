@@ -1,6 +1,9 @@
 const WA_NUMBER = '51937718698'
 const WA_BASE = `https://wa.me/${WA_NUMBER}`
 
+export const buildSupportInquiryUrl = (message) =>
+  `${WA_BASE}?text=${encodeURIComponent(message)}`
+
 export function buildWhatsAppUrl({ nombre, tipo, servicio, descripcion }) {
   if (!nombre && !tipo && !servicio && !descripcion) return WA_BASE
 

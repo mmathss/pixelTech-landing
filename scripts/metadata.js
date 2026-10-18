@@ -26,10 +26,6 @@ export function applyMetadata(html, path, pages, configuredOrigin) {
     <meta property="og:image:alt" content="${escape(page.title)}" /><meta property="og:locale" content="es_PE" />
     <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="${escape(page.title)}" />
     <meta name="twitter:description" content="${escape(page.description)}" /><meta name="twitter:image" content="${escape(image)}" />`
-  const supportFonts =
-    path === '/soporte'
-      ? '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" />'
-      : ''
   return html
     .replace(
       /<!-- page-meta:start -->[\s\S]*?<!-- page-meta:end -->/,
@@ -37,6 +33,6 @@ export function applyMetadata(html, path, pages, configuredOrigin) {
     )
     .replace(
       /<!-- support-fonts:start -->[\s\S]*?<!-- support-fonts:end -->/,
-      `<!-- support-fonts:start -->${supportFonts}<!-- support-fonts:end -->`,
+      '<!-- support-fonts:start --><!-- support-fonts:end -->',
     )
 }

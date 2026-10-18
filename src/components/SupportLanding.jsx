@@ -1,27 +1,29 @@
-import Marquee from './Marquee'
-import Navbar from './Navbar'
-import Hero from './Hero'
-import Features from './Features'
-import Services from './Services'
-import WhyUs from './WhyUs'
-import WhatsAppCTA from './WhatsAppCTA'
-import Contact from './Contact'
-import Footer from './Footer'
+import SupportHeader from './support/SupportHeader'
+import {
+  SupportHero,
+  SupportSymptoms,
+  SupportServices,
+  SupportProcess,
+  SupportTrust,
+  SupportFAQ,
+  SupportFooter,
+} from './support/SupportContent'
+import SupportContact from './support/SupportContact'
+import '../support.css'
 export default function SupportLanding() {
-  const goHome = () => window.location.assign('/')
   return (
-    <div className="bg-brand-blue min-h-screen text-white font-sans">
-      <Marquee />
-      <Navbar onSelectView={goHome} />
+    <div className="support-site">
+      <SupportHeader />
       <main id="contenido">
-        <Hero />
-        <Features />
-        <Services />
-        <WhyUs />
-        <WhatsAppCTA />
-        <Contact />
+        <SupportHero />
+        <SupportSymptoms />
+        <SupportServices />
+        <SupportProcess />
+        <SupportTrust />
+        <SupportFAQ />
+        <SupportContact />
       </main>
-      <Footer onSelectView={goHome} />
+      <SupportFooter />
     </div>
   )
 }

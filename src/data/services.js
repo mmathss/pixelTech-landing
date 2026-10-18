@@ -1,58 +1,79 @@
+// Published starting prices retained from the existing support offering.
+// Storage upgrades and diagnosis require a quote; no hardware capacity or fee is assumed.
 export const services = [
   {
-    icon: 'fa-solid fa-broom',
-    title: 'Limpieza y Cambio de Pasta Térmica',
-    description: 'Mantenimiento térmico profundo, disipación de calor, pasta térmica de alta conductividad y eliminación de polvo acumulado.',
-    tag: 'Mantenimiento',
+    id: 'mantenimiento',
+    title: 'Limpieza y mantenimiento',
+    description:
+      'Limpieza interna y cambio de pasta térmica para revisar problemas de temperatura y acumulación de polvo.',
     priceRef: 'Desde S/ 45',
+    scope:
+      'Servicio de limpieza y cambio de pasta térmica. Reparaciones y piezas adicionales se presupuestan aparte.',
+    featured: true,
   },
   {
-    icon: 'fa-solid fa-desktop',
-    title: 'Formateo y Sistema Operativo',
-    description: 'Instalación limpia de Windows, drivers originales actualizados y programas esenciales para un rendimiento ágil.',
-    tag: 'Software & OS',
+    id: 'diagnostico',
+    title: 'Diagnóstico de hardware',
+    description:
+      'Revisión de equipos que no encienden, se apagan o presentan fallas que necesitan evaluación en taller.',
+    priceRef: 'Consultar evaluación',
+    scope:
+      'Sin costo de diagnóstico si aceptas la reparación. Si no continúas, el importe se acuerda antes de recibir el equipo.',
+    featured: true,
+  },
+  {
+    id: 'mejora',
+    title: 'Mejora con SSD y RAM',
+    description:
+      'Evaluación de compatibilidad para mejorar el almacenamiento o la memoria según el uso de tu equipo.',
+    priceRef: 'Cotización según equipo',
+    scope:
+      'La propuesta especifica capacidad, modelo, repuestos y mano de obra. Migración o respaldo se acuerdan según el estado del disco.',
+    featured: true,
+  },
+  {
+    id: 'sistema',
+    title: 'Instalación del sistema',
+    description:
+      'Instalación limpia del sistema operativo y controladores compatibles. El respaldo se coordina antes de intervenir.',
     priceRef: 'Desde S/ 35',
+    scope:
+      'Instalación del sistema y controladores. Licencias, respaldo y programas adicionales se cotizan según necesidad.',
   },
   {
-    icon: 'fa-solid fa-microchip',
-    title: 'Repotenciación con SSD y RAM',
-    description: 'Cambia tu disco mecánico lento por una unidad sólida ultrarrápida (hasta 10x más veloz) o amplía tu memoria RAM.',
-    tag: 'Upgrade Speed',
-    priceRef: 'Desde S/ 85 (Inc. SSD)',
-  },
-  {
-    icon: 'fa-solid fa-wrench',
-    title: 'Diagnóstico de Placa y Hardware',
-    description: 'Revisión en banco de trabajo con instrumental para equipos que no encienden, se apagan o tienen pantalla azul.',
-    tag: 'Hardware Fix',
-    priceRef: 'Sin costo si reparas',
-  },
-  {
-    icon: 'fa-solid fa-cloud-arrow-down',
-    title: 'Recuperación de Archivos',
-    description: 'Rescate de documentos, fotos y carpetas importantes tras fallas del sistema o unidades con lectura lenta.',
-    tag: 'Data Rescue',
+    id: 'archivos',
+    title: 'Recuperación de archivos',
+    description:
+      'Evaluación de la posibilidad de recuperar documentos y fotos de una unidad con problemas de lectura.',
     priceRef: 'Previa evaluación',
+    scope:
+      'La viabilidad, el alcance y el costo dependen del estado de la unidad. No se garantiza la recuperación de todos los archivos.',
   },
   {
-    icon: 'fa-solid fa-gear',
-    title: 'Instalación de Programas',
-    description: 'Ofimática, herramientas de trabajo, utilitarios y programas especializados según las necesidades de tu actividad.',
-    tag: 'Software & Apps',
+    id: 'programas',
+    title: 'Instalación de programas',
+    description:
+      'Configuración de herramientas de oficina, trabajo y utilitarios compatibles con tu computadora.',
     priceRef: 'Desde S/ 25',
+    scope:
+      'Instalación y configuración acordadas. Las licencias comerciales no están incluidas.',
   },
   {
-    icon: 'fa-solid fa-hard-drive',
-    title: 'Diagnóstico y Clonación de Disco',
-    description: 'Análisis de sectores defectuosos, velocidad de lectura y clonación idéntica a nuevo SSD sin perder tus programas ni fotos.',
-    tag: 'Storage Health',
+    id: 'disco',
+    title: 'Revisión y clonación de disco',
+    description:
+      'Revisión de la unidad y evaluación de una migración a otro disco, según su estado y compatibilidad.',
     priceRef: 'Desde S/ 30',
+    scope:
+      'El alcance y la tarifa final se confirman según estado y capacidad. El disco de destino se cotiza aparte.',
   },
   {
-    icon: 'fa-solid fa-tower-broadcast',
-    title: 'Ensamble y Optimización de PC',
-    description: 'Armado de PCs de escritorio para trabajo o gaming, gestión de cables, optimización de flujo de aire y pruebas térmicas.',
-    tag: 'Custom Build',
+    id: 'ensamble',
+    title: 'Ensamble y optimización de PC',
+    description:
+      'Armado, organización de cables y pruebas de funcionamiento para computadoras de escritorio.',
     priceRef: 'Desde S/ 60',
+    scope:
+      'Mano de obra según configuración. Componentes y servicios adicionales se cotizan aparte.',
   },
 ]
