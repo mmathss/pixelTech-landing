@@ -16,7 +16,6 @@ import {
 } from 'lucide-react'
 import { services } from '../../data/services'
 import { site } from '../../data/site'
-import profile from '../../assets/studio/developer_profile.png'
 import BrandArtwork from '../studio/BrandArtwork'
 import { SupportIntro, SupportLink } from './SupportUI'
 import { buildSupportInquiryUrl as supportUrl } from '../../utils/whatsapp'
@@ -367,31 +366,6 @@ export function SupportTrust() {
                 las fallas distintas al trabajo realizado requieren evaluación.
               </p>
             </div>
-          </div>
-        </div>
-        <div className="sp-leader">
-          <img
-            src={profile}
-            width="96"
-            height="112"
-            loading="lazy"
-            decoding="async"
-            alt="Diego Arévalo, director de PixelTech"
-          />
-          <div>
-            <span className="sp-eyebrow">
-              Una persona responsable al frente
-            </span>
-            <h3>Diego Arévalo · Dirección de PixelTech</h3>
-            <p>
-              Dirige PixelTech y es el contacto para coordinar tu consulta,
-              explicar el presupuesto y mantener la comunicación durante el
-              servicio. Puedes conocer su trayectoria profesional en LinkedIn.
-            </p>
-            <a href={site.linkedin} target="_blank" rel="noreferrer">
-              Conocer su trayectoria{' '}
-              <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
           </div>
         </div>
       </div>

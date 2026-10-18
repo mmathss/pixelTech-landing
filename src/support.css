@@ -716,41 +716,6 @@
   font-size: 14px;
   margin-top: 12px;
 }
-.sp-leader {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  border-top: 1px solid #dce1d6;
-  margin-top: 45px;
-  padding-top: 30px;
-}
-.sp-leader > img {
-  width: 96px;
-  height: 112px;
-  object-fit: cover;
-  object-position: center 25%;
-  flex-shrink: 0;
-  border: 1px solid #dce1d6;
-}
-.sp-leader h3 {
-  margin-top: 6px;
-  font-size: 19px;
-}
-.sp-leader p {
-  color: #536072;
-  font-size: 13px;
-  max-width: 800px;
-  margin-top: 9px;
-}
-.sp-leader a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--sp-blue);
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 8px;
-}
 .sp-faq-layout {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -1184,18 +1149,6 @@
   .sp-record dl > div {
     grid-template-columns: 1fr;
     gap: 5px;
-  }
-  .sp-leader {
-    align-items: start;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .sp-leader > img {
-    width: 90px;
-    height: 105px;
-  }
-  .sp-leader > div {
-    flex: 1 1 210px;
   }
   .sp-contact-form {
     padding: 23px;

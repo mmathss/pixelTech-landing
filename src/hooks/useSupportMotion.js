@@ -8,7 +8,6 @@ const selectors = [
   '.sp-reception',
   '.sp-record',
   '.sp-care > div',
-  '.sp-leader',
   '.sp-faq details',
   '.sp-contact-info',
   '.sp-contact-form',
