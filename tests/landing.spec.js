@@ -10,7 +10,7 @@ test('consulting home presents projects, a real leader and clear demo claims', a
   )
   await expect(page.locator('#proyectos article')).toHaveCount(3)
   const profile = page.getByRole('img', {
-    name: 'Diego Arévalo, líder técnico de PixelTech',
+    name: 'Diego Arévalo, AI Software Engineer en PixelTech',
   })
   await profile.scrollIntoViewIfNeeded()
   await expect
@@ -80,6 +80,31 @@ test('mobile navigation opens, closes and supports Escape', async ({
   await expect(
     page.getByRole('navigation', { name: 'Navegación móvil' }),
   ).toHaveCount(0)
+})
+
+test('landing content remains accessible without motion or JavaScript', async ({
+  browser,
+}) => {
+  for (const options of [
+    { reducedMotion: 'reduce' },
+    { javaScriptEnabled: false },
+  ]) {
+    const context = await browser.newContext(options)
+    try {
+      const page = await context.newPage()
+      await page.goto('http://127.0.0.1:4175/')
+      await page.locator('#lider').scrollIntoViewIfNeeded()
+      await expect(page.locator('.pt-photo-caption')).toContainText(
+        'AI Software Engineer',
+      )
+      await expect(page.locator('.pt-leader-photo')).toHaveCSS('opacity', '1')
+      await page.locator('#diagnostico').scrollIntoViewIfNeeded()
+      await expect(page.getByLabel('Tu nombre', { exact: true })).toBeVisible()
+      await expect(page.locator('.pt-contact-card')).toHaveCSS('opacity', '1')
+    } finally {
+      await context.close()
+    }
+  }
 })
 test('inventory movement persists on reload, prevents overselling and resets', async ({
   page,

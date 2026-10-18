@@ -1,7 +1,7 @@
 export const site = {
   name: 'PixelTech',
   leader: 'Diego Arévalo',
-  role: 'Líder técnico · Consultoría y desarrollo de software',
+  role: 'AI Software Engineer',
   email: 'dmarevalo-pixeltech@outlook.com',
   phone: '+51 937 718 698',
   whatsapp: 'https://wa.me/51937718698',

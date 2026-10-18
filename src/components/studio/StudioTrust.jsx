@@ -14,14 +14,14 @@ export default function StudioTrust() {
           </div>
           <img
             src={profile}
-            alt="Diego Arévalo, líder técnico de PixelTech"
+            alt="Diego Arévalo, AI Software Engineer en PixelTech"
             width="408"
             height="512"
             loading="lazy"
           />
           <div className="pt-photo-caption">
             <strong>{site.leader}</strong>
-            <span>Líder técnico</span>
+            <span>{site.role}</span>
           </div>
         </div>
         <div className="pt-leader-copy">

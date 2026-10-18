@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import useLandingMotion from '../../hooks/useLandingMotion'
 import StudioNavbar from './StudioNavbar'
 import StudioHero from './StudioHero'
 import StudioProjects from './StudioProjects'
@@ -9,10 +11,12 @@ import StudioFAQ from './StudioFAQ'
 import StudioQuoteForm from './StudioQuoteForm'
 import StudioFooter from './StudioFooter'
 export default function StudioLanding() {
+  const main = useRef(null)
+  useLandingMotion(main)
   return (
     <div className="pt-site">
       <StudioNavbar />
-      <main id="contenido">
+      <main id="contenido" ref={main}>
         <StudioHero />
         <StudioProjects />
         <StudioProblems />
