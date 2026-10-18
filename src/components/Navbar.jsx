@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import BrandArtwork from './studio/BrandArtwork'
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -15,12 +16,8 @@ export default function Navbar({ onSelectView }) {
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 flex items-center justify-between gap-3">
         {/* Logo */}
         <a className="flex items-center gap-2.5 group shrink-0" href="#">
-          <div className="bg-brand-neon p-1.5 border-2 border-black shadow-brutal-sm group-hover:rotate-3 transition-transform shrink-0">
-            <img
-              alt="PixelTech Logo"
-              className="w-8 h-8 sm:w-10 sm:h-10 object-contain brightness-0"
-              src="/favicon.svg"
-            />
+          <div className="group-hover:rotate-3 transition-transform shrink-0">
+            <BrandArtwork className="w-9 h-9 sm:w-11 sm:h-11" />
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-1">

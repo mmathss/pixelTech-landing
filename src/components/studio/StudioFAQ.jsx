@@ -103,7 +103,7 @@ const faqs = [
   ],
   [
     '¿Los proyectos que muestran son de clientes?',
-    'Son demos propias con datos ficticios para explorar funcionalidades en el navegador. No son testimonios, trabajos contratados ni evidencia de resultados económicos de clientes.',
+    'Nuvora es un proyecto propio actualmente en desarrollo. Las otras propuestas están identificadas como demos funcionales con datos ficticios para explorar en el navegador. No se presentan como trabajos contratados ni como resultados de clientes.',
   ],
   [
     '¿Cómo usan inteligencia artificial?',

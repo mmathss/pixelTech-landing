@@ -9,6 +9,14 @@ test('consulting home presents projects, a real leader and clear demo claims', a
     'Tu negocio avanza',
   )
   await expect(page.locator('#proyectos article')).toHaveCount(3)
+  const nuvora = page.getByRole('article', {
+    name: 'Inventario con identidad propia.',
+  })
+  await expect(nuvora).toContainText('Actualmente en desarrollo')
+  await expect(nuvora.getByRole('link')).toHaveCount(0)
+  await expect(
+    page.locator('.pt-project-grid').getByRole('link', { name: 'Probar demo' }),
+  ).toHaveCount(2)
   const profile = page.getByRole('img', {
     name: 'Diego Arévalo, AI Software Engineer en PixelTech',
   })

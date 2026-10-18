@@ -33,11 +33,12 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 ## Personalización
 
 - Datos de Diego y enlaces: `src/data/site.js`. Los enlaces de GitHub y LinkedIn se conservaron de la referencia original.
-- Proyectos, alcances y destinos del código: `src/data/projects.js`.
+- Demos, alcances y rutas: `src/data/projects.js`. Nuvora destacado: `StudioFeaturedProject.jsx`.
 - Guías originales de captación: `src/data/articles.js`.
 - Metadatos: `src/data/pages.js` y `scripts/metadata.js`.
 - Marca y responsive: `src/studio.css`; interfaces de producto: `src/demos.css`.
-- Foto principal: `src/assets/studio/developer_profile.png`. Isotipo detallado conservado como ilustración de soporte; variante pequeña en `public/favicon.svg`.
+- Foto principal: `src/assets/studio/developer_profile.png`. Logos principales originales en `src/assets/brand/`; `BrandArtwork.jsx` los encuadra mediante SVG sin modificar sus píxeles. Favicon simplificado en `public/favicon.svg`.
+- Nuvora: proyecto destacado actualmente en desarrollo, con recursos originales en `src/assets/nuvora/`. No se presenta como demo funcional ni enlaza a repositorios privados. La demo básica de inventario permanece independiente en el laboratorio.
 - Capturas y social cards: `npm run assets:previews` con un servidor en el puerto 4173. Ver [documentación de demos](src/components/demos/README.md).
 
 ## Correo
@@ -50,7 +51,7 @@ Copiar `.env.example` como configuración local y definir `RESEND_API_KEY`, `CON
 
 `dist/` contiene diez páginas prerenderizadas y `404.html`. Vercel ejecuta `npm run build` y sirve `dist/`, con funciones en `api/`. `vercel.json` conserva rutas con barra final. Si cambias de dominio, configurar `VITE_SITE_URL` y reconstruir. No se ha cambiado el dominio ni publicado estos cambios automáticamente.
 
-El HTML de cada ruta incluye título, descripción, canonical, Open Graph y contenido visible antes de JavaScript. Los enlaces de código apuntan a la rama `main` del repositorio existente: los archivos nuevos serán visibles allí cuando se suban los cambios.
+El HTML de cada ruta incluye título, descripción, canonical, Open Graph y contenido visible antes de JavaScript. Los proyectos no exponen enlaces a repositorios privados; las demos enlazan a guías públicas dentro de la web. El perfil profesional de GitHub se mantiene como enlace de contacto.
 
 ## Analítica y seguimiento comercial
 

@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
-import { FaGithub as Github } from 'react-icons/fa6'
+import { articles } from '../../data/articles'
 import StudioNavbar from '../studio/StudioNavbar'
 import StudioFooter from '../studio/StudioFooter'
 import { DiagnosticLink } from '../studio/StudioUI'
@@ -14,6 +14,7 @@ const demos = {
 }
 export default function ProjectPage({ project }) {
   const Demo = demos[project.id]
+  const guide = articles.find((article) => article.project === project.id)
   return (
     <div className="pt-site">
       <StudioNavbar />
@@ -64,15 +65,12 @@ export default function ProjectPage({ project }) {
               </p>
               <a
                 className="pt-text-link"
-                href={project.source}
-                target="_blank"
-                rel="noreferrer"
+                href={`/ideas/${guide.id}/`}
                 onClick={() =>
-                  trackEvent('source_click', { project: project.id })
+                  trackEvent('article_open', { article: guide.id })
                 }
               >
-                <Github size={17} />
-                Código y documentación
+                Leer la guía
                 <ArrowUpRight size={16} />
               </a>
             </div>

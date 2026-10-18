@@ -1,17 +1,26 @@
-import { ArrowUpRight, Monitor } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { trackEvent } from '../../utils/analytics'
-export function Brand({ support = false }) {
+import BrandArtwork from './BrandArtwork'
+export function Brand({ support = false, inverse = false }) {
   return (
-    <a href="/" className="pt-brand" aria-label="PixelTech, inicio">
-      <span className="pt-brand-icon">
-        <Monitor size={25} strokeWidth={2.4} aria-hidden="true" />
-        <span aria-hidden="true">›_</span>
-      </span>
-      <span>
-        <strong>
-          PixelTech<span className="pt-brand-dot">.</span>
-        </strong>
-        <small>{support ? 'Soporte técnico' : 'Consultoría & software'}</small>
+    <a
+      href="/"
+      className={`pt-brand${inverse ? ' pt-brand-inverse' : ''}`}
+      aria-label="PixelTech, inicio"
+    >
+      {!inverse && (
+        <BrandArtwork variant="wordmark" className="pt-brand-wordmark" />
+      )}
+      <span className="pt-brand-compact">
+        <BrandArtwork className="pt-brand-symbol" />
+        <span aria-hidden="true">
+          <strong>
+            PixelTech<span className="pt-brand-dot">.</span>
+          </strong>
+          <small>
+            {support ? 'Soporte técnico' : 'Consultoría & software'}
+          </small>
+        </span>
       </span>
     </a>
   )

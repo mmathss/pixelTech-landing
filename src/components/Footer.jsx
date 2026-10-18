@@ -1,3 +1,4 @@
+import BrandArtwork from './studio/BrandArtwork'
 export default function Footer({ onSelectView }) {
   return (
     <footer className="bg-black text-white border-t-4 border-black pt-12 pb-6">
@@ -6,13 +7,7 @@ export default function Footer({ onSelectView }) {
           {/* Column 1: Brand */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="bg-black p-1 border border-brand-neon shadow-brutal-sm">
-                <img
-                  alt="PixelTech Logo Footer"
-                  className="w-8 h-8 object-contain"
-                  src="/favicon.svg"
-                />
-              </div>
+              <BrandArtwork className="w-11 h-11" />
               <span className="font-pixel text-brand-neon text-xl font-bold uppercase">
                 PixelTech
               </span>

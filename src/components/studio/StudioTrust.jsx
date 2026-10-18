@@ -70,7 +70,7 @@ export default function StudioTrust() {
             </a>
             <a href={site.github} target="_blank" rel="noreferrer">
               <Github size={18} />
-              Mi código
+              GitHub
               <ArrowUpRight size={15} />
             </a>
           </div>

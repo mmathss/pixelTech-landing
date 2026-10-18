@@ -10,7 +10,7 @@ export default function StudioFooter() {
       <div className="pt-container">
         <div className="pt-footer-grid">
           <div>
-            <Brand />
+            <Brand inverse />
             <p>
               Consultoría y software para ordenar tu operación y construir el
               siguiente paso de tu negocio.

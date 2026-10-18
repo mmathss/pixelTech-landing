@@ -39,4 +39,8 @@
 
 ## Límites del trabajo local
 
+Actualización de identidad: los logos principales de PixelTech y los recursos de Nuvora se conservan en `src/assets/brand/` y `src/assets/nuvora/`. Nuvora se destaca como producto propio actualmente en desarrollo; reservas y pedidos permanecen como demos públicas. La demo básica de inventario mantiene su ruta y se identifica como independiente de Nuvora.
+
+Actualización de privacidad: las tarjetas y páginas de demos dejaron de ofrecer acceso a código privado y ahora conducen a demostraciones y guías públicas. Las referencias anteriores de esta tabla a botones de código corresponden a la implementación inicial, reemplazada por esta decisión.
+
 No se han publicado cambios, contratado servicios, habilitado planes, enviado correos reales, creado repositorios externos ni publicado en redes. El formulario requiere credenciales válidas y un remitente autorizado en Resend; la analítica agregada depende de habilitar el servicio. Las métricas de calificación, reuniones y aceptación de propuestas se registran después de que el negocio reciba consultas reales.

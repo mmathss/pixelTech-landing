@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import supportIllustration from '../assets/studio/pixelTech_logo.png'
+import supportIllustration from '../assets/brand/pixeltech-symbol.png'
 
 const fadeUp = { hidden: { opacity: 0, y: 32 }, show: { opacity: 1, y: 0 } }
 
@@ -134,7 +134,7 @@ export default function Hero() {
               <div className="relative bg-brand-blue border-2 border-black p-4 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 pixel-checker opacity-15" />
                 <img
-                  alt="PixelTech Computer Character Illustration"
+                  alt="Símbolo de PixelTech"
                   className="w-full h-auto max-h-[360px] object-contain relative z-10 drop-shadow-[0_12px_18px_rgba(0,0,0,0.4)]"
                   src={supportIllustration}
                 />
