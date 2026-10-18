@@ -157,8 +157,9 @@
 }
 .sp-brand strong {
   display: block;
-  font-size: 24px;
-  letter-spacing: -0.04em;
+  font-family: 'Silkscreen', monospace;
+  font-size: 22px;
+  letter-spacing: -1.5px;
   line-height: 1.2;
 }
 .sp-brand strong > span {
@@ -1212,6 +1213,23 @@
   }
   .sp-footer-bottom {
     flex-direction: column;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .support-site .sp-reveal-pending {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.6s ease var(--sp-reveal-delay, 0ms),
+      transform 0.6s cubic-bezier(0.2, 0.65, 0.3, 1) var(--sp-reveal-delay, 0ms);
+  }
+  .support-site .sp-reveal-visible,
+  .support-site .sp-reveal-pending:focus-within {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .support-site .sp-reveal-pending:focus-within {
+    transition-delay: 0ms;
   }
 }
 @media (prefers-reduced-motion: reduce) {

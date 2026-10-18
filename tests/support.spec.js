@@ -8,8 +8,14 @@ test('support guides visitors from symptoms to service quotes and clear conditio
   await page.goto('/soporte/')
   await expect(page).toHaveTitle('PixelTech | Soporte técnico en Huacho')
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Vamos a revisarlo',
+    'Nosotros lo resolvemos.',
   )
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    '¿Tu equipo tiene un problema?',
+  )
+  for (const brand of await page.locator('.sp-brand strong').all()) {
+    await expect(brand).toHaveCSS('font-family', 'Silkscreen, monospace')
+  }
   const symptom = page.locator('.sp-symptom').filter({ hasText: 'Se calienta' })
   const symptomUrl = new URL(await symptom.getAttribute('href'))
   expect(symptomUrl.hostname).toBe('wa.me')
@@ -38,6 +44,23 @@ test('support guides visitors from symptoms to service quotes and clear conditio
     'antes de recibir el equipo',
   )
   expect(errors).toEqual([])
+})
+
+test('support reveals sections on scroll once and stops motion when requested', async ({
+  page,
+}) => {
+  await page.goto('/soporte/')
+  const reception = page.locator('.sp-reception')
+  await expect(reception).toHaveClass(/sp-reveal-pending/)
+  await expect(reception).toHaveCSS('opacity', '0')
+  await reception.scrollIntoViewIfNeeded()
+  await expect(reception).toHaveClass(/sp-reveal-visible/)
+  await expect(reception).toHaveCSS('opacity', '1')
+  await page.locator('#inicio').scrollIntoViewIfNeeded()
+  await expect(reception).toHaveCSS('opacity', '1')
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(page.locator('.sp-reveal-pending')).toHaveCount(0)
+  await expect(page.locator('.sp-contact-info')).toHaveCSS('opacity', '1')
 })
 
 test('support prepares the WhatsApp message without claiming a sent request', async ({

@@ -31,9 +31,9 @@ export function SupportHero() {
             Lima
           </span>
           <h1>
-            Tu equipo tiene un problema.
+            ¿Tu equipo tiene un problema?
             <br />
-            <span>Vamos a revisarlo.</span>
+            <span>Nosotros lo resolvemos.</span>
           </h1>
           <p className="sp-hero-lead">
             ¿Tu laptop está lenta, se calienta o no enciende?
