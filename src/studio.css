@@ -570,6 +570,20 @@
   background-size: 32px 32px;
   pointer-events: none;
 }
+.pt-featured-art::after {
+  content: '';
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(
+    ellipse,
+    #14b8a62e,
+    #2563eb12 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
 .pt-featured-art-top,
 .pt-featured-art-bottom {
   display: flex;
@@ -593,6 +607,7 @@
   height: auto;
   mix-blend-mode: screen;
   position: relative;
+  z-index: 1;
   margin-block: 8px;
 }
 .pt-featured-art-bottom {
@@ -1669,6 +1684,38 @@
     transform: translateY(0) rotate(-4deg) scale(1);
   }
 }
+@keyframes pt-nuvora-arrive {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  22% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-9px) scale(1.015);
+  }
+  78% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes pt-nuvora-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  40%,
+  65% {
+    opacity: 0.8;
+  }
+}
 @keyframes pt-flow-draw {
   from {
     stroke-dashoffset: 1;
@@ -1678,6 +1725,12 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .pt-site .pt-nuvora-animate img {
+    animation: pt-nuvora-arrive 3.8s cubic-bezier(0.2, 0.65, 0.3, 1) backwards;
+  }
+  .pt-nuvora-animate::after {
+    animation: pt-nuvora-glow 3.8s ease backwards;
+  }
   .pt-hero .pt-window.pt-process-window {
     animation-name: pt-enter;
   }

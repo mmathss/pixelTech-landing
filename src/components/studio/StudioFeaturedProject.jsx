@@ -1,8 +1,33 @@
+import { useEffect, useRef } from 'react'
 import wordmark from '../../assets/nuvora/nuvora-wordmark-568.webp'
 import symbol from '../../assets/nuvora/nuvora-symbol-640.webp'
 import symbolLarge from '../../assets/nuvora/nuvora-symbol-960.webp'
 
 export default function StudioFeaturedProject() {
+  const artwork = useRef(null)
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const element = artwork.current
+    if (preference.matches || !('IntersectionObserver' in window)) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        element.classList.add('pt-nuvora-animate')
+        observer.disconnect()
+      },
+      { threshold: 0.4 },
+    )
+    observer.observe(element)
+    const stop = () => {
+      if (preference.matches) element.classList.remove('pt-nuvora-animate')
+    }
+    preference.addEventListener('change', stop)
+    return () => {
+      observer.disconnect()
+      preference.removeEventListener('change', stop)
+      element.classList.remove('pt-nuvora-animate')
+    }
+  }, [])
   return (
     <article className="pt-featured-project" aria-labelledby="nuvora-title">
       <div className="pt-featured-copy">
@@ -30,7 +55,7 @@ export default function StudioFeaturedProject() {
         </div>
         <p className="pt-featured-note">Diseño e implementación en curso.</p>
       </div>
-      <div className="pt-featured-art" aria-hidden="true">
+      <div className="pt-featured-art" aria-hidden="true" ref={artwork}>
         <div className="pt-featured-art-top">
           <span>NUVORA / INVENTARIO</span>
           <span>01</span>

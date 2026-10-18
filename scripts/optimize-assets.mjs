@@ -38,3 +38,29 @@ for (const asset of exports) {
   const { size } = await fs.stat(asset.output)
   console.log(`${asset.output}: ${(size / 1024).toFixed(1)} KiB`)
 }
+
+// Tab icons use the same current PixelTech symbol, not a separate drawing.
+const icon = sharp('src/assets/brand/pixeltech-symbol.png').extract({
+  left: 134,
+  top: 141,
+  width: 1009,
+  height: 963,
+})
+const favicon32 = await icon
+  .clone()
+  .resize(32, 32, { fit: 'contain', background: '#00000000' })
+  .png()
+  .toBuffer()
+const favicon64 = await icon
+  .clone()
+  .resize(64, 64, { fit: 'contain', background: '#00000000' })
+  .png()
+  .toBuffer()
+await fs.writeFile('public/favicon-32.png', favicon32)
+await fs.writeFile(
+  'public/favicon.svg',
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><image href="data:image/png;base64,${favicon64.toString('base64')}" width="64" height="64"/></svg>\n`,
+)
+console.log(
+  `Favicons: ${(favicon32.length / 1024).toFixed(1)} KiB PNG / ${((await fs.stat('public/favicon.svg')).size / 1024).toFixed(1)} KiB SVG`,
+)
