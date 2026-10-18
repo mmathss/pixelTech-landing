@@ -158,10 +158,13 @@ test('support content and questions work without JavaScript and respect reduced 
         'no se promete rescatar todos los datos',
       )
       if (options.reducedMotion)
-        await expect(page.locator('.sp-scan-line')).toHaveCSS(
-          'animation-name',
-          'none',
-        )
+        expect(
+          await page
+            .locator('.sp-laptop-art')
+            .evaluate(
+              (element) => element.getAnimations({ subtree: true }).length,
+            ),
+        ).toBe(0)
       if (options.javaScriptEnabled === false) {
         await page.locator('#contacto').scrollIntoViewIfNeeded()
         await expect(page.locator('.sp-contact-form-fallback')).toBeVisible()

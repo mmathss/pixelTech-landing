@@ -11,9 +11,9 @@ import {
   Monitor,
   Plus,
   ShieldCheck,
-  Thermometer,
   Wrench,
 } from 'lucide-react'
+import SupportLaptop from './SupportLaptop'
 import { services } from '../../data/services'
 import { site } from '../../data/site'
 import BrandArtwork from '../studio/BrandArtwork'
@@ -56,51 +56,7 @@ export function SupportHero() {
             coordinación previa.
           </p>
         </div>
-        <div
-          className="sp-workstation"
-          role="img"
-          aria-label="Ilustración de una computadora y tres aspectos de la revisión: temperatura, almacenamiento y funcionamiento. No representa un diagnóstico real."
-        >
-          <div className="sp-window-bar">
-            <span>
-              <i />
-              <i />
-              <i />
-            </span>
-            <span>pixeltech / revisión de equipo</span>
-            <Wrench size={15} />
-          </div>
-          <div className="sp-workstation-body">
-            <span className="sp-diagram-tag">
-              CADA FALLA TIENE UN PUNTO DE PARTIDA
-            </span>
-            <div className="sp-pc">
-              <div className="sp-pc-screen">
-                <Cpu size={48} strokeWidth={1.2} />
-                <span>Entender. Revisar. Resolver.</span>
-                <div className="sp-scan-line" />
-              </div>
-              <div className="sp-pc-stand" />
-            </div>
-            <div className="sp-checks">
-              {[
-                [Thermometer, 'Temperatura'],
-                [HardDrive, 'Almacenamiento'],
-                [Cpu, 'Funcionamiento'],
-              ].map(([Icon, text], i) => (
-                <div key={text}>
-                  <Icon size={18} />
-                  <span>{text}</span>
-                  <span className="sp-check-number">0{i + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="sp-window-footer">
-            <span className="sp-square" /> Ilustración del proceso · Tu equipo
-            se evalúa en taller
-          </div>
-        </div>
+        <SupportLaptop />
       </div>
       <div className="sp-hero-strip">
         <div className="sp-container">
