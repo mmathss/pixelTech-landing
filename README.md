@@ -28,7 +28,7 @@ Las pruebas de navegador usan Google Chrome instalado. `npm run build` compila c
 | `/ideas/`                | Guías vinculadas a las demos                                 |
 | `/privacidad/`           | Datos de consulta, demos y medición                          |
 
-Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anclas de cotización/respaldo/FAQ.
+Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anclas de cotización/respaldo/FAQ. La sección “Nuestro equipo” está en `/#equipo`; los enlaces anteriores `#lider` y `#respaldo` se actualizan automáticamente a esa dirección.
 
 ## Personalización
 

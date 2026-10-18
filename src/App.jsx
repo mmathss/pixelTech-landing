@@ -31,16 +31,34 @@ export default function App({ pathname }) {
     // Legacy section links remain useful after the content reorganization.
     const aliases = {
       '#cotizacion': '#diagnostico',
-      '#respaldo': '#lider',
+      '#respaldo': '#equipo',
+      '#lider': '#equipo',
       '#faq': '#preguntas',
     }
-    const hash = aliases[window.location.hash] || window.location.hash
-    if (hash)
-      requestAnimationFrame(() =>
-        document
-          .getElementById(hash.slice(1))
-          ?.scrollIntoView({ behavior: 'instant' }),
-      )
+    let scrollFrame
+    const resolveSection = (event) => {
+      const currentUrl = new URL(window.location.href)
+      const alias = aliases[currentUrl.hash]
+      if (alias) {
+        currentUrl.hash = alias
+        window.history.replaceState({}, '', currentUrl)
+      }
+      // Ordinary menu links retain native smooth scrolling.
+      if (currentUrl.hash && (alias || !event)) {
+        cancelAnimationFrame(scrollFrame)
+        scrollFrame = requestAnimationFrame(() =>
+          document
+            .getElementById(currentUrl.hash.slice(1))
+            ?.scrollIntoView({ behavior: 'instant' }),
+        )
+      }
+    }
+    resolveSection()
+    window.addEventListener('hashchange', resolveSection)
+    return () => {
+      window.removeEventListener('hashchange', resolveSection)
+      cancelAnimationFrame(scrollFrame)
+    }
   }, [path])
   return (
     <>

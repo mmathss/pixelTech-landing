@@ -5,12 +5,12 @@ import { site } from '../../data/site'
 import { DiagnosticLink } from './StudioUI'
 export default function StudioTrust() {
   return (
-    <section id="lider" className="pt-section">
+    <section id="equipo" className="pt-section">
       <div className="pt-container pt-leader-grid">
         <div className="pt-leader-photo">
           <div className="pt-photo-label">
             <span className="pt-status-dot" />
-            Detrás de PixelTech
+            Dirección de PixelTech
           </div>
           <img
             src={profile}
@@ -21,31 +21,34 @@ export default function StudioTrust() {
           />
           <div className="pt-photo-caption">
             <strong>{site.leader}</strong>
-            <span>{site.role}</span>
+            <span>{site.role} · Dirección técnica</span>
           </div>
         </div>
         <div className="pt-leader-copy">
-          <span className="pt-eyebrow">
-            05 / Tecnología con una persona al frente
-          </span>
+          <span className="pt-eyebrow">05 / Nuestro equipo</span>
           <h2>
-            Hola, soy Diego.
+            Un equipo ágil.
             <br />
-            Hablemos de tu negocio.
+            Una dirección clara.
           </h2>
           <p>
-            En PixelTech trabajas directamente conmigo: desde entender lo que
-            necesitas hasta revisar cómo funciona la solución. Te explico las
-            decisiones técnicas en términos de tu operación.
+            Nuestro equipo combina dirección técnica y desarrollo asistido por
+            inteligencia artificial para acompañar cada etapa: análisis, diseño,
+            implementación y validación.
           </p>
           <p>
-            Mi experiencia previa incluye desarrollo y soporte en sistemas
+            Diego Arévalo dirige PixelTech como AI Software Engineer. Lidera la
+            definición de cada solución, la revisión técnica y la comunicación
+            directa con cada cliente.
+          </p>
+          <p>
+            Su experiencia profesional incluye desarrollo y soporte en sistemas
             corporativos del sector asegurador en INDRA Perú, dentro del
             proyecto MAPFRE, y trabajo en consultoría tecnológica en Digital
             Compass.
           </p>
           <p className="pt-small-note">
-            Esta es mi experiencia profesional previa. Las organizaciones
+            Esta es la experiencia profesional de Diego. Las organizaciones
             mencionadas no se presentan como clientes de PixelTech.
           </p>
           <div className="pt-leader-commitments">
@@ -63,12 +66,22 @@ export default function StudioTrust() {
             </span>
           </div>
           <div className="pt-leader-social">
-            <a href={site.linkedin} target="_blank" rel="noreferrer">
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Trayectoria profesional de Diego Arévalo en LinkedIn"
+            >
               <Linkedin size={18} />
-              Mi trayectoria
+              Ver trayectoria
               <ArrowUpRight size={15} />
             </a>
-            <a href={site.github} target="_blank" rel="noreferrer">
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Perfil de Diego Arévalo en GitHub"
+            >
               <Github size={18} />
               GitHub
               <ArrowUpRight size={15} />

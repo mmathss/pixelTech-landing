@@ -21,6 +21,7 @@ export default function StudioFooter() {
             <strong>Explora</strong>
             <a href="/#proyectos">Proyectos</a>
             <a href="/#soluciones">Soluciones</a>
+            <a href="/#equipo">Nuestro equipo</a>
             <a href="/ideas/">Ideas para tu negocio</a>
             <a href="/#preguntas">Preguntas frecuentes</a>
           </div>

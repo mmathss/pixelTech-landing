@@ -27,9 +27,9 @@ test('consulting home presents projects, a real leader and clear demo claims', a
     )
     .toBe(true)
   await expect(
-    page.locator('#lider a[href="https://linkedin.com/in/dmarevalo"]'),
+    page.locator('#equipo a[href="https://linkedin.com/in/dmarevalo"]'),
   ).toBeVisible()
-  await expect(page.locator('#lider')).toContainText(
+  await expect(page.locator('#equipo')).toContainText(
     'no se presentan como clientes',
   )
   expect(errors).toEqual([])
@@ -138,7 +138,7 @@ test('landing content remains accessible without motion or JavaScript', async ({
         page.getByRole('img', { name: /^Diagrama: pedidos/ }),
       ).toBeVisible()
       await expect(page.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
-      await page.locator('#lider').scrollIntoViewIfNeeded()
+      await page.locator('#equipo').scrollIntoViewIfNeeded()
       await expect(page.locator('.pt-photo-caption')).toContainText(
         'AI Software Engineer',
       )
@@ -279,11 +279,25 @@ test('failed contact can be retried without losing text and only accepted delive
     /demo@example|Prueba de formulario|inventario y los pedidos/,
   )
 })
-test('legacy support link routes to the dedicated page', async ({ page }) => {
+test('legacy support and team links route to the current sections', async ({
+  page,
+}) => {
   await page.goto('/?view=soporte')
   await expect(page).toHaveURL('/soporte/')
   await expect(page).toHaveTitle(/Soporte técnico en Huacho/)
   await page.goto('/?view=studio')
   await expect(page).toHaveURL('/')
   await expect(page).toHaveTitle(/Consultoría y software/)
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Navegación principal' })
+      .getByRole('link', { name: 'Nuestro equipo' }),
+  ).toHaveAttribute('href', '/#equipo')
+  for (const anchor of ['lider', 'respaldo']) {
+    await page.goto(`/#${anchor}`)
+    await expect(page).toHaveURL('/#equipo')
+    await expect(page.locator('#equipo')).toContainText(
+      'Diego Arévalo dirige PixelTech',
+    )
+  }
 })
