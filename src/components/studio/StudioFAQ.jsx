@@ -1,4 +1,81 @@
+import { useEffect, useRef } from 'react'
+import { Plus } from 'lucide-react'
 import { SectionIntro } from './StudioUI'
+
+function FAQItem({ question, answer }) {
+  const animation = useRef(null)
+  const targetOpen = useRef(false)
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const finish = () => {
+      if (preference.matches) animation.current?.finish()
+    }
+    preference.addEventListener('change', finish)
+    return () => {
+      preference.removeEventListener('change', finish)
+      animation.current?.cancel()
+    }
+  }, [])
+
+  const toggle = (event) => {
+    const summary = event.currentTarget
+    const details = summary.parentElement
+    const panel = details.querySelector('.pt-faq-answer')
+    // Keep the native keyboard and no-JavaScript behavior as the fallback.
+    if (
+      !panel.animate ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
+      return
+    event.preventDefault()
+
+    const nextOpen = !(animation.current ? targetOpen.current : details.open)
+    const startHeight = details.open ? panel.getBoundingClientRect().height : 0
+    const startOpacity = details.open ? getComputedStyle(panel).opacity : 0
+    animation.current?.cancel()
+    targetOpen.current = nextOpen
+    details.open = true
+    details.dataset.expanded = String(nextOpen)
+    summary.setAttribute('aria-expanded', String(nextOpen))
+
+    const current = panel.animate(
+      [
+        { height: `${startHeight}px`, opacity: startOpacity },
+        {
+          height: `${nextOpen ? panel.scrollHeight : 0}px`,
+          opacity: nextOpen ? 1 : 0,
+        },
+      ],
+      { duration: 340, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'both' },
+    )
+    animation.current = current
+    current.onfinish = () => {
+      if (animation.current !== current) return
+      details.open = nextOpen
+      delete details.dataset.expanded
+      summary.removeAttribute('aria-expanded')
+      animation.current = null
+      current.cancel() // Return to natural height so text can reflow on resize.
+    }
+  }
+
+  return (
+    <details>
+      <summary onClick={toggle}>
+        {question}
+        <span className="pt-faq-toggle" aria-hidden="true">
+          <Plus size={17} strokeWidth={1.8} />
+        </span>
+      </summary>
+      <div className="pt-faq-answer">
+        <div className="pt-faq-answer-inner">
+          <p>{answer}</p>
+        </div>
+      </div>
+    </details>
+  )
+}
 const faqs = [
   [
     '¿Necesito saber qué software quiero?',
@@ -43,13 +120,7 @@ export default function StudioFAQ() {
         </SectionIntro>
         <div className="pt-faq">
           {faqs.map(([q, a]) => (
-            <details key={q}>
-              <summary>
-                {q}
-                <span aria-hidden="true">+</span>
-              </summary>
-              <p>{a}</p>
-            </details>
+            <FAQItem key={q} question={q} answer={a} />
           ))}
         </div>
       </div>
