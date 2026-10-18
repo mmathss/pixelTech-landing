@@ -13,14 +13,13 @@ export default function Navbar({ onSelectView }) {
   return (
     <header className="sticky top-0 z-50 bg-brand-blue/95 backdrop-blur-md border-b-4 border-black shadow-md">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-3 flex items-center justify-between gap-3">
-
         {/* Logo */}
         <a className="flex items-center gap-2.5 group shrink-0" href="#">
           <div className="bg-brand-neon p-1.5 border-2 border-black shadow-brutal-sm group-hover:rotate-3 transition-transform shrink-0">
             <img
               alt="PixelTech Logo"
               className="w-8 h-8 sm:w-10 sm:h-10 object-contain brightness-0"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi7HD58bsBAWk669-QI4zMAwFk9tf4G4JV_ugtHX4CXrICMHQZKnki98m7LKAyrbsUpzDpl4jXtMYJgOA0MrH04Vima0I9xmfBX6XhY6nFgq3M9gFFl-mM2tNzsCv3l4kPnYLjE0H1pFQ-74ZL5D9Q_v-r0bwDIvucP59rhG8oVuZyAkryT_d0ALzH9j5VGEJdMcf__tG_UVOq3zIzT6a4XggxBgIZkg3iplgRvK28hBO95iX-iU4f34pZYg0V37bjQA"
+              src="/favicon.svg"
             />
           </div>
           <div className="flex flex-col">
@@ -57,11 +56,13 @@ export default function Navbar({ onSelectView }) {
             <button
               type="button"
               onClick={() => onSelectView('hub')}
-              title="Volver a seleccionar servicio"
+              title="Ir a consultoría y software"
               className="inline-flex items-center gap-1.5 bg-black text-brand-neon hover:bg-black/80 font-mono text-xs font-bold uppercase px-3 py-2 border-2 border-brand-neon shadow-brutal-sm cursor-pointer transition-colors"
             >
-              <span className="material-symbols-outlined text-[16px]">grid_view</span>
-              <span className="hidden sm:inline">Hub</span>
+              <span className="material-symbols-outlined text-[16px]">
+                grid_view
+              </span>
+              <span className="hidden sm:inline">Software</span>
             </button>
           )}
 
@@ -80,10 +81,15 @@ export default function Navbar({ onSelectView }) {
           {/* Hamburger — mobile only */}
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 bg-brand-neon border-2 border-black shadow-brutal-sm text-black cursor-pointer"
-            onClick={() => setOpen(o => !o)}
-            aria-label="Menú"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={open}
           >
-            <i className={open ? 'fa-solid fa-xmark text-lg' : 'fa-solid fa-bars text-lg'} />
+            <i
+              className={
+                open ? 'fa-solid fa-xmark text-lg' : 'fa-solid fa-bars text-lg'
+              }
+            />
           </button>
         </div>
       </div>
@@ -100,7 +106,7 @@ export default function Navbar({ onSelectView }) {
               }}
               className="w-full flex items-center justify-between text-brand-neon hover:text-white font-mono font-bold uppercase text-xs py-2.5 border-b border-white/20 text-left cursor-pointer"
             >
-              <span>← Volver al Hub de Servicios</span>
+              <span>← Consultoría y software</span>
               <span>↵</span>
             </button>
           )}

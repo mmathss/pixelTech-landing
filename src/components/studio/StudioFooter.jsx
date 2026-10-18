@@ -1,93 +1,71 @@
-export default function StudioFooter({ onSelectView }) {
+import { ArrowUpRight } from 'lucide-react'
+import { FaGithub as Github, FaLinkedinIn as Linkedin } from 'react-icons/fa6'
+import { site } from '../../data/site'
+import { Brand } from './StudioUI'
+import { trackEvent } from '../../utils/analytics'
+const copyrightYear = new Date().getFullYear()
+export default function StudioFooter() {
   return (
-    <footer className="w-full bg-inverse-surface text-inverse-on-surface mt-space-xl shadow-[0_-4px_0_0_#191b23]">
-      <div className="max-w-7xl mx-auto px-gutter py-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-lg">
-        {/* Col 1 */}
-        <div className="md:col-span-5 flex flex-col gap-space-sm">
-          <div className="flex items-center gap-space-sm">
-            <span className="font-headline-sm text-headline-sm uppercase text-secondary-fixed">
-              PixelTech
-            </span>
-            <span className="font-label-sm text-label-sm px-space-xs py-0.5 bg-primary-container text-on-primary">
-              v2.4_PROD
-            </span>
+    <footer className="pt-footer">
+      <div className="pt-container">
+        <div className="pt-footer-grid">
+          <div>
+            <Brand />
+            <p>
+              Consultoría y software para ordenar tu operación y construir el
+              siguiente paso de tu negocio.
+            </p>
+            <span className="pt-eyebrow">Perú · Colaboración remota</span>
           </div>
-          <p className="font-body-md text-body-md text-outline-variant max-w-md">
-            Estudio de desarrollo de software a medida, arquitectura escalable y soluciones de alta disponibilidad con precisión neo-brutalista retro-tech.
-          </p>
-          <div className="flex items-center gap-space-xs mt-space-xs">
-            <span className="w-2.5 h-2.5 bg-secondary-fixed inline-block"></span>
-            <span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed">
-              Sistemas Operativos 100% Online
-            </span>
+          <div>
+            <strong>Explora</strong>
+            <a href="/#proyectos">Proyectos</a>
+            <a href="/#soluciones">Soluciones</a>
+            <a href="/ideas/">Ideas para tu negocio</a>
+            <a href="/#preguntas">Preguntas frecuentes</a>
           </div>
-        </div>
-
-        {/* Col 2 */}
-        <div className="md:col-span-3 flex flex-col gap-space-xs">
-          <span className="font-label-md text-label-md uppercase tracking-wider text-secondary-fixed">
-            &gt; Terminal_Nav
-          </span>
-          <div className="flex flex-col gap-space-xs text-outline-variant font-label-md text-label-md">
-            <a className="hover:text-secondary-fixed transition-colors" href="#inicio">
-              &gt; Inicio
+          <div>
+            <strong>Hablemos</strong>
+            <a className="pt-email" href={`mailto:${site.email}`}>
+              {site.email}
             </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#soluciones">
-              &gt; Soluciones
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackEvent('whatsapp_click', { placement: 'footer' })
+              }
+            >
+              {site.phone}
             </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#proceso">
-              &gt; Cómo Trabajamos
-            </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#respaldo">
-              &gt; Respaldo Técnico
-            </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#faq">
-              &gt; Preguntas Frecuentes
-            </a>
-            <a className="hover:text-secondary-fixed transition-colors" href="#cotizacion">
-              &gt; Cotizar Proyecto
-            </a>
-            {onSelectView && (
-              <button
-                type="button"
-                onClick={() => onSelectView('soporte')}
-                className="text-secondary-fixed hover:underline font-mono text-xs font-bold uppercase cursor-pointer text-left pt-2 border-t border-outline-variant/30"
+            <div className="pt-footer-social">
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn de Diego Arévalo"
               >
-                &gt; PixelTech Pro (Soporte Técnico)
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Col 3 */}
-        <div className="md:col-span-4 flex flex-col gap-space-sm">
-          <span className="font-label-md text-label-md uppercase tracking-wider text-secondary-fixed">
-            &gt; Canal_Directo
-          </span>
-          <div className="flex flex-col gap-space-xs font-label-sm text-label-sm text-outline-variant">
-            <div className="p-space-sm bg-inverse-surface border border-outline-variant/30 flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <i className="fa-brands fa-whatsapp text-emerald-400 text-sm" />
-                WhatsApp:
-              </span>
-              <span className="text-secondary-fixed font-bold">+51 937 718 698</span>
-            </div>
-            <div className="p-space-sm bg-inverse-surface border border-outline-variant/30 flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[16px]">schedule</span>
-                Horario:
-              </span>
-              <span className="text-secondary-fixed font-bold">Lun - Sáb 8:00 AM - 8:00 PM</span>
+                <Linkedin size={20} />
+              </a>
+              <a
+                href={site.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub de Diego Arévalo"
+              >
+                <Github size={20} />
+              </a>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Subfooter */}
-      <div className="bg-on-background py-space-md">
-        <div className="max-w-7xl mx-auto px-gutter flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline-variant">
-          <span>© 2026 PixelTech Studio. Software Empresarial &amp; Soluciones Digitales.</span>
-          <span className="text-secondary-fixed uppercase">LATAM / PERÚ // SYSTEM_OK</span>
+        <div className="pt-footer-bottom">
+          <span>© {copyrightYear} PixelTech · Diego Arévalo</span>
+          <a href="/soporte/">
+            ¿Buscas soporte para tu computadora?
+            <ArrowUpRight size={15} />
+          </a>
+          <a href="/privacidad/">Privacidad</a>
         </div>
       </div>
     </footer>

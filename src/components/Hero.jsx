@@ -1,16 +1,19 @@
 import { motion } from 'framer-motion'
+import supportIllustration from '../assets/studio/pixelTech_logo.png'
 
 const fadeUp = { hidden: { opacity: 0, y: 32 }, show: { opacity: 1, y: 0 } }
 
 export default function Hero() {
   return (
-    <section className="tech-grid-bg relative pt-12 pb-20 border-b-4 border-black overflow-hidden" id="inicio">
+    <section
+      className="tech-grid-bg relative pt-12 pb-20 border-b-4 border-black overflow-hidden"
+      id="inicio"
+    >
       <div className="absolute left-0 top-16 w-16 h-28 pixel-checker opacity-30 border-r-2 border-black hidden xl:block" />
       <div className="absolute right-0 bottom-12 w-20 h-28 pixel-checker-neon opacity-20 border-l-2 border-black hidden xl:block" />
 
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-
           {/* Left column */}
           <motion.div
             className="lg:col-span-7 flex flex-col items-start space-y-6"
@@ -43,16 +46,33 @@ export default function Hero() {
               </div>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-xl sm:text-2xl font-bold text-white tracking-wide leading-relaxed max-w-xl">
-              <span className="text-brand-neon">&gt;</span> Reparación y mantenimiento profesional de computadoras y laptops.
+            <motion.p
+              variants={fadeUp}
+              className="text-xl sm:text-2xl font-bold text-white tracking-wide leading-relaxed max-w-xl"
+            >
+              <span className="text-brand-neon">&gt;</span> Reparación y
+              mantenimiento profesional de computadoras y laptops.
             </motion.p>
 
-            <motion.p variants={fadeUp} className="text-base text-blue-100 max-w-xl font-normal leading-relaxed">
-              ¿Tu equipo calienta, está lento o no enciende? Atención exclusiva en <strong className="text-white font-semibold">taller técnico equipado</strong>. Realizamos diagnósticos con instrumental de precisión, mantenimiento profundo y repotenciación con total transparencia y garantía.
+            <motion.p
+              variants={fadeUp}
+              className="text-base text-blue-100 max-w-xl font-normal leading-relaxed"
+            >
+              ¿Tu equipo calienta, está lento o no enciende? Atención exclusiva
+              en{' '}
+              <strong className="text-white font-semibold">
+                taller técnico equipado
+              </strong>
+              . Realizamos diagnósticos con instrumental de precisión,
+              mantenimiento profundo y repotenciación con total transparencia y
+              garantía.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-3 w-full sm:w-auto">
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-col sm:flex-row gap-4 pt-3 w-full sm:w-auto"
+            >
               <a
                 className="brutal-btn-neon inline-flex items-center justify-center gap-3 bg-brand-neon text-black px-7 py-4 font-black uppercase text-base border-[3px] border-black shadow-brutal text-center"
                 href="https://wa.me/51937718698?text=Hola%20PixelTech,%20necesito%20diagn%C3%B3stico%20t%C3%A9cnico%20en%20el%20taller%20de%20Huacho"
@@ -72,15 +92,21 @@ export default function Hero() {
             </motion.div>
 
             {/* Honest Trust Badges */}
-            <motion.div variants={fadeUp} className="pt-4 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-wider text-blue-100">
+            <motion.div
+              variants={fadeUp}
+              className="pt-4 flex flex-wrap items-center gap-3 text-xs font-bold uppercase tracking-wider text-blue-100"
+            >
               <span className="flex items-center gap-1.5 bg-brand-darkblue px-3 py-1.5 border border-white/20 shadow-sm">
-                <i className="fa-solid fa-shield-halved text-brand-neon" /> Garantía Escrita 30 Días
+                <i className="fa-solid fa-shield-halved text-brand-neon" />{' '}
+                Garantía Escrita 30 Días
               </span>
               <span className="flex items-center gap-1.5 bg-brand-darkblue px-3 py-1.5 border border-white/20 shadow-sm">
-                <i className="fa-solid fa-camera text-brand-neon" /> Fotos del Proceso por WhatsApp
+                <i className="fa-solid fa-camera text-brand-neon" /> Fotos del
+                Proceso por WhatsApp
               </span>
               <span className="flex items-center gap-1.5 bg-brand-darkblue px-3 py-1.5 border border-white/20 shadow-sm">
-                <i className="fa-solid fa-shop text-brand-neon" /> Taller Físico en Huacho
+                <i className="fa-solid fa-shop text-brand-neon" /> Taller Físico
+                en Huacho
               </span>
             </motion.div>
           </motion.div>
@@ -110,7 +136,7 @@ export default function Hero() {
                 <img
                   alt="PixelTech Computer Character Illustration"
                   className="w-full h-auto max-h-[360px] object-contain relative z-10 drop-shadow-[0_12px_18px_rgba(0,0,0,0.4)]"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtzzO408lXODVCSIxc6W9yoDBTgcROELwp_OqJ6RhwvsGj9I8RTZTb-1ts_wgmelzRZNOIhyFPAjetjFJYhXHvmecFQ7iOy9BgkOMqHR8asikDc45YXxB_ew7AZnytQwziZCm7RZjhD4J8Ct9ip878xvkFsW_6hUK1_MT9gilrYCz31ffiUH24RWnKu6njO8J4Si7Y-cOLOwIAgL6zPvHrdHqIuf2dx5BEsWJU2F39euQcfk_ZuV4WjcOJzdYa9DZ-4Q"
+                  src={supportIllustration}
                 />
               </div>
               <div className="mt-3 bg-white text-black p-2.5 border-2 border-black text-center font-bold text-xs sm:text-sm tracking-wide">
@@ -118,7 +144,6 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

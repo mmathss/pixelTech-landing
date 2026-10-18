@@ -11,7 +11,7 @@ export default function Contact() {
   })
 
   function handleChange(e) {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   function handleSubmit(e) {
@@ -32,7 +32,6 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
             {/* Left info panel */}
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
@@ -43,15 +42,26 @@ export default function Contact() {
                   ¿Problemas con tu PC o Laptop?
                 </h3>
                 <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                  Trae tu equipo a nuestro taller en Huacho para un diagnóstico preciso en banco de trabajo. Cuéntanos la falla por WhatsApp y coordinamos tu recepción inmediata.
+                  Trae tu equipo a nuestro taller en Huacho para un diagnóstico
+                  preciso en banco de trabajo. Cuéntanos la falla por WhatsApp y
+                  coordinamos tu recepción inmediata.
                 </p>
 
                 <div className="space-y-4 text-sm font-bold">
                   {[
                     { icon: 'fa-brands fa-whatsapp', text: '+51 937 718 698' },
-                    { icon: 'fa-solid fa-clock', text: 'Lunes a Sábado: 8:00 AM - 8:00 PM' },
-                    { icon: 'fa-solid fa-screwdriver-wrench', text: 'Atención Exclusiva en Taller Técnico' },
-                    { icon: 'fa-solid fa-map-pin', text: 'Huacho, Lima — Coordinación previa' },
+                    {
+                      icon: 'fa-solid fa-clock',
+                      text: 'Lunes a Sábado: 8:00 AM - 8:00 PM',
+                    },
+                    {
+                      icon: 'fa-solid fa-screwdriver-wrench',
+                      text: 'Atención Exclusiva en Taller Técnico',
+                    },
+                    {
+                      icon: 'fa-solid fa-map-pin',
+                      text: 'Huacho, Lima — Coordinación previa',
+                    },
                   ].map(({ icon, text }) => (
                     <div key={text} className="flex items-center gap-3">
                       <span className="w-8 h-8 bg-brand-neon text-black border border-black flex items-center justify-center text-sm shadow-[2px_2px_0px_#000]">
@@ -67,10 +77,11 @@ export default function Contact() {
                 <img
                   alt="PixelTech mini"
                   className="w-12 h-12 object-contain bg-brand-neon p-1 border border-black"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE5uQIPmkLqJImHHI0lEIYCFTF27yfAR05v8ukKyMK-GsYg61EB26topmnYpR3UkdrWH8AVJKMdz0j9Q3S3d_DeKg-QIS-8vSHsr0hD-eu58j9sHIbqRnzswEVbVN-gB48umnOJcKAWZPfpyEsRpW0esa2cqqIhWOY_SNR86SCLTBkx8x78YhHXV4AljLrleKLnGjHZkWqE5DEcDqRq2o25ub7YsmypyYDPk9BNQdDLiMnMBAJ-3s3IJCIrz8D_Q8TqA"
+                  src="/favicon.svg"
                 />
                 <p className="text-xs text-blue-200">
-                  Respaldo seguro de datos y garantía por escrito en cada servicio.
+                  Respaldo seguro de datos y garantía por escrito en cada
+                  servicio.
                 </p>
               </div>
             </div>
@@ -80,11 +91,16 @@ export default function Contact() {
               <h4 className="text-xl font-black uppercase tracking-tight mb-1 text-black">
                 Solicitar Diagnóstico Rápido
               </h4>
-              <p className="text-xs text-neutral-600 mb-5">Completa el formulario para enviarte la respuesta vía WhatsApp.</p>
+              <p className="text-xs text-neutral-600 mb-5">
+                Completa el formulario para enviarte la respuesta vía WhatsApp.
+              </p>
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label className="block text-xs font-extrabold uppercase mb-1" htmlFor="nombre">
+                  <label
+                    className="block text-xs font-extrabold uppercase mb-1"
+                    htmlFor="nombre"
+                  >
                     Tu Nombre Completo *
                   </label>
                   <input
@@ -101,7 +117,10 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-extrabold uppercase mb-1" htmlFor="tipo">
+                    <label
+                      className="block text-xs font-extrabold uppercase mb-1"
+                      htmlFor="tipo"
+                    >
                       Tipo de Equipo *
                     </label>
                     <select
@@ -112,13 +131,22 @@ export default function Contact() {
                       onChange={handleChange}
                     >
                       <option value="Laptop">Laptop / Notebook</option>
-                      <option value="PC de Escritorio">PC de Escritorio / Torre</option>
-                      <option value="PC Todo en Uno (All-in-One)">All-in-One</option>
-                      <option value="Disco / Memoria">Disco Duro o SSD Externo</option>
+                      <option value="PC de Escritorio">
+                        PC de Escritorio / Torre
+                      </option>
+                      <option value="PC Todo en Uno (All-in-One)">
+                        All-in-One
+                      </option>
+                      <option value="Disco / Memoria">
+                        Disco Duro o SSD Externo
+                      </option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-extrabold uppercase mb-1" htmlFor="servicio">
+                    <label
+                      className="block text-xs font-extrabold uppercase mb-1"
+                      htmlFor="servicio"
+                    >
                       Servicio de Interés
                     </label>
                     <select
@@ -128,17 +156,30 @@ export default function Contact() {
                       value={form.servicio}
                       onChange={handleChange}
                     >
-                      <option value="Diagnóstico General">Diagnóstico General</option>
-                      <option value="Formateo e Instalación">Formateo de Sistema</option>
-                      <option value="Repotenciación SSD/RAM">Repotenciación SSD / RAM</option>
-                      <option value="Limpieza y Mantenimiento">Limpieza y Pasta Térmica</option>
-                      <option value="Recuperación de Archivos">Recuperación de Datos</option>
+                      <option value="Diagnóstico General">
+                        Diagnóstico General
+                      </option>
+                      <option value="Formateo e Instalación">
+                        Formateo de Sistema
+                      </option>
+                      <option value="Repotenciación SSD/RAM">
+                        Repotenciación SSD / RAM
+                      </option>
+                      <option value="Limpieza y Mantenimiento">
+                        Limpieza y Pasta Térmica
+                      </option>
+                      <option value="Recuperación de Archivos">
+                        Recuperación de Datos
+                      </option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-extrabold uppercase mb-1" htmlFor="descripcion">
+                  <label
+                    className="block text-xs font-extrabold uppercase mb-1"
+                    htmlFor="descripcion"
+                  >
                     ¿Qué problema presenta el equipo? *
                   </label>
                   <textarea
@@ -162,7 +203,6 @@ export default function Contact() {
                 </button>
               </form>
             </div>
-
           </div>
         </motion.div>
       </div>

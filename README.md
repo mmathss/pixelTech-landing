@@ -1,16 +1,61 @@
-# React + Vite
+# PixelTech — Consultoría y software
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing de una consultoría nueva liderada por Diego Arévalo. Conserva la identidad retro de PixelTech, muestra proyectos propios verificables y separa soporte técnico de la oferta de software.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requiere Node.js compatible con Vite 8 y npm.
 
-## React Compiler
+```sh
+npm install
+npm run dev
+npm test
+npm run build
+npm run test:e2e
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Las pruebas de navegador usan Google Chrome instalado. `npm run build` compila cliente y renderizador, y genera HTML con contenido, metadatos, sitemap y robots.txt. `.prerender/` es un resultado temporal ignorado por Git. Para revisar producción: `npm run preview`.
 
-## Expanding the Oxlint configuration
+## Rutas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Ruta                     | Contenido                                                    |
+| ------------------------ | ------------------------------------------------------------ |
+| `/`                      | Consultoría, proyectos, oferta, proceso, líder y diagnóstico |
+| `/soporte/`              | Soporte técnico en Huacho                                    |
+| `/proyectos/inventario/` | Demo de stock y movimientos                                  |
+| `/proyectos/reservas/`   | Demo de disponibilidad y citas                               |
+| `/proyectos/pedidos/`    | Demo de seguimiento de pedidos                               |
+| `/ideas/`                | Guías vinculadas a las demos                                 |
+| `/privacidad/`           | Datos de consulta, demos y medición                          |
+
+Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anclas de cotización/respaldo/FAQ.
+
+## Personalización
+
+- Datos de Diego y enlaces: `src/data/site.js`. Los enlaces de GitHub y LinkedIn se conservaron de la referencia original.
+- Proyectos, alcances y destinos del código: `src/data/projects.js`.
+- Guías originales de captación: `src/data/articles.js`.
+- Metadatos: `src/data/pages.js` y `scripts/metadata.js`.
+- Marca y responsive: `src/studio.css`; interfaces de producto: `src/demos.css`.
+- Foto principal: `src/assets/studio/developer_profile.png`. Isotipo detallado conservado como ilustración de soporte; variante pequeña en `public/favicon.svg`.
+- Capturas y social cards: `npm run assets:previews` con un servidor en el puerto 4173. Ver [documentación de demos](src/components/demos/README.md).
+
+## Correo
+
+Copiar `.env.example` como configuración local y definir `RESEND_API_KEY`, `CONTACT_EMAIL` y `FROM_EMAIL`. No versionar secretos. En producción configurar las mismas variables en Vercel. El remitente debe estar autorizado por Resend; `onboarding@resend.dev` es un remitente de prueba con restricciones.
+
+`/api/send-email` usa el mismo manejador en desarrollo y producción: valida nombre, correo, consulta y honeypot; escapa el contenido del correo y solo confirma éxito cuando Resend devuelve un identificador. Si falta configuración o el proveedor falla, el visitante conserva sus datos y dispone de correo y WhatsApp como alternativa. Las pruebas usan un proveedor simulado; no envían mensajes reales.
+
+## Publicación y SEO
+
+`dist/` contiene diez páginas prerenderizadas y `404.html`. Vercel ejecuta `npm run build` y sirve `dist/`, con funciones en `api/`. `vercel.json` conserva rutas con barra final. Si cambias de dominio, configurar `VITE_SITE_URL` y reconstruir. No se ha cambiado el dominio ni publicado estos cambios automáticamente.
+
+El HTML de cada ruta incluye título, descripción, canonical, Open Graph y contenido visible antes de JavaScript. Los enlaces de código apuntan a la rama `main` del repositorio existente: los archivos nuevos serán visibles allí cuando se suban los cambios.
+
+## Analítica y seguimiento comercial
+
+La integración de Vercel Web Analytics está instalada. Activar Web Analytics en el panel del proyecto y volver a desplegar. Los eventos personalizados requieren un plan compatible; ver [activación](https://vercel.com/docs/analytics/quickstart) y [eventos personalizados](https://vercel.com/docs/analytics/custom-events).
+
+La aplicación emite además `pixeltech:analytics` como evento de navegador, útil para comprobar la instrumentación o conectar otro proveedor. El evento no constituye un almacenamiento persistente de métricas. No se recogen nombres, correos ni descripciones de consultas en eventos personalizados.
+
+Ver [plan de captación y métricas](docs/marketing.md) y [seguimiento de los 34 puntos](docs/implementation-checklist.md).
