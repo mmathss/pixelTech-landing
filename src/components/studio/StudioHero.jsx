@@ -36,7 +36,7 @@ export default function StudioHero() {
             </span>
             <span>
               <Check size={16} />
-              Trato directo con Diego
+              Trato directo con nuestro equipo
             </span>
           </div>
         </div>
