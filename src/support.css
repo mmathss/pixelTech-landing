@@ -1014,6 +1014,40 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes sp-hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .sp-hero-copy > * {
+    animation: sp-hero-enter 0.65s cubic-bezier(0.2, 0.65, 0.3, 1) backwards;
+  }
+  .sp-hero-copy > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+  .sp-hero-copy > :nth-child(3) {
+    animation-delay: 0.16s;
+  }
+  .sp-hero-copy > :nth-child(4) {
+    animation-delay: 0.24s;
+  }
+  .sp-hero-copy > :nth-child(5) {
+    animation-delay: 0.32s;
+  }
+  .sp-hero-copy > :nth-child(6) {
+    animation-delay: 0.4s;
+  }
+  .sp-hero-copy > :focus-within {
+    animation: none;
+  }
+  .sp-hero-strip {
+    animation: sp-hero-enter 0.6s ease 0.4s backwards;
+  }
   .support-site .sp-reveal-pending {
     opacity: 0;
     transform: translateY(22px);
