@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import supportIllustration from '../assets/brand/pixeltech-symbol.png'
+import supportIllustration from '../assets/brand/pixeltech-symbol-512.webp'
 
 const fadeUp = { hidden: { opacity: 0, y: 32 }, show: { opacity: 1, y: 0 } }
 

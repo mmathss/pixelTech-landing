@@ -8,9 +8,6 @@ export function Brand({ support = false, inverse = false }) {
       className={`pt-brand${inverse ? ' pt-brand-inverse' : ''}`}
       aria-label="PixelTech, inicio"
     >
-      {!inverse && (
-        <BrandArtwork variant="wordmark" className="pt-brand-wordmark" />
-      )}
       <span className="pt-brand-compact">
         <BrandArtwork className="pt-brand-symbol" />
         <span aria-hidden="true">

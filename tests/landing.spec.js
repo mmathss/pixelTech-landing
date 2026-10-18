@@ -67,6 +67,39 @@ for (const width of [360, 768, 1440]) {
     }
   })
 }
+
+test('process diagram finishes readable and logos use lightweight web assets', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+  await expect(page.locator('.pt-header .pt-brand strong')).toHaveText(
+    'PixelTech.',
+  )
+  const diagram = page.getByRole('img', { name: /^Diagrama: pedidos/ })
+  await diagram.scrollIntoViewIfNeeded()
+  await expect(diagram).toHaveClass(/pt-flow-running/)
+  await expect
+    .poll(() =>
+      diagram.evaluate(
+        (element) => element.getAnimations({ subtree: true }).length,
+      ),
+    )
+    .toBe(0)
+  await expect(diagram.locator('.pt-flow-source')).toHaveCount(3)
+  await expect(diagram.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
+  await expect(diagram.locator('.pt-flow-result')).toContainText(
+    'Información conectada',
+  )
+  const symbol = page.locator('.pt-featured-art img')
+  await symbol.scrollIntoViewIfNeeded()
+  await expect
+    .poll(() =>
+      symbol.evaluate((image) => image.complete && image.naturalWidth > 0),
+    )
+    .toBe(true)
+  expect(await symbol.evaluate((image) => image.currentSrc)).toMatch(/\.webp$/)
+})
 test('mobile navigation opens, closes and supports Escape', async ({
   page,
 }) => {
@@ -101,6 +134,10 @@ test('landing content remains accessible without motion or JavaScript', async ({
     try {
       const page = await context.newPage()
       await page.goto('http://127.0.0.1:4175/')
+      await expect(
+        page.getByRole('img', { name: /^Diagrama: pedidos/ }),
+      ).toBeVisible()
+      await expect(page.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
       await page.locator('#lider').scrollIntoViewIfNeeded()
       await expect(page.locator('.pt-photo-caption')).toContainText(
         'AI Software Engineer',

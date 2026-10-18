@@ -37,9 +37,11 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 - Guías originales de captación: `src/data/articles.js`.
 - Metadatos: `src/data/pages.js` y `scripts/metadata.js`.
 - Marca y responsive: `src/studio.css`; interfaces de producto: `src/demos.css`.
-- Foto principal: `src/assets/studio/developer_profile.png`. Logos principales originales en `src/assets/brand/`; `BrandArtwork.jsx` los encuadra mediante SVG sin modificar sus píxeles. Favicon simplificado en `public/favicon.svg`.
+- Foto principal: `src/assets/studio/developer_profile.png`. Logos originales en `src/assets/brand/`; la navegación combina el símbolo optimizado con nombre y descriptor en HTML para mantener la nitidez. Favicon simplificado en `public/favicon.svg`.
 - Nuvora: proyecto destacado actualmente en desarrollo, con recursos originales en `src/assets/nuvora/`. No se presenta como demo funcional ni enlaza a repositorios privados. La demo básica de inventario permanece independiente en el laboratorio.
 - Capturas y social cards: `npm run assets:previews` con un servidor en el puerto 4173. Ver [documentación de demos](src/components/demos/README.md).
+- Exportaciones web: `npm run assets:optimize` usa Sharp para generar los WebP desde los originales, sin sobrescribirlos. El símbolo de Nuvora tiene variantes de 640 y 960 px (15–25 KiB), y empieza a descargarse antes de llegar a la sección. Los WebP se incluyen en el repositorio; no hace falta regenerarlos en cada compilación.
+- Hero: `StudioProcessDiagram.jsx` presenta un recorrido de procesos con texto HTML y conexiones SVG. La animación se reproduce una vez al entrar en pantalla; con movimiento reducido o sin JavaScript, el diagrama permanece estático y legible.
 
 ## Correo
 

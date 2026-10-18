@@ -1,6 +1,6 @@
-import { ArrowRight, Check, Play } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { DiagnosticLink } from './StudioUI'
-import { trackEvent } from '../../utils/analytics'
+import StudioProcessDiagram from './StudioProcessDiagram'
 export default function StudioHero() {
   return (
     <section id="inicio" className="pt-hero">
@@ -41,39 +41,18 @@ export default function StudioHero() {
           </div>
         </div>
         <div className="pt-hero-visual">
-          <div className="pt-window">
+          <div className="pt-window pt-process-window">
             <div className="pt-window-bar">
               <span>
                 <span className="pt-window-square" />
-                pixeltech / laboratorio
+                pixeltech / tu operación
               </span>
               <span aria-hidden="true">— □ ×</span>
             </div>
-            <a
-              className="pt-hero-screen"
-              href="/proyectos/inventario/"
-              onClick={() =>
-                trackEvent('project_open', {
-                  project: 'inventario',
-                  placement: 'hero',
-                })
-              }
-            >
-              <img
-                src="/projects/inventario.png"
-                alt="Demo de inventario: productos, alertas e historial de movimientos"
-                width="1200"
-                height="760"
-                fetchPriority="high"
-              />
-              <span className="pt-preview-play">
-                <Play size={15} fill="currentColor" aria-hidden="true" />
-                Abrir demo funcional
-              </span>
-            </a>
+            <StudioProcessDiagram />
             <div className="pt-window-footer">
               <span className="pt-status-dot" />
-              <span>Datos de ejemplo. Software para explorar.</span>
+              <span>Conectamos procesos. Construimos claridad.</span>
               <span aria-hidden="true">↗</span>
             </div>
           </div>
