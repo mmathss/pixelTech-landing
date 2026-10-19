@@ -6,7 +6,7 @@ test('consulting home presents projects, a real leader and clear demo claims', a
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('/')
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Tu negocio avanza',
+    'Entendemos tu negocio',
   )
   await expect(page.locator('#proyectos article')).toHaveCount(3)
   const nuvora = page.getByRole('article', {

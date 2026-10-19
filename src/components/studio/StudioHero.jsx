@@ -11,9 +11,9 @@ export default function StudioHero() {
             Criterio de negocio. Mentalidad de producto.
           </span>
           <h1>
-            Tu negocio avanza.
+            Entendemos tu negocio.
             <br />
-            Tu software <span className="pt-highlight">también debería.</span>
+            Construimos <span className="pt-highlight">lo que necesita.</span>
           </h1>
           <p>
             Consultoría y software para empresas que necesitan ordenar su
