@@ -13,7 +13,7 @@ export default function StudioHero() {
           <h1>
             Entendemos tu negocio.
             <br />
-            Construimos <span className="pt-highlight">lo que necesita.</span>
+            <span className="pt-highlight">Construimos lo que necesita.</span>
           </h1>
           <p>
             Consultoría y software para empresas que necesitan ordenar su
