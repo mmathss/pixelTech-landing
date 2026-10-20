@@ -4,10 +4,10 @@ import fs from 'node:fs/promises'
 // Deterministic web exports. Original artwork stays untouched beside them.
 const exports = [
   ...[96, 192, 512].map((width) => ({
-    input: 'src/assets/brand/pixeltech-symbol.png',
+    input: 'src/assets/brand/logo_pixeltech_sinFondo.png',
     output: `src/assets/brand/pixeltech-symbol-${width}.webp`,
     width,
-    crop: { left: 134, top: 141, width: 1009, height: 963 },
+    trim: true,
     lossless: true,
   })),
   ...[640, 960].map((width) => ({
@@ -25,6 +25,7 @@ const exports = [
 ]
 for (const asset of exports) {
   let image = sharp(asset.input)
+  if (asset.trim) image = image.trim()
   if (asset.crop) image = image.extract(asset.crop)
   await image
     .resize({ width: asset.width, withoutEnlargement: true })
@@ -40,12 +41,7 @@ for (const asset of exports) {
 }
 
 // Tab icons use the same current PixelTech symbol, not a separate drawing.
-const icon = sharp('src/assets/brand/pixeltech-symbol.png').extract({
-  left: 134,
-  top: 141,
-  width: 1009,
-  height: 963,
-})
+const icon = sharp('src/assets/brand/logo_pixeltech_sinFondo.png').trim()
 const favicon32 = await icon
   .clone()
   .resize(32, 32, { fit: 'contain', background: '#00000000' })
@@ -64,3 +60,13 @@ await fs.writeFile(
 console.log(
   `Favicons: ${(favicon32.length / 1024).toFixed(1)} KiB PNG / ${((await fs.stat('public/favicon.svg')).size / 1024).toFixed(1)} KiB SVG`,
 )
+
+// Keep social previews on the same logo as navigation and tab icons.
+const socialLogo = (await fs.readFile('src/assets/brand/pixeltech-symbol-192.webp')).toString('base64')
+for (const file of ['public/social-card.svg', 'public/social-support.svg']) {
+  const svg = await fs.readFile(file, 'utf8')
+  await fs.writeFile(file, svg.replace(
+    /(<image id="social-logo"[^>]*href=")[^"]*(")/,
+    `$1data:image/webp;base64,${socialLogo}$2`,
+  ))
+}

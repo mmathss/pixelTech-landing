@@ -141,6 +141,7 @@
 }
 .pt-brand-symbol {
   display: block;
+  object-fit: contain;
   width: 46px;
   height: 44px;
   overflow: hidden;

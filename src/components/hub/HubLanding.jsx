@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import logoImg from '../../assets/studio/pixelTech_logo.png'
+import logoImg from '../../assets/brand/pixeltech-symbol-96.webp'
+import logoRetina from '../../assets/brand/pixeltech-symbol-192.webp'
 
 export default function HubLanding({ onSelectView }) {
   return (
@@ -32,8 +33,9 @@ export default function HubLanding({ onSelectView }) {
             <div className="bg-brand-neon p-1 border-2 border-black">
               <img
                 src={logoImg}
+                srcSet={`${logoImg} 1x, ${logoRetina} 2x`}
                 alt="PixelTech Logo"
-                className="w-7 h-7 sm:w-8 sm:h-8 object-contain brightness-0"
+                className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
               />
             </div>
             <span className="font-pixel text-black text-lg sm:text-2xl uppercase tracking-tight">
