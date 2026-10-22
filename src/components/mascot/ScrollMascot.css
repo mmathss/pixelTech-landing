@@ -4,7 +4,6 @@
   bottom: max(12px, env(safe-area-inset-bottom));
   z-index: 35;
   width: 256px;
-  transform: translateX(var(--mascot-travel, 0px));
   pointer-events: none;
   color: #f6f8ed;
   font-family: 'Manrope', sans-serif;
@@ -37,7 +36,6 @@
   animation: pixel-mascot-frames 1.6s steps(8) infinite;
 }
 .pixel-mascot-idle { background-position-y: 0; animation-duration: 2.4s; }
-.pixel-mascot-walk { background-position-y: -140px; animation-duration: .8s; transform: scaleX(var(--mascot-direction, 1)); }
 .pixel-mascot-explain { background-position-y: -280px; }
 .pixel-mascot-greet { background-position-y: -420px; }
 .pixel-mascot-dismiss, .pixel-mascot-hide {
@@ -78,10 +76,8 @@
   .pixel-mascot-controls { width: 78.4px; }
   .pixel-mascot-character { width: 78.4px; height: 98px; }
   .pixel-mascot-sprite { transform: scale(.7); transform-origin: top left; }
-  .pixel-mascot-walk { transform: scale(calc(.7 * var(--mascot-direction, 1)), .7); transform-origin: 46.12px 0; }
   .pixel-mascot-editing { visibility: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pixel-mascot { transform: none; }
   .pixel-mascot-sprite { animation: none; background-position: 0 0; }
 }
