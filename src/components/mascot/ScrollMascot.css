@@ -1,11 +1,13 @@
 .pixel-mascot {
+  --mascot-frame-width: 128px;
+  --mascot-frame-height: 140px;
   position: fixed;
-  left: max(16px, env(safe-area-inset-left));
+  right: max(16px, env(safe-area-inset-right));
   bottom: max(12px, env(safe-area-inset-bottom));
   z-index: 35;
   width: 256px;
   pointer-events: none;
-  color: #f6f8ed;
+  color: #202920;
   font-family: 'Manrope', sans-serif;
 }
 .pixel-mascot button, .pixel-mascot-restore { cursor: pointer; }
@@ -13,31 +15,31 @@
   position: relative;
   padding: 18px;
   margin-bottom: 8px;
-  background: #171e24;
-  border: 1px solid #bde52d;
-  border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 6px 24px #0002;
+  background: #fffef5;
+  border: 1px solid #d7dfbb;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 6px 24px #23301918;
   pointer-events: auto;
 }
 .pixel-mascot-bubble[hidden] { display: none; }
-.pixel-mascot-eyebrow { display: block; color: #dfff00; font: 10px/1.5 monospace; letter-spacing: 1px; margin-bottom: 8px; }
-.pixel-mascot-bubble strong { display: block; padding-right: 12px; font-size: 14px; line-height: 1.4; }
-.pixel-mascot .pixel-mascot-bubble p { margin: 7px 0 0; color: #d3dbd5; font-size: 12px; line-height: 1.65; }
-.pixel-mascot-controls { position: relative; width: 112px; }
-.pixel-mascot-character { display: block; padding: 0; border: 0; background: transparent; pointer-events: auto; border-radius: 12px; }
+.pixel-mascot-eyebrow { display: block; color: #546900; font: 10px/1.5 monospace; letter-spacing: 1px; margin-bottom: 8px; }
+.pixel-mascot .pixel-mascot-bubble strong { display: block; color: #202920; padding-right: 12px; font-size: 14px; line-height: 1.4; }
+.pixel-mascot .pixel-mascot-bubble p { margin: 7px 0 0; color: #4b5748; font-size: 12px; line-height: 1.65; }
+.pixel-mascot-controls { position: relative; width: var(--mascot-frame-width); margin-left: auto; }
+.pixel-mascot-character { display: block; width: var(--mascot-frame-width); height: var(--mascot-frame-height); padding: 0; border: 0; background: transparent; pointer-events: auto; border-radius: 12px; }
 .pixel-mascot-sprite {
   display: block;
-  width: 112px;
-  height: 140px;
+  width: var(--mascot-frame-width);
+  height: var(--mascot-frame-height);
   background-image: var(--mascot-sheet);
-  background-size: 896px 560px;
+  background-size: calc(var(--mascot-frame-width) * 8) calc(var(--mascot-frame-height) * 4);
   background-repeat: no-repeat;
   image-rendering: pixelated;
   animation: pixel-mascot-frames 1.6s steps(8) infinite;
 }
 .pixel-mascot-idle { background-position-y: 0; animation-duration: 2.4s; }
-.pixel-mascot-explain { background-position-y: -280px; }
-.pixel-mascot-greet { background-position-y: -420px; }
+.pixel-mascot-explain { background-position-y: calc(var(--mascot-frame-height) * -2); }
+.pixel-mascot-greet { background-position-y: calc(var(--mascot-frame-height) * -3); }
 .pixel-mascot-dismiss, .pixel-mascot-hide {
   display: grid;
   place-items: center;
@@ -47,35 +49,32 @@
   height: 28px;
   border: 0;
   border-radius: 50%;
-  background: #263139;
-  color: #edf3e4;
+  background: #eaf0d9;
+  color: #3c4938;
   pointer-events: auto;
 }
 .pixel-mascot-dismiss { top: 6px; right: 6px; }
-.pixel-mascot-hide { top: 8px; right: -18px; }
+.pixel-mascot-hide { top: 8px; right: 0; }
 .pixel-mascot-restore {
   position: fixed;
   bottom: max(16px, env(safe-area-inset-bottom));
-  left: max(16px, env(safe-area-inset-left));
+  right: max(16px, env(safe-area-inset-right));
   z-index: 35;
   display: flex;
   align-items: center;
   gap: 7px;
-  border: 1px solid #bde52d;
+  border: 1px solid #d7dfbb;
   border-radius: 24px;
   padding: 10px 14px;
-  background: #171e24;
-  color: #dfff00;
+  background: #fffef5;
+  color: #546900;
   font: 12px/1.3 monospace;
 }
-.pixel-mascot button:focus-visible, .pixel-mascot-restore:focus-visible { outline: 3px solid #dfff00; outline-offset: 3px; }
-@keyframes pixel-mascot-frames { from { background-position-x: 0; } to { background-position-x: -896px; } }
+.pixel-mascot button:focus-visible, .pixel-mascot-restore:focus-visible { outline: 3px solid #657d16; outline-offset: 3px; }
+@keyframes pixel-mascot-frames { from { background-position-x: 0; } to { background-position-x: calc(var(--mascot-frame-width) * -8); } }
 @media (max-width: 599px) {
-  .pixel-mascot { width: 224px; left: max(10px, env(safe-area-inset-left)); bottom: max(6px, env(safe-area-inset-bottom)); }
+  .pixel-mascot { --mascot-frame-width: 89.6px; --mascot-frame-height: 98px; width: 224px; right: max(10px, env(safe-area-inset-right)); bottom: max(6px, env(safe-area-inset-bottom)); }
   .pixel-mascot-bubble { padding: 14px; }
-  .pixel-mascot-controls { width: 78.4px; }
-  .pixel-mascot-character { width: 78.4px; height: 98px; }
-  .pixel-mascot-sprite { transform: scale(.7); transform-origin: top left; }
   .pixel-mascot-editing { visibility: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
