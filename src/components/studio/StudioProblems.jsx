@@ -19,7 +19,7 @@ const problems = [
 ]
 export default function StudioProblems() {
   return (
-    <section className="pt-section pt-section-muted">
+    <section id="problemas" className="pt-section pt-section-muted">
       <div className="pt-container">
         <SectionIntro
           eyebrow="02 / Un buen punto de partida"
