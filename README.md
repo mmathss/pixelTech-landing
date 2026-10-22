@@ -46,7 +46,7 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 - Nuvora: proyecto destacado actualmente en desarrollo, con recursos originales en `src/assets/nuvora/`. No se presenta como demo funcional ni enlaza a repositorios privados. La demo básica de inventario permanece independiente en el laboratorio.
 - Capturas y social cards: `npm run assets:previews` con un servidor en el puerto 4173. Ver [documentación de demos](src/components/demos/README.md).
 - Exportaciones web: `npm run assets:optimize` usa Sharp para generar los WebP desde los originales, sin sobrescribirlos. El símbolo de Nuvora tiene variantes de 640 y 960 px (15–25 KiB), y empieza a descargarse antes de llegar a la sección. Los WebP se incluyen en el repositorio; no hace falta regenerarlos en cada compilación.
-- Hero: `StudioDemoShowcase.jsx` permite alternar capturas de las demos de pedidos, reservas e inventario, con enlaces directos a sus flujos. Usa los recursos de `public/projects/`; la primera captura carga de forma prioritaria. No hay reproducción automática. Los cambios de panel respetan movimiento reducido.
+- Hero: `StudioProcessDiagram.jsx` muestra cómo pedidos, inventario y clientes se conectan a través de PixelTech. La animación se reproduce una vez al entrar en pantalla; con movimiento reducido o sin JavaScript, el gráfico permanece estático y legible. Las capturas y los recorridos de las demos están en la sección de proyectos.
 
 ## Correo
 

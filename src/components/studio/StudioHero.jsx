@@ -1,6 +1,6 @@
 import { ArrowRight, Check } from 'lucide-react'
 import { DiagnosticLink } from './StudioUI'
-import StudioDemoShowcase from './StudioDemoShowcase'
+import StudioProcessDiagram from './StudioProcessDiagram'
 export default function StudioHero() {
   return (
     <section id="inicio" className="pt-hero pt-hero-showcase">
@@ -41,7 +41,21 @@ export default function StudioHero() {
           </div>
         </div>
         <div className="pt-hero-visual">
-          <StudioDemoShowcase />
+          <div className="pt-window pt-process-window">
+            <div className="pt-window-bar">
+              <span><span className="pt-window-square" />pixeltech / tu operación</span>
+              <span aria-hidden="true">— □ ×</span>
+            </div>
+            <StudioProcessDiagram />
+            <div className="pt-window-footer">
+              <span className="pt-status-dot" />
+              <span>Conectamos procesos. Construimos claridad.</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+          </div>
+          <span className="pt-hero-sticker">
+            Menos tareas repetidas.<br /><strong>Más claridad para decidir.</strong>
+          </span>
         </div>
       </div>
       <div className="pt-container pt-hero-bottom">

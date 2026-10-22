@@ -68,7 +68,7 @@ for (const width of [360, 768, 1440]) {
   })
 }
 
-test('hero previews switch between real demos and logos use lightweight web assets', async ({
+test('process diagram finishes readable and logos use lightweight web assets', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 })
@@ -76,14 +76,13 @@ test('hero previews switch between real demos and logos use lightweight web asse
   await expect(page.locator('.pt-header .pt-brand strong')).toHaveText(
     'PixelTech.',
   )
-  const showcase = page.locator('.pt-demo-showcase')
-  await expect(showcase.getByRole('link', { name: 'Abrir demo de pedidos' })).toBeVisible()
-  await showcase.getByText('Reservas', { exact: true }).click()
-  await expect(showcase.getByRole('link', { name: 'Abrir demo de reservas' })).toHaveAttribute('href', '/proyectos/reservas/#demo')
-  await expect(showcase.locator('[data-preview="reservas"] img')).toBeVisible()
-  await expect(showcase.locator('[data-preview="pedidos"]')).toBeHidden()
-  await showcase.getByRole('radio', { name: 'Reservas', exact: true }).press('ArrowRight')
-  await expect(showcase.locator('[data-preview="inventario"]')).toBeVisible()
+  const diagram = page.getByRole('img', { name: /^Diagrama: pedidos/ })
+  await diagram.scrollIntoViewIfNeeded()
+  await expect(diagram).toHaveClass(/pt-flow-running/)
+  await expect.poll(() => diagram.evaluate((element) => element.getAnimations({ subtree: true }).length)).toBe(0)
+  await expect(diagram.locator('.pt-flow-source')).toHaveCount(3)
+  await expect(diagram.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
+  await expect(diagram.locator('.pt-flow-result')).toContainText('Información conectada')
   const symbol = page.locator('.pt-featured-art img')
   await symbol.scrollIntoViewIfNeeded()
   await expect
@@ -144,10 +143,8 @@ test('landing content remains accessible without motion or JavaScript', async ({
     try {
       const page = await context.newPage()
       await page.goto('http://127.0.0.1:4175/')
-      const showcase = page.locator('.pt-demo-showcase')
-      await expect(showcase.getByRole('link', { name: 'Abrir demo de pedidos' })).toBeVisible()
-      await showcase.getByText('Reservas', { exact: true }).click()
-      await expect(showcase.locator('[data-preview="reservas"]')).toBeVisible()
+      await expect(page.getByRole('img', { name: /^Diagrama: pedidos/ })).toBeVisible()
+      await expect(page.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
       await page.locator('.pt-solution-picker label').filter({ hasText: 'Conectar tus herramientas' }).click()
       await expect(page.locator('[data-solution="02"]')).toBeVisible()
       await expect(page.locator('[data-solution="01"]')).toBeHidden()
