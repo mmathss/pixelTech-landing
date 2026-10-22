@@ -14,7 +14,7 @@ export default function StudioLanding() {
   const main = useRef(null)
   useLandingMotion(main)
   return (
-    <div className="pt-site">
+    <div className="pt-site pt-home">
       <StudioNavbar />
       <main id="contenido" ref={main}>
         <StudioHero />

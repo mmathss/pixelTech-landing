@@ -32,7 +32,7 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 
 ## Personalización
 
-- Oferta de la landing: sistemas web, integraciones y automatización. `StudioServices.jsx` organiza las soluciones por necesidad (ordenar la operación, conectar herramientas y mejorar sistemas); las etapas de trabajo se explican en `StudioProcess.jsx`. Las demos muestran problema, solución y acciones disponibles desde los datos de `src/data/projects.js`. El contacto invita a una conversación inicial de 20 minutos sin costo.
+- Oferta de la landing: sistemas web, integraciones y automatización. `StudioServices.jsx` permite elegir una necesidad y muestra su alcance junto a un ejemplo ilustrativo. Los selectores nativos funcionan con teclado y sin JavaScript. Las demos ocupan filas amplias con capturas y un recorrido de tres acciones; Nuvora conserva su estado de producto en desarrollo. `src/showcase.css` define esta composición solo para la landing. El contacto invita a una conversación inicial de 20 minutos sin costo.
 
 - Mascota Pixie: retirada de la landing y soporte para mantener el foco en el contenido. Se conservan el componente en `src/components/mascot/`, los recursos en `src/assets/mascot/` y el generador `scripts/prepare-mascot.mjs` para un posible uso futuro. No se incluyen en la compilación de las páginas actuales.
 
@@ -46,7 +46,7 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 - Nuvora: proyecto destacado actualmente en desarrollo, con recursos originales en `src/assets/nuvora/`. No se presenta como demo funcional ni enlaza a repositorios privados. La demo básica de inventario permanece independiente en el laboratorio.
 - Capturas y social cards: `npm run assets:previews` con un servidor en el puerto 4173. Ver [documentación de demos](src/components/demos/README.md).
 - Exportaciones web: `npm run assets:optimize` usa Sharp para generar los WebP desde los originales, sin sobrescribirlos. El símbolo de Nuvora tiene variantes de 640 y 960 px (15–25 KiB), y empieza a descargarse antes de llegar a la sección. Los WebP se incluyen en el repositorio; no hace falta regenerarlos en cada compilación.
-- Hero: `StudioProcessDiagram.jsx` presenta un recorrido de procesos con texto HTML y conexiones SVG. La animación se reproduce una vez al entrar en pantalla; con movimiento reducido o sin JavaScript, el diagrama permanece estático y legible.
+- Hero: `StudioDemoShowcase.jsx` permite alternar capturas de las demos de pedidos, reservas e inventario, con enlaces directos a sus flujos. Usa los recursos de `public/projects/`; la primera captura carga de forma prioritaria. No hay reproducción automática. Los cambios de panel respetan movimiento reducido.
 
 ## Correo
 

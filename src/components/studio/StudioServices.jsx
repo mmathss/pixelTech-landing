@@ -1,4 +1,4 @@
-import { ArrowUpRight, ClipboardList, Blocks, RefreshCw } from 'lucide-react'
+import { ArrowUpRight, ArrowDown, ClipboardList, Blocks, RefreshCw, Check } from 'lucide-react'
 import { SectionIntro } from './StudioUI'
 import { trackEvent } from '../../utils/analytics'
 const services = [
@@ -45,6 +45,46 @@ const services = [
       'El alcance depende del estado y los accesos del sistema. Si necesitas mantenimiento continuo, su cobertura, horarios y costo se acuerdan por separado.',
   },
 ]
+
+function ServiceExample({ number }) {
+  return (
+    <div className={`pt-solution-example pt-solution-example-${number}`}>
+      <div className="pt-example-bar"><span>EJEMPLO ILUSTRATIVO</span><span aria-hidden="true">— □ ×</span></div>
+      {number === '01' ? (
+        <div className="pt-example-dashboard">
+          <span className="pt-example-kicker">TU OPERACIÓN / UNA SOLA VISTA</span>
+          <h4>¿En qué va cada pedido?</h4>
+          <div className="pt-example-columns"><span>Pedido de ejemplo</span><span>Estado</span></div>
+          {['Recibido', 'En preparación', 'Listo para entregar'].map((status, index) => (
+            <div className="pt-example-order" key={status}><span><i /> Pedido {String.fromCharCode(65 + index)}</span><strong>{status}</strong></div>
+          ))}
+          <p>Del mensaje suelto a un estado que tu equipo puede consultar.</p>
+        </div>
+      ) : number === '02' ? (
+        <div className="pt-example-workflow">
+          <span className="pt-example-kicker">UN DATO / UN RECORRIDO</span>
+          {[['01', 'Llega una solicitud', 'Formulario'], ['02', 'Se guarda el registro', 'Tu sistema'], ['03', 'Se envía un aviso', 'Correo del equipo']].map(([step, title, destination], index) => (
+            <div className="pt-example-workflow-step" key={step}>
+              {index > 0 && <ArrowDown size={20} aria-hidden="true" />}
+              <div><span>{step}</span><p><strong>{title}</strong>{destination}</p><Check size={18} aria-hidden="true" /></div>
+            </div>
+          ))}
+          <p>El flujo se define según las conexiones que permitan tus aplicaciones.</p>
+        </div>
+      ) : (
+        <div className="pt-example-revision">
+          <span className="pt-example-kicker">REVISAR ANTES DE CAMBIAR</span>
+          <h4>Una mejora con dirección.</h4>
+          {[['01', 'Entender', 'Qué funciona y dónde se atasca'], ['02', 'Priorizar', 'Qué corregir, actualizar o ampliar'], ['03', 'Validar', 'Pruebas antes de la entrega']].map(([step, title, text]) => (
+            <div key={step}><span>{step}</span><p><strong>{title}</strong>{text}</p></div>
+          ))}
+        </div>
+      )}
+      <div className="pt-example-footer">Una idea de solución. El alcance se define contigo.</div>
+    </div>
+  )
+}
+
 export default function StudioServices() {
   return (
     <section id="soluciones" className="pt-section">
@@ -56,13 +96,19 @@ export default function StudioServices() {
           ¿Qué necesitas mejorar? Podemos ordenar un proceso, conectar lo que ya
           usas o hacer que tu sistema vuelva a responder a tu negocio.
         </SectionIntro>
-        <div className="pt-services">
-          {services.map(({ Icon, ...service }) => (
-            <article key={service.number}>
-              <div className="pt-service-top">
-                <Icon size={27} aria-hidden="true" />
-                <span>{service.number}</span>
-              </div>
+        <div className="pt-solution-selector">
+          <fieldset className="pt-solution-picker">
+            <legend className="sr-only">¿Qué necesitas mejorar en tu negocio?</legend>
+            {services.map(({ Icon, ...service }, index) => (
+              <label key={service.number}>
+                <input className="sr-only" type="radio" id={`solution-${service.number}`} name="solution-example" value={service.number} defaultChecked={index === 0} />
+                <span className="pt-solution-choice"><span>{service.number}</span><Icon size={22} aria-hidden="true" /><strong>{service.title}</strong><ArrowUpRight size={18} aria-hidden="true" /></span>
+              </label>
+            ))}
+          </fieldset>
+          {services.map((service) => (
+            <div key={service.number} className="pt-solution-panel" data-solution={service.number}>
+              <div className="pt-solution-copy">
               <span className="pt-eyebrow">{service.subtitle}</span>
               <h3>{service.title}</h3>
               <p>{service.desc}</p>
@@ -85,7 +131,9 @@ export default function StudioServices() {
                 Hablemos de tu caso
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
-            </article>
+              </div>
+              <ServiceExample number={service.number} />
+            </div>
           ))}
         </div>
       </div>

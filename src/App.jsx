@@ -7,6 +7,7 @@ import ContentPage from './components/ContentPage'
 import { projects } from './data/projects'
 import { pages, resolvePath } from './data/pages'
 import './studio.css'
+import './showcase.css'
 import './demos.css'
 
 export default function App({ pathname }) {

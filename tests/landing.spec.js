@@ -68,7 +68,7 @@ for (const width of [360, 768, 1440]) {
   })
 }
 
-test('process diagram finishes readable and logos use lightweight web assets', async ({
+test('hero previews switch between real demos and logos use lightweight web assets', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 })
@@ -76,21 +76,14 @@ test('process diagram finishes readable and logos use lightweight web assets', a
   await expect(page.locator('.pt-header .pt-brand strong')).toHaveText(
     'PixelTech.',
   )
-  const diagram = page.getByRole('img', { name: /^Diagrama: pedidos/ })
-  await diagram.scrollIntoViewIfNeeded()
-  await expect(diagram).toHaveClass(/pt-flow-running/)
-  await expect
-    .poll(() =>
-      diagram.evaluate(
-        (element) => element.getAnimations({ subtree: true }).length,
-      ),
-    )
-    .toBe(0)
-  await expect(diagram.locator('.pt-flow-source')).toHaveCount(3)
-  await expect(diagram.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
-  await expect(diagram.locator('.pt-flow-result')).toContainText(
-    'Información conectada',
-  )
+  const showcase = page.locator('.pt-demo-showcase')
+  await expect(showcase.getByRole('link', { name: 'Abrir demo de pedidos' })).toBeVisible()
+  await showcase.getByText('Reservas', { exact: true }).click()
+  await expect(showcase.getByRole('link', { name: 'Abrir demo de reservas' })).toHaveAttribute('href', '/proyectos/reservas/#demo')
+  await expect(showcase.locator('[data-preview="reservas"] img')).toBeVisible()
+  await expect(showcase.locator('[data-preview="pedidos"]')).toBeHidden()
+  await showcase.getByRole('radio', { name: 'Reservas', exact: true }).press('ArrowRight')
+  await expect(showcase.locator('[data-preview="inventario"]')).toBeVisible()
   const symbol = page.locator('.pt-featured-art img')
   await symbol.scrollIntoViewIfNeeded()
   await expect
@@ -100,6 +93,23 @@ test('process diagram finishes readable and logos use lightweight web assets', a
     .toBe(true)
   expect(await symbol.evaluate((image) => image.currentSrc)).toMatch(/\.webp$/)
 })
+test('service examples switch with the keyboard and lead to the contact form', async ({ page }) => {
+  await page.goto('/')
+  const selector = page.locator('.pt-solution-selector')
+  await selector.locator('label').filter({ hasText: 'Conectar tus herramientas' }).click()
+  const integrations = selector.locator('[data-solution="02"]')
+  await expect(integrations).toBeVisible()
+  await integrations.getByText('Alcance y condiciones', { exact: true }).click()
+  await expect(integrations).toContainText('Primero comprobamos qué conexiones permiten tus aplicaciones')
+  await selector.getByRole('radio', { name: /Conectar tus herramientas/ }).press('ArrowRight')
+  const modernization = selector.locator('[data-solution="03"]')
+  await expect(modernization).toBeVisible()
+  await expect(integrations).toBeHidden()
+  await modernization.getByRole('link', { name: 'Hablemos de tu caso' }).click()
+  await expect(page).toHaveURL(/#diagnostico$/)
+  await expect(page.getByLabel('Tu nombre', { exact: true })).toBeVisible()
+})
+
 test('mobile navigation opens, closes and supports Escape', async ({
   page,
 }) => {
@@ -134,10 +144,13 @@ test('landing content remains accessible without motion or JavaScript', async ({
     try {
       const page = await context.newPage()
       await page.goto('http://127.0.0.1:4175/')
-      await expect(
-        page.getByRole('img', { name: /^Diagrama: pedidos/ }),
-      ).toBeVisible()
-      await expect(page.locator('.pt-flow-result')).toHaveCSS('opacity', '1')
+      const showcase = page.locator('.pt-demo-showcase')
+      await expect(showcase.getByRole('link', { name: 'Abrir demo de pedidos' })).toBeVisible()
+      await showcase.getByText('Reservas', { exact: true }).click()
+      await expect(showcase.locator('[data-preview="reservas"]')).toBeVisible()
+      await page.locator('.pt-solution-picker label').filter({ hasText: 'Conectar tus herramientas' }).click()
+      await expect(page.locator('[data-solution="02"]')).toBeVisible()
+      await expect(page.locator('[data-solution="01"]')).toBeHidden()
       await page.locator('#equipo').scrollIntoViewIfNeeded()
       await expect(page.locator('.pt-photo-caption')).toContainText(
         'AI Software Engineer',

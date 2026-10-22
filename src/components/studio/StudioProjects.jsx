@@ -9,19 +9,11 @@ export default function StudioProjects() {
       <div className="pt-container">
         <SectionIntro
           eyebrow="01 / El trabajo, a la vista"
-          title="Proyectos que toman forma."
+          title="De la idea a la pantalla."
         >
-          Un producto propio actualmente en desarrollo y demos funcionales para
-          explorar soluciones a problemas de inventario, reservas y pedidos.
+          Entra, prueba un flujo y mira cómo funciona. Estas demos usan datos
+          ficticios; Nuvora es nuestro producto propio en desarrollo.
         </SectionIntro>
-        <StudioFeaturedProject />
-        <div className="pt-demo-grid-heading">
-          <h3>Del problema a una demo.</h3>
-          <p>
-            Reserva una cita o cambia el estado de un pedido. Son demos propias
-            con datos ficticios, sin registro.
-          </p>
-        </div>
         <div className="pt-project-grid">
           {projects
             .filter((project) => project.id !== 'inventario')
@@ -33,6 +25,7 @@ export default function StudioProjects() {
                 <a
                   className="pt-project-image"
                   href={`${project.path}/`}
+                  aria-label={`Ver la demo ${project.name}`}
                   onClick={() =>
                     trackEvent('project_open', {
                       project: project.id,
@@ -41,7 +34,7 @@ export default function StudioProjects() {
                   }
                 >
                   <div className="pt-project-image-top">
-                    <span>{project.category}</span>
+                    <span>pixeltech / {project.id}</span>
                     <span aria-hidden="true">↗</span>
                   </div>
                   <img
@@ -51,31 +44,25 @@ export default function StudioProjects() {
                     height="760"
                     loading="lazy"
                   />
-                  <span className="pt-demo-label">
-                    Demo funcional · Datos ficticios
-                  </span>
+                  <span className="pt-demo-label">Demo funcional · Datos ficticios <ArrowUpRight size={16} aria-hidden="true" /></span>
                 </a>
                 <div className="pt-project-copy">
                   <span className="pt-project-number">
-                    PROYECTO / {project.number}
+                    {project.number} / {project.category}
                   </span>
                   <h3>{project.name}</h3>
-                  <dl className="pt-project-story">
-                    <div>
-                      <dt>El problema</dt>
-                      <dd>{project.problem}</dd>
-                    </div>
-                    <div>
-                      <dt>La solución que puedes explorar</dt>
-                      <dd>{project.solution}</dd>
-                    </div>
-                  </dl>
-                  <p className="pt-project-try">
-                    <strong>En la demo:</strong> {project.actions.join(' · ')}.
-                  </p>
-                  <div className="pt-project-links">
+                  <p>{project.solution}</p>
+                  <ol className="pt-project-steps" aria-label={`Qué probar en ${project.name}`}>
+                    {project.actions.map((action, index) => <li key={action}><span aria-hidden="true">0{index + 1}</span>{action}</li>)}
+                  </ol>
+                  <details className="pt-project-question">
+                    <summary>El problema detrás de esta idea</summary>
+                    <p>{project.problem}</p>
+                  </details>
+                  <div className="pt-project-action">
                     <a
-                      href={`${project.path}/`}
+                      className="pt-button"
+                      href={`${project.path}/#demo`}
                       onClick={() =>
                         trackEvent('project_open', {
                           project: project.id,
@@ -91,6 +78,7 @@ export default function StudioProjects() {
               </article>
             ))}
         </div>
+        <StudioFeaturedProject />
         <p className="pt-section-note">
           También en el laboratorio:{' '}
           <a

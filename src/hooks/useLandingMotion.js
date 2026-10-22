@@ -16,7 +16,7 @@ export default function useLandingMotion(container) {
           '.pt-project',
           '.pt-featured-project',
           '.pt-problems article',
-          '.pt-services article',
+          '.pt-solution-selector',
           '.pt-process li',
           '.pt-leader-photo',
           '.pt-leader-copy',
