@@ -11,7 +11,6 @@ import {
   SupportFooter,
 } from './support/SupportContent'
 import SupportContact from './support/SupportContact'
-import ScrollMascot from './mascot/ScrollMascot'
 import '../support.css'
 export default function SupportLanding() {
   const main = useRef(null)
@@ -29,7 +28,6 @@ export default function SupportLanding() {
         <SupportContact />
       </main>
       <SupportFooter />
-      <ScrollMascot variant="support" />
     </div>
   )
 }

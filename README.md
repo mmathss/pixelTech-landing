@@ -32,7 +32,7 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 
 ## Personalización
 
-- Mascota Pixie: `src/components/mascot/ScrollMascot.jsx` contiene los consejos por sección para la landing y soporte. Permanece fija en la esquina derecha con expresiones pausadas de reposo, saludo y explicación. Los globos claros aparecen y se retiran suavemente, con una transición del contenido al cambiar de sección; permite cerrar los mensajes y recuerda si se oculta durante la sesión. Respeta movimiento reducido y se oculta al editar formularios en móvil. El original está en `src/assets/mascot/`; `node scripts/prepare-mascot.mjs` alinea los fotogramas y regenera el WebP usado en la web sin modificar el PNG.
+- Mascota Pixie: retirada de la landing y soporte para mantener el foco en el contenido. Se conservan el componente en `src/components/mascot/`, los recursos en `src/assets/mascot/` y el generador `scripts/prepare-mascot.mjs` para un posible uso futuro. No se incluyen en la compilación de las páginas actuales.
 
 - Datos de Diego y enlaces: `src/data/site.js`. Los enlaces de GitHub y LinkedIn se conservaron de la referencia original.
 - Demos, alcances y rutas: `src/data/projects.js`. Nuvora destacado: `StudioFeaturedProject.jsx`.

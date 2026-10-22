@@ -10,7 +10,6 @@ import StudioTrust from './StudioTrust'
 import StudioFAQ from './StudioFAQ'
 import StudioQuoteForm from './StudioQuoteForm'
 import StudioFooter from './StudioFooter'
-import ScrollMascot from '../mascot/ScrollMascot'
 export default function StudioLanding() {
   const main = useRef(null)
   useLandingMotion(main)
@@ -28,7 +27,6 @@ export default function StudioLanding() {
         <StudioQuoteForm />
       </main>
       <StudioFooter />
-      <ScrollMascot variant="studio" />
     </div>
   )
 }
