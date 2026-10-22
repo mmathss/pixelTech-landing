@@ -1,8 +1,6 @@
 /* Home composition: the shared studio styles remain available on other routes. */
 .pt-home .pt-hero-showcase {
-  background-image: linear-gradient(90deg, transparent 53%, #e9eddf 53%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background: var(--pt-paper);
   border-bottom: 2px solid var(--pt-ink);
 }
 .pt-home .pt-hero-grid { grid-template-columns: .95fr 1.05fr; gap: 64px; padding-block: 68px 64px; }
@@ -109,9 +107,8 @@
   .pt-solution-copy { padding: 30px; }
 }
 @media (max-width: 850px) {
-  .pt-home .pt-hero-showcase { background-image: none; }
   .pt-home .pt-hero-grid { grid-template-columns: 1fr; gap: 48px; padding-block: 50px; }
-  .pt-home .pt-hero-visual { max-width: 650px; width: 100%; margin-inline: auto; padding: 26px 26px 52px; background: #e9eddf; }
+  .pt-home .pt-hero-visual { max-width: 650px; width: 100%; margin-inline: auto; padding: 26px 26px 52px; }
   .pt-home .pt-project, .pt-home .pt-project:nth-child(even) { grid-template-columns: 1.1fr 1fr; gap: 26px; }
   .pt-home .pt-project:nth-child(even) .pt-project-image { order: 0; }
   .pt-home .pt-project-image { padding: 14px 14px 0; }
