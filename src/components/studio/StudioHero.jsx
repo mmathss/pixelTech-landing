@@ -16,13 +16,13 @@ export default function StudioHero() {
             <span className="pt-highlight">Construimos lo que necesita.</span>
           </h1>
           <p>
-            Consultoría y software para empresas que necesitan ordenar su
-            operación. Entendemos el problema, definimos el camino y construimos
-            lo que realmente hace falta.
+            Creamos sistemas web, conectamos tus herramientas y automatizamos
+            tareas para que tu negocio trabaje con más orden y menos trabajo
+            manual.
           </p>
           <div className="pt-hero-actions">
             <DiagnosticLink placement="hero">
-              Agenda un diagnóstico
+              Cuéntanos qué quieres mejorar
             </DiagnosticLink>
             <a className="pt-text-link" href="#proyectos">
               Explora los proyectos

@@ -50,7 +50,7 @@ export default function StudioNavbar() {
         >
           {[
             ...navLinks,
-            ['Diagnóstico sin costo', '/#diagnostico'],
+            ['Conversación sin costo', '/#diagnostico'],
             ['Soporte técnico', '/soporte/'],
           ].map(([label, href]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>

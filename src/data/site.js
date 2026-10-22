@@ -15,4 +15,4 @@ export const navLinks = [
   ['Proceso', '/#proceso'],
   ['Nuestro equipo', '/#equipo'],
 ]
-export const diagnosticUrl = `${site.whatsapp}?text=${encodeURIComponent('Hola Diego, vengo de PixelTech y quisiera coordinar un diagnóstico de 20 minutos para mi negocio.')}`
+export const diagnosticUrl = `${site.whatsapp}?text=${encodeURIComponent('Hola Diego, vengo de PixelTech y quisiera coordinar una conversación inicial de 20 minutos sobre mi negocio.')}`

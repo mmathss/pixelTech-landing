@@ -12,14 +12,14 @@ export default function StudioProjects() {
           title="Proyectos que toman forma."
         >
           Un producto propio actualmente en desarrollo y demos funcionales para
-          explorar cómo abordamos problemas concretos de negocio.
+          explorar soluciones a problemas de inventario, reservas y pedidos.
         </SectionIntro>
         <StudioFeaturedProject />
         <div className="pt-demo-grid-heading">
           <h3>Del problema a una demo.</h3>
           <p>
-            Demostraciones propias con datos ficticios. Puedes explorarlas sin
-            registro.
+            Reserva una cita o cambia el estado de un pedido. Son demos propias
+            con datos ficticios, sin registro.
           </p>
         </div>
         <div className="pt-project-grid">
@@ -60,12 +60,19 @@ export default function StudioProjects() {
                     PROYECTO / {project.number}
                   </span>
                   <h3>{project.name}</h3>
-                  <p>{project.solution}</p>
-                  <ul className="pt-tags">
-                    {project.capabilities.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <dl className="pt-project-story">
+                    <div>
+                      <dt>El problema</dt>
+                      <dd>{project.problem}</dd>
+                    </div>
+                    <div>
+                      <dt>La solución que puedes explorar</dt>
+                      <dd>{project.solution}</dd>
+                    </div>
+                  </dl>
+                  <p className="pt-project-try">
+                    <strong>En la demo:</strong> {project.actions.join(' · ')}.
+                  </p>
                   <div className="pt-project-links">
                     <a
                       href={`${project.path}/`}

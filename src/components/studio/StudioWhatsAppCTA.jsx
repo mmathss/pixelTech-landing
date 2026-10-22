@@ -7,7 +7,7 @@ export default function StudioWhatsAppCTA() {
       <MessageCircle size={23} aria-hidden="true" />
       <div>
         <strong>¿Prefieres conversar primero?</strong>
-        <p>Escríbeme y coordinamos el diagnóstico por WhatsApp.</p>
+        <p>Cuéntame qué quieres mejorar y coordinamos una conversación.</p>
       </div>
       <a
         href={diagnosticUrl}

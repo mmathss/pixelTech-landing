@@ -1,48 +1,48 @@
-import { ArrowUpRight, Compass, Blocks, RefreshCw } from 'lucide-react'
+import { ArrowUpRight, ClipboardList, Blocks, RefreshCw } from 'lucide-react'
 import { SectionIntro } from './StudioUI'
 import { trackEvent } from '../../utils/analytics'
 const services = [
   {
-    Icon: Compass,
+    Icon: ClipboardList,
     number: '01',
-    title: 'Entender y decidir',
-    subtitle: 'Diagnóstico & hoja de ruta',
-    desc: 'Revisamos tu operación, tus herramientas y el problema que quieres resolver. Comparamos alternativas antes de proponer desarrollo.',
+    title: 'Ordenar tu operación',
+    subtitle: 'Sistemas web a medida',
+    desc: 'Si tus pedidos, reservas o existencias están repartidos entre chats y archivos, creamos una herramienta para consultarlos y darles seguimiento.',
     items: [
-      'Procesos y prioridades',
-      'Opciones y recomendaciones',
-      'Alcance inicial e inversión estimada',
+      'Panel de pedidos, reservas o inventario',
+      'Accesos según las funciones de tu equipo',
+      'Reportes y capacitación acordados',
     ],
     detail:
-      'La conversación inicial de 20 minutos es sin costo. Si hace falta un diagnóstico profundo, definimos su alcance y precio antes de empezar.',
+      'Definimos los módulos, los datos a trasladar y los entregables según tu operación. El plazo y el presupuesto quedan acordados antes de construir.',
   },
   {
     Icon: Blocks,
     number: '02',
-    title: 'Construir lo necesario',
-    subtitle: 'Implementación por etapas',
-    desc: 'Prototipamos la solución y la llevamos a una primera versión útil. Validamos contigo antes de seguir agregando funciones.',
+    title: 'Conectar tus herramientas',
+    subtitle: 'Integraciones y automatización',
+    desc: 'Si tu equipo copia los mismos datos entre aplicaciones o arma reportes a mano, conectamos esos pasos para reducir el trabajo repetido.',
     items: [
-      'Sistemas y portales web',
-      'Integraciones y automatización',
-      'Migración y puesta en marcha',
+      'Intercambio de datos entre aplicaciones',
+      'Registros, avisos o reportes automáticos',
+      'Historial y seguimiento de las ejecuciones',
     ],
     detail:
-      'El plazo y presupuesto dependen del alcance acordado. Cada etapa tiene entregables y criterios de aceptación.',
+      'Primero comprobamos qué conexiones permiten tus aplicaciones. La propuesta detalla el flujo, los servicios externos necesarios y sus posibles costos.',
   },
   {
     Icon: RefreshCw,
     number: '03',
-    title: 'Seguir mejorando',
-    subtitle: 'Evolución & acompañamiento',
-    desc: 'Revisamos un sistema existente, resolvemos puntos de fricción y definimos mejoras según el uso real de tu equipo.',
+    title: 'Mejorar tu sistema actual',
+    subtitle: 'Revisión y modernización',
+    desc: 'Si tu sistema es lento, presenta errores o ya no acompaña a tu negocio, revisamos qué conviene corregir, actualizar o ampliar.',
     items: [
-      'Auditoría y modernización',
-      'Mantenimiento y monitoreo',
-      'Mejoras y soporte acordado',
+      'Revisión técnica y prioridades de mejora',
+      'Correcciones y funciones acordadas',
+      'Actualización y documentación del sistema',
     ],
     detail:
-      'La cobertura, horarios y costo del acompañamiento se detallan en la propuesta. La garantía y las nuevas funcionalidades tienen alcances distintos.',
+      'El alcance depende del estado y los accesos del sistema. Si necesitas mantenimiento continuo, su cobertura, horarios y costo se acuerdan por separado.',
   },
 ]
 export default function StudioServices() {
@@ -51,10 +51,10 @@ export default function StudioServices() {
       <div className="pt-container">
         <SectionIntro
           eyebrow="03 / Cómo podemos ayudarte"
-          title="Un aliado en cada etapa."
+          title="Soluciones para tu día a día."
         >
-          Puedes llegar con una idea, un proceso que ya no funciona o un sistema
-          que necesita evolucionar. Empezamos donde estés.
+          ¿Qué necesitas mejorar? Podemos ordenar un proceso, conectar lo que ya
+          usas o hacer que tu sistema vuelva a responder a tu negocio.
         </SectionIntro>
         <div className="pt-services">
           {services.map(({ Icon, ...service }) => (

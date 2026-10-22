@@ -34,7 +34,7 @@ export function SectionIntro({ eyebrow, title, children }) {
   )
 }
 export function DiagnosticLink({
-  children = 'Agenda un diagnóstico',
+  children = 'Cuéntanos qué quieres mejorar',
   placement = 'section',
   className = '',
   href = '/#diagnostico',

@@ -10,7 +10,7 @@ test('consulting home presents projects, a real leader and clear demo claims', a
   )
   await expect(page.locator('#proyectos article')).toHaveCount(3)
   const nuvora = page.getByRole('article', {
-    name: 'Inventario con identidad propia.',
+    name: 'Una vista clara de tu inventario.',
   })
   await expect(nuvora).toContainText('Actualmente en desarrollo')
   await expect(nuvora.getByRole('link')).toHaveCount(0)
@@ -251,7 +251,7 @@ test('failed contact can be retried without losing text and only accepted delive
     .getByLabel('¿Qué te gustaría resolver?')
     .fill('Necesitamos ordenar el inventario y los pedidos.')
   await page
-    .getByRole('button', { name: 'Solicitar diagnóstico de 20 minutos' })
+    .getByRole('button', { name: 'Enviar mi consulta' })
     .click()
   await expect(page.getByRole('alert')).toContainText('No se pudo enviar')
   await expect(page.getByLabel('Tu nombre', { exact: true })).toHaveValue(
@@ -270,7 +270,7 @@ test('failed contact can be retried without losing text and only accepted delive
     }),
   )
   await page
-    .getByRole('button', { name: 'Solicitar diagnóstico de 20 minutos' })
+    .getByRole('button', { name: 'Enviar mi consulta' })
     .click()
   await expect(page.getByRole('status')).toContainText('Tu mensaje llegó')
   const events = await page.evaluate(() => window.__events)

@@ -715,7 +715,33 @@
 }
 .pt-project p {
   font-size: 13px;
-  min-height: 88px;
+}
+.pt-project-story {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+.pt-project-story dt {
+  margin-bottom: 4px;
+  font: 10px/1.5 'Space Mono', monospace;
+  color: var(--pt-blue);
+}
+.pt-project-story dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #5d6470;
+}
+.pt-project .pt-project-try {
+  font-size: 12px;
+  margin: 0 0 18px;
+}
+.pt-project-try strong {
+  color: var(--pt-ink);
+}
+.pt-featured-story {
+  max-width: 420px;
+  margin-bottom: 0;
 }
 .pt-tags {
   display: flex;

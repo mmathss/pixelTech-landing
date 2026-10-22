@@ -32,6 +32,8 @@ Se conservan enlaces antiguos `?view=studio`, `?view=hub`, `?view=soporte` y anc
 
 ## Personalización
 
+- Oferta de la landing: sistemas web, integraciones y automatización. `StudioServices.jsx` organiza las soluciones por necesidad (ordenar la operación, conectar herramientas y mejorar sistemas); las etapas de trabajo se explican en `StudioProcess.jsx`. Las demos muestran problema, solución y acciones disponibles desde los datos de `src/data/projects.js`. El contacto invita a una conversación inicial de 20 minutos sin costo.
+
 - Mascota Pixie: retirada de la landing y soporte para mantener el foco en el contenido. Se conservan el componente en `src/components/mascot/`, los recursos en `src/assets/mascot/` y el generador `scripts/prepare-mascot.mjs` para un posible uso futuro. No se incluyen en la compilación de las páginas actuales.
 
 - Datos de Diego y enlaces: `src/data/site.js`. Los enlaces de GitHub y LinkedIn se conservaron de la referencia original.

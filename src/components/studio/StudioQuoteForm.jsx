@@ -43,7 +43,7 @@ export default function StudioQuoteForm() {
             <span className="pt-eyebrow">
               07 / El siguiente paso es una conversación
             </span>
-            <h2>Cuéntame qué está frenando tu negocio.</h2>
+            <h2>Cuéntanos qué quieres mejorar.</h2>
             <p>
               No necesitas un documento técnico ni saber qué herramienta pedir.
               Coordinaremos una conversación de 20 minutos para entender el
@@ -168,8 +168,8 @@ export default function StudioQuoteForm() {
                   </div>
                 )}
                 <p className="pt-form-privacy">
-                  Usaré estos datos para responder tu consulta y coordinar el
-                  diagnóstico.{' '}
+                  Usaré estos datos para responder tu consulta y coordinar la
+                  conversación.{' '}
                   <a href="/privacidad/">Cómo tratamos tu información</a>.
                 </p>
                 <button
@@ -184,7 +184,7 @@ export default function StudioQuoteForm() {
                     </>
                   ) : (
                     <>
-                      Solicitar diagnóstico de 20 minutos
+                      Enviar mi consulta
                       <ArrowUpRight size={18} />
                     </>
                   )}
