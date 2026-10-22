@@ -5,7 +5,7 @@ import './ScrollMascot.css'
 
 const guides = {
   studio: {
-    inicio: ['¡Hola! Soy tu guía Pixel.', 'Baja y te acompaño a conocer lo que podemos crear para tu negocio.'],
+    inicio: ['¡Hola! Soy Pixie, tu guía.', 'Baja y te acompaño a conocer lo que podemos crear para tu negocio.'],
     proyectos: ['Ideas que ya funcionan', 'Explora los proyectos y prueba las demos para verlos en acción.'],
     problemas: ['¿Te suena familiar?', 'Datos dispersos y tareas repetidas: el primer paso es entender tu operación.'],
     soluciones: ['Cada negocio tiene su camino', 'Podemos crear una herramienta, conectar aplicaciones o mejorar tu sistema actual.'],
@@ -15,7 +15,7 @@ const guides = {
     diagnostico: ['Cuéntanos tu idea', 'Describe qué quieres mejorar. También puedes iniciar la conversación por WhatsApp.'],
   },
   support: {
-    inicio: ['¡Hola! Soy tu guía Pixel.', 'Te ayudo a recorrer nuestros servicios de soporte técnico en Huacho.'],
+    inicio: ['¡Hola! Soy Pixie, tu guía.', 'Te ayudo a recorrer nuestros servicios de soporte técnico en Huacho.'],
     problemas: ['Empecemos por el síntoma', 'No necesitas saber la causa. Cuéntanos qué notas en tu computadora o laptop.'],
     servicios: ['Encuentra el servicio', 'Revisa las opciones y consulta el alcance, costo y disponibilidad de cada una.'],
     proceso: ['Así cuidamos tu equipo', 'Revisa cómo recibimos, diagnosticamos y probamos tu equipo antes de entregarlo.'],
@@ -41,7 +41,7 @@ export default function ScrollMascot({ variant }) {
   }, [])
 
   useEffect(() => {
-    const timer = setTimeout(() => setGreeting(false), 1800)
+    const timer = setTimeout(() => setGreeting(false), 4800)
     return () => clearTimeout(timer)
   }, [])
 
@@ -54,14 +54,18 @@ export default function ScrollMascot({ variant }) {
   useEffect(() => {
     if (hidden) return
     let frame = 0
+    let sectionTimer
     let currentSection = ''
     const sections = Object.keys(messages).map((id) => document.getElementById(id)).filter(Boolean)
     const update = () => {
       const active = sections.filter((element) => element.getBoundingClientRect().top <= window.innerHeight * 0.42).at(-1) ?? sections[0]
       if (active && active.id !== currentSection) {
         currentSection = active.id
-        setSection(active.id)
-        setBubble(true)
+        clearTimeout(sectionTimer)
+        sectionTimer = setTimeout(() => {
+          setSection(active.id)
+          setBubble(true)
+        }, 180)
       }
     }
     const scroll = () => {
@@ -78,6 +82,7 @@ export default function ScrollMascot({ variant }) {
     document.addEventListener('focusout', focusLeft)
     return () => {
       cancelAnimationFrame(frame)
+      clearTimeout(sectionTimer)
       window.removeEventListener('scroll', scroll)
       window.removeEventListener('resize', resize)
       document.removeEventListener('focusin', focusChanged)
@@ -97,20 +102,22 @@ export default function ScrollMascot({ variant }) {
 
   if (hidden) return (
     <button className="pixel-mascot-restore" onClick={() => toggleHidden(false)} aria-label="Mostrar mascota">
-      <MessageCircle size={18} aria-hidden="true" /> <span>Pixel</span>
+      <MessageCircle size={18} aria-hidden="true" /> <span>Pixie</span>
     </button>
   )
 
   return (
-    <aside className={`pixel-mascot${editing ? ' pixel-mascot-editing' : ''}`} aria-label="Pixel, tu mascota guía" style={{ '--mascot-sheet': `url("${sprites}")` }}>
-      <div id="pixel-mascot-message" className="pixel-mascot-bubble" hidden={!expanded}>
-        <span className="pixel-mascot-eyebrow">PIXEL / TU GUÍA</span>
-        <strong>{title}</strong>
-        <p>{message}</p>
-        <button className="pixel-mascot-dismiss" onClick={() => setBubble(false)} aria-label="Cerrar mensaje de Pixel"><X size={16} aria-hidden="true" /></button>
+    <aside className={`pixel-mascot${editing ? ' pixel-mascot-editing' : ''}`} aria-label="Pixie, tu mascota guía" style={{ '--mascot-sheet': `url("${sprites}")` }}>
+      <div id="pixel-mascot-message" className="pixel-mascot-bubble" data-open={expanded} aria-hidden={!expanded} inert={!expanded}>
+        <span className="pixel-mascot-eyebrow">PIXIE / TU GUÍA</span>
+        <div key={section} className="pixel-mascot-copy">
+          <strong>{title}</strong>
+          <p>{message}</p>
+        </div>
+        <button className="pixel-mascot-dismiss" onClick={() => setBubble(false)} aria-label="Cerrar mensaje de Pixie"><X size={16} aria-hidden="true" /></button>
       </div>
       <div className="pixel-mascot-controls">
-        <button className="pixel-mascot-character" onClick={() => { setEditing(false); setBubble(!expanded) }} aria-label={expanded ? 'Cerrar consejo de Pixel' : 'Ver consejo de Pixel'} aria-expanded={expanded} aria-controls="pixel-mascot-message">
+        <button className="pixel-mascot-character" onClick={() => { setEditing(false); setBubble(!expanded) }} aria-label={expanded ? 'Cerrar consejo de Pixie' : 'Ver consejo de Pixie'} aria-expanded={expanded} aria-controls="pixel-mascot-message">
           <span className={`pixel-mascot-sprite pixel-mascot-${animation}`} aria-hidden="true" />
         </button>
         <button className="pixel-mascot-hide" onClick={() => toggleHidden(true)} aria-label="Ocultar mascota"><X size={14} aria-hidden="true" /></button>
