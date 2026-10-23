@@ -403,7 +403,7 @@ export function SupportFooter() {
               href="#inicio"
               aria-label="PixelTech, soporte técnico, inicio"
             >
-              <BrandArtwork className="sp-brand-icon" />
+              <BrandArtwork className="sp-brand-icon" relaxed />
               <span>
                 <strong>
                   PixelTech<span>.</span>

@@ -45,21 +45,11 @@ export default function StudioFeaturedProject() {
           <br />
           de tu inventario.
         </h3>
-        <dl className="pt-project-story pt-featured-story">
-          <div>
-            <dt>El problema</dt>
-            <dd>El stock repartido entre archivos dificulta saber qué hay y qué reponer.</dd>
-          </div>
-          <div>
-            <dt>La propuesta de Nuvora</dt>
-            <dd>Reunir productos, existencias y movimientos en una sola herramienta.</dd>
-          </div>
-        </dl>
+        <p>Productos, existencias y movimientos en una sola herramienta.</p>
         <div className="pt-nuvora-status">
           <span aria-hidden="true" />
           Actualmente en desarrollo
         </div>
-        <p className="pt-featured-note">Producto propio. Diseño e implementación en curso.</p>
       </div>
       <div className="pt-featured-art" aria-hidden="true" ref={artwork}>
         <div className="pt-featured-art-top">

@@ -8,7 +8,7 @@ export default function StudioHero() {
         <div className="pt-hero-copy">
           <span className="pt-eyebrow">
             <span className="pt-status-dot" />
-            Criterio de negocio. Mentalidad de producto.
+            Consultoría y desarrollo de software
           </span>
           <h1>
             Entendemos tu negocio.
@@ -16,13 +16,12 @@ export default function StudioHero() {
             <span className="pt-highlight">Construimos lo que necesita.</span>
           </h1>
           <p>
-            Creamos sistemas web, conectamos tus herramientas y automatizamos
-            tareas para que tu negocio trabaje con más orden y menos trabajo
-            manual.
+            Sistemas web y automatizaciones para trabajar con más orden
+            y menos tareas manuales.
           </p>
           <div className="pt-hero-actions">
             <DiagnosticLink placement="hero">
-              Cuéntanos qué quieres mejorar
+              Hablemos de tu proyecto
             </DiagnosticLink>
             <a className="pt-text-link" href="#proyectos">
               Explora los proyectos

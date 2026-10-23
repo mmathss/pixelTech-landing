@@ -4,17 +4,17 @@ const problems = [
   [
     FileSpreadsheet,
     'La información está en todas partes.',
-    'Pedidos en WhatsApp, stock en Excel y reportes que se arman a mano. Necesitas una vista compartida de tu operación.',
+    'Reúne pedidos, stock y reportes en una sola vista.',
   ],
   [
     Unplug,
     'Tus herramientas no se hablan.',
-    'El equipo copia los mismos datos entre aplicaciones. Una integración puede resolverlo sin reemplazar todo.',
+    'Conecta tus aplicaciones y deja de copiar datos a mano.',
   ],
   [
     Wrench,
     'Tu sistema se quedó atrás.',
-    'Quieres corregir lentitud, retomar un proyecto o agregar funciones. Primero revisamos qué conviene conservar.',
+    'Corrige errores, mejora la velocidad o suma funciones.',
   ],
 ]
 export default function StudioProblems() {
@@ -24,11 +24,7 @@ export default function StudioProblems() {
         <SectionIntro
           eyebrow="02 / Un buen punto de partida"
           title="¿Te suena familiar?"
-        >
-          Trabajamos con negocios de comercio y servicios que están creciendo y
-          necesitan procesos más claros, herramientas conectadas y menos trabajo
-          repetido.
-        </SectionIntro>
+        />
         <div className="pt-problems">
           {problems.map(([Icon, title, desc]) => (
             <article key={title}>
@@ -38,11 +34,6 @@ export default function StudioProblems() {
             </article>
           ))}
         </div>
-        <p className="pt-consulting-note">
-          <strong>El primer paso es entender, no programar.</strong> A veces
-          conviene integrar lo que ya usas. Otras, mejorar un proceso o
-          construir una herramienta propia. Te ayudamos a elegir.
-        </p>
       </div>
     </section>
   )

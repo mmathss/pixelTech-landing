@@ -45,14 +45,12 @@ export default function StudioQuoteForm() {
             </span>
             <h2>Cuéntanos qué quieres mejorar.</h2>
             <p>
-              No necesitas un documento técnico ni saber qué herramienta pedir.
-              Coordinaremos una conversación de 20 minutos para entender el
-              contexto y definir un siguiente paso.
+              Cuéntanos el problema. En 20 minutos revisamos tu caso
+              y te orientamos sobre el siguiente paso.
             </p>
             <ul className="pt-check-list">
               <li>Primera conversación sin costo ni compromiso</li>
               <li>Contacto directo con Diego Arévalo</li>
-              <li>Una recomendación inicial para avanzar</li>
             </ul>
             <p className="pt-small-note">
               Si el caso requiere un análisis más profundo, acordaremos su

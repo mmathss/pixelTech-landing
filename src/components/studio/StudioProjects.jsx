@@ -11,8 +11,7 @@ export default function StudioProjects() {
           eyebrow="01 / El trabajo, a la vista"
           title="De la idea a la pantalla."
         >
-          Entra, prueba un flujo y mira cómo funciona. Estas demos usan datos
-          ficticios; Nuvora es nuestro producto propio en desarrollo.
+          Prueba nuestras demos con datos ficticios y conoce Nuvora, nuestro producto en desarrollo.
         </SectionIntro>
         <div className="pt-project-grid">
           {projects
@@ -52,11 +51,11 @@ export default function StudioProjects() {
                   </span>
                   <h3>{project.name}</h3>
                   <p>{project.solution}</p>
-                  <ol className="pt-project-steps" aria-label={`Qué probar en ${project.name}`}>
-                    {project.actions.map((action, index) => <li key={action}><span aria-hidden="true">0{index + 1}</span>{action}</li>)}
-                  </ol>
                   <details className="pt-project-question">
-                    <summary>El problema detrás de esta idea</summary>
+                    <summary>Qué puedes probar</summary>
+                    <ol className="pt-project-steps" aria-label={`Qué probar en ${project.name}`}>
+                      {project.actions.map((action, index) => <li key={action}><span aria-hidden="true">0{index + 1}</span>{action}</li>)}
+                    </ol>
                     <p>{project.problem}</p>
                   </details>
                   <div className="pt-project-action">

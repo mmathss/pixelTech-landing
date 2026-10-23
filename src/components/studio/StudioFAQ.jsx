@@ -114,10 +114,7 @@ export default function StudioFAQ() {
   return (
     <section id="preguntas" className="pt-section pt-section-muted">
       <div className="pt-container pt-faq-layout">
-        <SectionIntro eyebrow="06 / Antes de empezar" title="Las cosas claras.">
-          Qué puedes esperar, qué necesitamos definir y qué está incluido en el
-          primer paso.
-        </SectionIntro>
+        <SectionIntro eyebrow="06 / Antes de empezar" title="Las cosas claras." />
         <div className="pt-faq">
           {faqs.map(([q, a]) => (
             <FAQItem key={q} question={q} answer={a} />

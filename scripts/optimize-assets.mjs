@@ -4,10 +4,15 @@ import fs from 'node:fs/promises'
 // Deterministic web exports. Original artwork stays untouched beside them.
 const exports = [
   ...[96, 192, 512].map((width) => ({
-    input: 'src/assets/brand/logo_pixeltech_sinFondo.png',
+    input: 'src/assets/brand/Logo_2.png',
     output: `src/assets/brand/pixeltech-symbol-${width}.webp`,
     width,
-    trim: true,
+    lossless: true,
+  })),
+  ...[96, 192].map((width) => ({
+    input: 'src/assets/brand/Logo_1.png',
+    output: `src/assets/brand/pixeltech-mascot-${width}.webp`,
+    width,
     lossless: true,
   })),
   ...[640, 960].map((width) => ({
@@ -41,7 +46,7 @@ for (const asset of exports) {
 }
 
 // Tab icons use the same current PixelTech symbol, not a separate drawing.
-const icon = sharp('src/assets/brand/logo_pixeltech_sinFondo.png').trim()
+const icon = sharp('src/assets/brand/Logo_2.png')
 const favicon32 = await icon
   .clone()
   .resize(32, 32, { fit: 'contain', background: '#00000000' })

@@ -9,7 +9,7 @@ export function Brand({ support = false, inverse = false }) {
       aria-label="PixelTech, inicio"
     >
       <span className="pt-brand-compact">
-        <BrandArtwork className="pt-brand-symbol" />
+        <BrandArtwork className="pt-brand-symbol" relaxed={inverse} />
         <span aria-hidden="true">
           <strong>
             PixelTech<span className="pt-brand-dot">.</span>

@@ -145,6 +145,8 @@
   width: 46px;
   height: 44px;
   overflow: hidden;
+  background: #000;
+  border-radius: 6px;
 }
 .pt-desktop-nav,
 .pt-nav-actions {
@@ -947,6 +949,19 @@
 }
 .pt-leader-copy h2 {
   margin: 18px 0 24px;
+}
+.pt-team-details {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-block: 1px solid var(--pt-line);
+  font-size: 14px;
+}
+.pt-team-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.pt-team-details p:first-of-type {
+  margin-top: 16px;
 }
 .pt-leader-copy p {
   font-size: 14px;

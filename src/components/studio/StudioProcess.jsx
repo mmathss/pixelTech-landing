@@ -2,23 +2,19 @@ import { SectionIntro } from './StudioUI'
 const steps = [
   [
     'Escuchamos',
-    'En una conversación inicial de 20 minutos, revisamos tu contexto y acordamos el siguiente paso.',
-    'Un problema bien definido',
+    'Entendemos el problema en una conversación de 20 minutos.',
   ],
   [
     'Damos forma',
-    'Evaluamos alternativas y, si corresponde, diseñamos un prototipo. Acordamos alcance, costos y fechas.',
-    'Propuesta y criterios de aceptación',
+    'Acordamos la solución, el presupuesto y las fechas.',
   ],
   [
     'Construimos contigo',
-    'Validas avances por etapas. Usamos IA como apoyo al desarrollo y revisamos el código con pruebas.',
-    'Entregables que puedes revisar',
+    'Revisas y validas avances por etapas.',
   ],
   [
     'Ponemos en marcha',
-    'Preparamos la entrega, la documentación y la capacitación acordada. Definimos cómo cuidar y mejorar el sistema.',
-    'Entrega y plan de acompañamiento',
+    'Entregamos el sistema con documentación y capacitación acordadas.',
   ],
 ]
 export default function StudioProcess() {
@@ -28,17 +24,13 @@ export default function StudioProcess() {
         <SectionIntro
           eyebrow="04 / Sin cajas negras"
           title="Sabes qué viene después."
-        >
-          Un proceso claro, decisiones explicadas y comunicación directa. La
-          tecnología es moderna; el compromiso se demuestra en cada entrega.
-        </SectionIntro>
+        />
         <ol className="pt-process">
-          {steps.map(([title, desc, output], index) => (
+          {steps.map(([title, desc], index) => (
             <li key={title}>
               <span className="pt-step-number">0{index + 1}</span>
               <h3>{title}</h3>
               <p>{desc}</p>
-              <span className="pt-step-output">↳ {output}</span>
             </li>
           ))}
         </ol>

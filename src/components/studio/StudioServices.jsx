@@ -7,7 +7,7 @@ const services = [
     number: '01',
     title: 'Ordenar tu operación',
     subtitle: 'Sistemas web a medida',
-    desc: 'Si tus pedidos, reservas o existencias están repartidos entre chats y archivos, creamos una herramienta para consultarlos y darles seguimiento.',
+    desc: 'Gestiona pedidos, reservas o inventario desde una herramienta hecha para tu equipo.',
     items: [
       'Panel de pedidos, reservas o inventario',
       'Accesos según las funciones de tu equipo',
@@ -21,7 +21,7 @@ const services = [
     number: '02',
     title: 'Conectar tus herramientas',
     subtitle: 'Integraciones y automatización',
-    desc: 'Si tu equipo copia los mismos datos entre aplicaciones o arma reportes a mano, conectamos esos pasos para reducir el trabajo repetido.',
+    desc: 'Automatiza registros, avisos y reportes entre las aplicaciones que ya usas.',
     items: [
       'Intercambio de datos entre aplicaciones',
       'Registros, avisos o reportes automáticos',
@@ -35,7 +35,7 @@ const services = [
     number: '03',
     title: 'Mejorar tu sistema actual',
     subtitle: 'Revisión y modernización',
-    desc: 'Si tu sistema es lento, presenta errores o ya no acompaña a tu negocio, revisamos qué conviene corregir, actualizar o ampliar.',
+    desc: 'Recupera un sistema lento o amplía sus funciones según lo que tu negocio necesita.',
     items: [
       'Revisión técnica y prioridades de mejora',
       'Correcciones y funciones acordadas',
@@ -58,7 +58,6 @@ function ServiceExample({ number }) {
           {['Recibido', 'En preparación', 'Listo para entregar'].map((status, index) => (
             <div className="pt-example-order" key={status}><span><i /> Pedido {String.fromCharCode(65 + index)}</span><strong>{status}</strong></div>
           ))}
-          <p>Del mensaje suelto a un estado que tu equipo puede consultar.</p>
         </div>
       ) : number === '02' ? (
         <div className="pt-example-workflow">
@@ -69,7 +68,6 @@ function ServiceExample({ number }) {
               <div><span>{step}</span><p><strong>{title}</strong>{destination}</p><Check size={18} aria-hidden="true" /></div>
             </div>
           ))}
-          <p>El flujo se define según las conexiones que permitan tus aplicaciones.</p>
         </div>
       ) : (
         <div className="pt-example-revision">
@@ -92,10 +90,7 @@ export default function StudioServices() {
         <SectionIntro
           eyebrow="03 / Cómo podemos ayudarte"
           title="Soluciones para tu día a día."
-        >
-          ¿Qué necesitas mejorar? Podemos ordenar un proceso, conectar lo que ya
-          usas o hacer que tu sistema vuelva a responder a tu negocio.
-        </SectionIntro>
+        />
         <div className="pt-solution-selector">
           <fieldset className="pt-solution-picker">
             <legend className="sr-only">¿Qué necesitas mejorar en tu negocio?</legend>
@@ -112,13 +107,13 @@ export default function StudioServices() {
               <span className="pt-eyebrow">{service.subtitle}</span>
               <h3>{service.title}</h3>
               <p>{service.desc}</p>
-              <ul className="pt-check-list">
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
               <details>
                 <summary>Alcance y condiciones</summary>
+                <ul className="pt-check-list">
+                  {service.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
                 <p>{service.detail}</p>
               </details>
               <a

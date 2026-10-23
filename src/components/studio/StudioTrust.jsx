@@ -32,25 +32,26 @@ export default function StudioTrust() {
             Una dirección clara.
           </h2>
           <p>
-            Nuestro equipo combina dirección técnica y desarrollo asistido por
-            inteligencia artificial para acompañar cada etapa: análisis, diseño,
-            implementación y validación.
+            Diego Arévalo dirige PixelTech como AI Software Engineer.
+            Trabaja directamente contigo, desde la idea hasta la entrega.
           </p>
-          <p>
-            Diego Arévalo dirige PixelTech como AI Software Engineer. Lidera la
-            definición de cada solución, la revisión técnica y la comunicación
-            directa con cada cliente.
-          </p>
-          <p>
-            Su experiencia profesional incluye desarrollo y soporte en sistemas
-            corporativos del sector asegurador en INDRA Perú, dentro del
-            proyecto MAPFRE, y trabajo en consultoría tecnológica en Digital
-            Compass.
-          </p>
-          <p className="pt-small-note">
-            Esta es la experiencia profesional de Diego. Las organizaciones
-            mencionadas no se presentan como clientes de PixelTech.
-          </p>
+          <details className="pt-team-details">
+            <summary>Conoce la experiencia detrás de PixelTech</summary>
+            <p>
+              Combinamos dirección técnica y desarrollo asistido por IA, con
+              revisión de código y pruebas en cada etapa.
+            </p>
+            <p>
+              Su experiencia profesional incluye desarrollo y soporte en sistemas
+              corporativos del sector asegurador en INDRA Perú, dentro del
+              proyecto MAPFRE, y trabajo en consultoría tecnológica en Digital
+              Compass.
+            </p>
+            <p className="pt-small-note">
+              Esta es la experiencia profesional de Diego. Las organizaciones
+              mencionadas no se presentan como clientes de PixelTech.
+            </p>
+          </details>
           <div className="pt-leader-commitments">
             <span>
               <Check size={17} />
