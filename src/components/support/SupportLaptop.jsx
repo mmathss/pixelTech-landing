@@ -23,15 +23,23 @@ export default function SupportLaptop() {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue
           const element = entry.target
+          if (element.classList.contains('sp-laptop-drawing'))
+            root.classList.add('sp-laptop-active')
+          if (!element.animate) continue
+          const badge = element.classList.contains('sp-laptop-symptom')
           const animation = element.animate(
-            [
-              { opacity: 0, transform: 'translateY(16px)' },
-              { opacity: 1, transform: 'translateY(0)' },
+            badge ? [
+              { opacity: 0, transform: 'translateY(18px) scale(.88) rotate(-3deg)' },
+              { opacity: 1, transform: 'translateY(-4px) scale(1.03) rotate(1deg)', offset: .72 },
+              { opacity: 1, transform: 'none' },
+            ] : [
+              { opacity: 0, transform: 'translateY(22px) scale(.96)' },
+              { opacity: 1, transform: 'translateY(0) scale(1)' },
             ],
             {
-              duration: 650,
+              duration: badge ? 800 : 900,
               delay: Number(element.dataset.delay || 0),
-              easing: 'cubic-bezier(.2,.65,.3,1)',
+              easing: 'cubic-bezier(.16,1,.3,1)',
               fill: 'backwards',
             },
           )
@@ -50,12 +58,14 @@ export default function SupportLaptop() {
       observer.disconnect()
       animations.forEach((animation) => animation.cancel())
       animations.clear()
+      root.classList.remove('sp-laptop-active')
     }
     preference.addEventListener('change', stop)
     return () => {
       observer.disconnect()
       preference.removeEventListener('change', stop)
       animations.forEach((animation) => animation.cancel())
+      root.classList.remove('sp-laptop-active')
     }
   }, [])
 
@@ -101,6 +111,7 @@ export default function SupportLaptop() {
             fill="#dfff00"
           />
           <Wrench
+            className="sp-laptop-tool"
             x="226"
             y="91"
             width="68"
@@ -109,6 +120,7 @@ export default function SupportLaptop() {
             strokeWidth="1.5"
             aria-hidden="true"
           />
+          <rect className="sp-laptop-scan" x="107" y="67" width="306" height="3" fill="#dfff00" opacity="0" aria-hidden="true" />
           <text
             x="260"
             y="197"

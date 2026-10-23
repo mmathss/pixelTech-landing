@@ -9,6 +9,7 @@ import { pages, resolvePath } from './data/pages'
 import './studio.css'
 import './showcase.css'
 import './demos.css'
+import './motion.css'
 
 export default function App({ pathname }) {
   const path = resolvePath(pathname ?? window.location.href)
