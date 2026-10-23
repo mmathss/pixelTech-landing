@@ -13,7 +13,57 @@
   35% { transform: rotate(-10deg); }
   70% { transform: rotate(6deg); }
 }
+@keyframes motion-packet {
+  0% { stroke-dashoffset: 1.1; opacity: 0; }
+  12%, 78% { opacity: 1; }
+  100% { stroke-dashoffset: -.12; opacity: 0; }
+}
+@keyframes motion-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes motion-check {
+  from { stroke-dashoffset: 32; }
+  to { stroke-dashoffset: 0; }
+}
+.pt-flow-packets path { fill: none; stroke: #dfff00; stroke-width: 4; stroke-linecap: round; stroke-dasharray: .08 .92; opacity: 0; }
+.motion-glint { display: none; }
 @media (prefers-reduced-motion: no-preference) {
+  .pt-flow-running .pt-flow-packets path { animation: motion-packet 1s ease-in-out .65s 2; }
+  .pt-flow-running .pt-flow-packets path:nth-child(2) { animation-delay: .8s; }
+  .pt-flow-running .pt-flow-packets path:nth-child(3) { animation-delay: .95s; }
+  .pt-flow-running .pt-flow-result-icon path { stroke-dasharray: 32; animation: motion-check .5s ease 2s backwards; }
+  .sp-laptop-active .sp-laptop-diagnostics rect {
+    transform-box: fill-box;
+    transform-origin: left;
+    animation: motion-line .85s cubic-bezier(.16, 1, .3, 1) 1s backwards;
+  }
+  .sp-laptop-active .sp-laptop-diagnostics rect:nth-child(2) { animation-delay: 1.45s; }
+  .sp-laptop-active .sp-laptop-diagnostics rect:nth-child(3) { animation-delay: 1.9s; }
+  :is(.pt-process, .sp-process) li { position: relative; }
+  :is(.pt-process .pt-reveal-visible, .sp-process .sp-reveal-visible)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 2px;
+    background: #dfff00;
+    transform-origin: left;
+    animation: motion-line .8s cubic-bezier(.16, 1, .3, 1) var(--pt-reveal-delay, var(--sp-reveal-delay, 0ms)) backwards;
+  }
+  .pt-project-copy.pt-reveal-visible > *,
+  .pt-leader-copy.pt-reveal-visible > *,
+  .sp-contact-info.sp-reveal-visible > *,
+  .sp-service.sp-reveal-visible > :is(h3, p, a) {
+    animation: object-row .65s cubic-bezier(.16, 1, .3, 1) .08s backwards;
+  }
+  :is(.pt-project-copy, .pt-leader-copy).pt-reveal-visible > :nth-child(2),
+  :is(.sp-contact-info, .sp-service).sp-reveal-visible > :nth-child(2) { animation-delay: .14s; }
+  :is(.pt-project-copy, .pt-leader-copy).pt-reveal-visible > :nth-child(3),
+  :is(.sp-contact-info, .sp-service).sp-reveal-visible > :nth-child(3) { animation-delay: .21s; }
+  :is(.pt-project-copy, .pt-leader-copy).pt-reveal-visible > :nth-child(n+4),
+  :is(.sp-contact-info, .sp-service).sp-reveal-visible > :nth-child(n+4) { animation-delay: .28s; }
   :is(.pt-home, .support-site) [data-reveal] {
     --reveal-x: 0px;
     --reveal-y: 28px;
@@ -60,6 +110,45 @@
   }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.pt-hero-visual, .pt-project, .pt-featured-project, .sp-laptop-art) { perspective: 1000px; }
+  .motion-depth {
+    position: relative;
+    rotate: var(--depth-rotation, 1 0 0 0deg);
+    transform-style: preserve-3d;
+  }
+  .motion-depth > .motion-glint {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(ellipse at var(--glint-x, 50%) var(--glint-y, 50%), #ffffff30, transparent 65%);
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+  .motion-depth:hover > .motion-glint { opacity: 1; }
+  .motion-depth.sp-laptop-scene > .motion-glint {
+    mask-image: radial-gradient(ellipse, #000, transparent 65%);
+    background: radial-gradient(ellipse at var(--glint-x, 50%) var(--glint-y, 50%), #ffffff18, transparent 65%);
+  }
+  .motion-depth.pt-process-window .pt-flow-hub,
+  .motion-depth.pt-featured-art > img,
+  .motion-depth.pt-project-image > img,
+  .motion-depth.sp-laptop-scene .sp-laptop-drawing {
+    translate: calc(var(--depth-x, 0px) * .55) calc(var(--depth-y, 0px) * .55) 12px;
+  }
+  .motion-depth.sp-laptop-scene .sp-laptop-symptom {
+    translate: calc(var(--depth-x, 0px) * -1) calc(var(--depth-y, 0px) * -1) 25px;
+  }
+  .motion-depth.pt-process-window .pt-flow-sources {
+    translate: calc(var(--depth-x, 0px) * -.3) calc(var(--depth-y, 0px) * -.3) 6px;
+  }
+  :is(.pt-home, .support-site) :is(.pt-button, .sp-button) {
+    transition: transform .2s cubic-bezier(.16, 1, .3, 1), box-shadow .2s ease, background-color .2s ease;
+  }
+  :is(.pt-home, .support-site) :is(.pt-button, .sp-button):hover { transform: translate(-2px, -3px); box-shadow: 6px 7px 0 #101b31; }
+  :is(.pt-home, .support-site) :is(.pt-button, .sp-button):active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #101b31; }
   .pt-home .pt-project-image,
   .pt-home .pt-project-image img,
   .pt-problems article,
@@ -76,6 +165,7 @@
   .sp-service:hover,
   .sp-symptom:hover,
   .sp-laptop-flow li:hover { transform: translateY(-5px); }
+  :is(.pt-project-image, .pt-problems article, .sp-service, .sp-symptom):hover { transition-delay: 0ms; }
   :is(.pt-brand, .sp-brand):hover :is(.pt-brand-symbol, .sp-brand-icon) { animation: object-nod 550ms ease; }
   .sp-symptom:hover > svg,
   .sp-service:hover .sp-service-top > svg { transform: rotate(-8deg) scale(1.12); }

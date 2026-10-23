@@ -57,6 +57,11 @@ export default function StudioProcessDiagram() {
             <path d="M240 0V58" />
             <path d="M400 0V25Q400 32 392 32H248Q240 32 240 40V58" />
           </g>
+          <g className="pt-flow-packets" aria-hidden="true">
+            <path pathLength="1" d="M80 0V25Q80 32 88 32H232Q240 32 240 40V58" />
+            <path pathLength="1" d="M240 0V58" />
+            <path pathLength="1" d="M400 0V25Q400 32 392 32H248Q240 32 240 40V58" />
+          </g>
           <g className="pt-flow-signals">
             <path
               pathLength="1"

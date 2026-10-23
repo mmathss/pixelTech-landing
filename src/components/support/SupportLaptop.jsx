@@ -110,17 +110,23 @@ export default function SupportLaptop() {
             d="M159 99h6v6h-6Zm192 68h6v6h-6ZM178 180h6v6h-6Zm164-68h6v6h-6Z"
             fill="#dfff00"
           />
-          <Wrench
-            className="sp-laptop-tool"
-            x="226"
-            y="91"
-            width="68"
-            height="68"
-            color="#dfff00"
-            strokeWidth="1.5"
-            aria-hidden="true"
-          />
+          <g className="sp-laptop-tool">
+            <Wrench
+              x="226"
+              y="91"
+              width="68"
+              height="68"
+              color="#dfff00"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            />
+          </g>
           <rect className="sp-laptop-scan" x="107" y="67" width="306" height="3" fill="#dfff00" opacity="0" aria-hidden="true" />
+          <g className="sp-laptop-diagnostics" aria-hidden="true">
+            <rect x="180" y="216" width="48" height="4" rx="2" fill="#dfff00" />
+            <rect x="236" y="216" width="48" height="4" rx="2" fill="#dfff00" />
+            <rect x="292" y="216" width="48" height="4" rx="2" fill="#dfff00" />
+          </g>
           <text
             x="260"
             y="197"

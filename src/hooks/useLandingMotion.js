@@ -1,5 +1,7 @@
 ﻿import useScrollReveal from './useScrollReveal'
 
+import useDepthMotion from './useDepthMotion'
+
 const selectors = [
   '.pt-section-intro', '.pt-project-image', '.pt-project-copy',
   '.pt-featured-project', '.pt-problems article', '.pt-solution-selector',
@@ -9,4 +11,5 @@ const selectors = [
 
 export default function useLandingMotion(container) {
   useScrollReveal(container, { prefix: 'pt', selectors })
+  useDepthMotion(container)
 }
